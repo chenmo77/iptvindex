@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPTVindex.com - 简洁有用的直播影视索引</title>
+    <link rel="stylesheet" href="./index_files/all.min.css">
+    <style>
+        :root {
+            --primary-color: #333;
+            --accent-color: #e74c3c;
+            --border-color: #eee;
+            --code-bg: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            display: flex;
+            min-height: 100vh;
+            color: var(--primary-color);
+            line-height: 1.6;
+            background-color: white;
+        }
+        
+        /* 左侧目录 */
+        .sidebar {
+            width: 300px;
+            background-color: #fafafa;
+            border-right: 1px solid var(--border-color);
+            padding: 30px 20px;
+            overflow-y: auto;
+            position: fixed;
+            height: 100vh;
+            transition: all 0.3s ease;
+        }
+        
+        .sidebar-header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .sidebar-header h1 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .sidebar-header p {
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        
+        .toc-list {
+            list-style: none;
+        }
+        
+        .toc-item {
+            margin-bottom: 12px;
+        }
+        
+        .toc-link {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-size: 16px;
+            padding: 8px 12px;
+            display: block;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+        
+        .toc-link:hover {
+            font-weight: bold;
+            color: var(--accent-color);
+            background-color: rgba(231, 76, 60, 0.05);
+        }
+        
+        .toc-link.active {
+            font-weight: bold;
+            background-color: rgba(231, 76, 60, 0.08);
+            border-left: 3px solid var(--accent-color);
+        }
+        
+        /* 右侧内容 */
+        .content {
+            flex: 1;
+            margin-left: 300px;
+            padding: 40px 60px;
+            max-width: none;
+            width: calc(100% - 300px);
+            transition: all 0.3s ease;
+            background-color: white;
+            box-sizing: border-box;
+        }
+        
+        .section {
+            margin-bottom: 60px;
+            scroll-margin-top: 20px;
+            max-width: 100%;
+        }
+        
+        .section h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            color: #2c3e50;
+        }
+        
+        .section h3 {
+            font-size: 24px;
+            margin: 25px 0 15px;
+            color: #34495e;
+        }
+        
+        .section p {
+            margin-bottom: 16px;
+            font-size: 17px;
+        }
+        
+        .section ul, .section ol {
+            margin: 15px 0 15px 25px;
+        }
+        
+        .section li {
+            margin-bottom: 8px;
+        }
+        
+        /* 代码样式 */
+        code {
+            background-color: var(--code-bg);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 15px;
+        }
+        
+        pre {
+            background-color: var(--code-bg);
+            border-radius: 6px;
+            padding: 18px;
+            margin: 20px 0;
+            overflow-x: auto;
+            border-left: 4px solid #3498db;
+            max-width: 100%;
+            word-wrap: break-word;
+        }
+        
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+        
+        /* 链接样式 */
+        .content a {
+            color: var(--primary-color);
+            text-decoration: none;
+            border-bottom: 1px dotted #aaa;
+            transition: all 0.2s ease;
+        }
+        
+        .content a:hover {
+            font-weight: bold;
+            color: var(--accent-color);
+            border-bottom: 1px solid var(--accent-color);
+        }
+        
+        /* 移动端适配 */
+        .menu-toggle {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            left: auto;
+            z-index: 100;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 4px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        /* 移动端顶部header */
+.mobile-header {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 99;
+    padding: 15px 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.mobile-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.mobile-header-logo {
+    height: 32px;
+    width: auto;
+}
+
+.mobile-header-text h1 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.mobile-header-text p {
+    font-size: 12px;
+    color: #7f8c8d;
+    margin: 2px 0 0 0;
+}
+        
+        .back-to-top {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--accent-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            z-index: 99;
+        }
+        
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 250px;
+            }
+            
+            .content {
+                margin-left: 250px;
+                padding: 30px 40px;
+                width: calc(100% - 250px);
+                max-width: none;
+            }
+        }
+        
+        @media (min-width: 1600px) {
+    .content {
+        max-width: 1400px;
+        margin: 0 auto;
+        margin-left: 300px;
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+}
+        
+        @media (max-width: 768px) {
+    
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+        /* 显示移动端header */
+    .mobile-header {
+        display: block;
+    }
+    
+    .sidebar {
+        transform: translateX(100%);
+        width: 280px;
+        z-index: 90;
+        background-color: white;
+        box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+        padding-top: 20px;
+        left: auto;
+        right: 0;
+        top: 70px;
+        height: calc(100vh - 70px);
+    }
+    
+    .sidebar-header {
+        display: none; /* 在移动端隐藏侧边栏的header */
+    }
+    
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    
+    .content {
+        margin-left: 0;
+        padding: 100px 25px 40px;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .back-to-top {
+        display: block;
+    }
+    
+    .section h2 {
+        font-size: 28px;
+    }
+    
+    .sidebar-logo {
+        height: 28px;
+        width: 28px;
+    }
+    
+    /* 确保代码块在移动端不溢出 */
+    pre {
+        margin: 20px -10px;
+        padding: 15px;
+    }
+}
+        
+        /* 页脚 */
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: #7f8c8d;
+            font-size: 14px;
+            text-align: center;
+        }
+    </style>
+<input type="hidden" id="_o_dbjbempljhcmhlfpfacalomonjpalpko" data-inspect-config="7"><script type="text/javascript" src="chrome-extension://odphnbhiddhdpoccbialllejaajemdio/scripts/inspector.js"></script></head>
+<body>
+    <!-- 移动端菜单切换按钮 -->
+    <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+    
+    <!-- 移动端顶部固定header -->
+<div class="mobile-header">
+    <div class="mobile-logo-container">
+        <img src="./index_files/logox.png" alt="Logo" class="mobile-header-logo">
+        <div class="mobile-header-text">
+            <h1>IPTVindex.com</h1>
+            <p>简洁有用的直播影视索引</p>
+        </div>
+    </div>
+</div>
+    
+    <!-- 左侧目录 -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h1><img src="./index_files/logox.png" alt="Logo" style="height: 24px; margin-right: 2px; vertical-align: middle;">IPTVindex.com</h1>
+            <p>简洁有用的直播影视索引</p>
+        </div>
+        
+        <nav>
+            <ul class="toc-list" id="tocList">
+                <!-- 目录项由JavaScript生成 -->
+            <li class="toc-item"><a href="https://www.iptvindex.com/#iptv" class="toc-link">直播</a></li><li class="toc-item"><a href="https://www.iptvindex.com/#vod" class="toc-link">点播</a></li><li class="toc-item"><a href="https://www.iptvindex.com/#music" class="toc-link">音乐</a></li><li class="toc-item"><a href="https://www.iptvindex.com/#web" class="toc-link">在线</a></li><li class="toc-item"><a href="https://www.iptvindex.com/#search" class="toc-link active">其他</a></li></ul>
+        </nav>
+    </aside>
+    
+    <!-- 右侧内容 -->
+    <main class="content" id="content">
+        <p>🕗2026年3月1日19:34<br><a href="https://iptvindex.lanzn.com/b00zxnqked" target="_blank" rel="noopener noreferrer">网盘 密6666<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　 <a href="https://nf.video/xo7uy" target="_blank" rel="noopener noreferrer">Disney<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　 <a href="https://ihezu.zone/esf7nk" target="_blank" rel="noopener noreferrer">Netflix<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　 ❤️️<a href="http://www.bmhtv.vip/h5/#/pages/index/index?invit_url=iptvindex" target="_blank" rel="noopener noreferrer"><font color="red">特别推荐-注册登录可领免费观影</font><i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></p>
+        <section id="iptv" class="section">
+            <h2>直播</h2>
+            <p>下载安装酷9APK，首次打开为黑屏，需填入直播源才能看到相应内容。</p>
+            
+            <h3>软件下载</h3>
+            <p><a href="https://www.right.com.cn/FORUM/thread-8427797-1-1.html" target="_blank" rel="noopener noreferrer">使用说明<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://www.right.com.cn/forum/forum.php?mod=viewthread&amp;tid=8409021" target="_blank" rel="noopener noreferrer">小白上手<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></p>
+            <ul>
+                <li>1.7.7.1-2026年1月20日：<a href="https://iptvindex.lanzn.com/iyIvo3h14tte" target="_blank" rel="noopener noreferrer">电视版<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://iptvindex.lanzn.com/iV0Qx3h14ufg" target="_blank" rel="noopener noreferrer">手机版<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://iptvindex.lanzn.com/iyILm3h14uwd" target="_blank" rel="noopener noreferrer">通用版<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　密码6666</li>
+                <li>云盘多版本：<a href="https://pan.quark.cn/s/18ad2dc4c4b2" target="_blank" rel="noopener noreferrer">夸克网盘<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://wfy.lanzout.com/b0izqfjwb" target="_blank" rel="noopener noreferrer">蓝奏网盘123456<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></li>
+            </ul>
+
+            <h3>直播源</h3>
+            <p>在“列表配置-列表订阅”中填入直播源即可看到相应节目。</p>
+            <ul>
+                <li>大佬分享直播源：<a href="https://show.188766.xyz/" target="_blank" rel="noopener noreferrer">冰茶TV（原肥羊TV助手）<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://github.com/fanmingming/live/tree/main/tv/m3u" target="_blank" rel="noopener noreferrer">范明明<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>🚀　<a href="https://github.com/iptv-org/iptv" target="_blank" rel="noopener noreferrer">IPTV-ORG<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>🚀　<a href="https://github.com/Ftindy/IPTV-URL" target="_blank" rel="noopener noreferrer">Ftindy<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>🚀　<a href="https://www.yibababa.com/vod/" target="_blank" rel="noopener noreferrer">1888网<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://m3u.ibert.me/" target="_blank" rel="noopener noreferrer">iptv-sources<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>🚀　<a href="https://aktv.space/" target="_blank" rel="noopener noreferrer">AKTV<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://yang-1989.eu.org/" target="_blank" rel="noopener noreferrer">YanG-1989<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a><a href="https://github.com/YanG-1989/m3u" target="_blank" rel="noopener noreferrer"> - Github<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://live.kilvn.com/" target="_blank" rel="noopener noreferrer">kilvn<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://iptv.hacks.tools/" target="_blank" rel="noopener noreferrer">全球优质IPTV直播源<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></li>
+                <li>自行搜索：<a href="https://iptvs.hacks.tools/" target="_blank" rel="noopener noreferrer">IPTV直播源搜索<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://iptv.cqshushu.com/" target="_blank" rel="noopener noreferrer">IPTV神器Pro<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://www.foodieguide.com/iptvsearch/" target="_blank" rel="noopener noreferrer">IPTV Link Search<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>🚀　<a href="https://iptv-search.com/" target="_blank" rel="noopener noreferrer">iptv-search<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://tonkiang.us/" target="_blank" rel="noopener noreferrer">直播源搜索引擎<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://streamtest.in/logs" target="_blank" rel="noopener noreferrer">Streamtest<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://www.right.com.cn/forum/forum-182-1.html" target="_blank" rel="noopener noreferrer">恩山无线论坛<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://lysvc.cc/" target="_blank" rel="noopener noreferrer">狸云-需登录<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://iptv365.org/" target="_blank" rel="noopener noreferrer">iptv365<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></li>
+            </ul>
+            <ul>
+                <pre><code>https://txt.gt.tc/users/HKTV.txt
+https://bc.188766.xyz/?ip=&amp;mima=bingcha1130
+https://tmxk.pp.ua/smart-cn.m3u
+https://tmxk.pp.ua/4gtv-cn.m3u
+https://gh-proxy.com/https://raw.githubusercontent.com/develop202/migu_video/refs/heads/main/interface.txt
+https://gitee.com/mytv-android/iptv-api/raw/master/output/result.m3u
+https://gh-proxy.com/https://raw.githubusercontent.com/Guovin/iptv-api/gd/output/result.txt
+https://gh-proxy.com/https://raw.githubusercontent.com/Guovin/iptv-api/gd/output/result.m3u
+https://d.h6room.com/frjzb.txt
+http://bxtv.3a.ink/live.m3u
+https://live.zbds.org/tv/iptv4.txt
+https://gh-proxy.com/https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/ipv6.m3u
+https://iptv.b2og.com/txt/fmml_ipv6.txt
+https://gh-proxy.com/https://raw.githubusercontent.com/cai23511/yex/master/TVlist/20210808384.m3u
+https://gh-proxy.com/https://raw.githubusercontent.com/cai23511/yex/master/TVlist/20210808226.m3u
+https://cnb.cool/fish2018/pg/-/git/raw/master/jsm.json
+</code></pre>
+            </ul>
+            
+            <h3>EPG源</h3>
+            <p>在“列表配置-EPG订阅”中填入EPG源即可看到节目信息。</p>
+            <ul>
+                <li>大佬分享EPG源：<a href="https://tv.mxdyeah.top/epgphp/epgphp.html" target="_blank" rel="noopener noreferrer">Crestekk<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://gitee.com/taksssss/tv" target="_blank" rel="noopener noreferrer">taksssss镜像<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://epg.pw/xmltv.html?lang=zh-hant" target="_blank" rel="noopener noreferrer">EPG.PW<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://e.erw.cc/" target="_blank" rel="noopener noreferrer">ERW.CC<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://epg.136605.xyz/" target="_blank" rel="noopener noreferrer">136605<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://diyp.112114.xyz/" target="_blank" rel="noopener noreferrer">112114<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></li>
+            </ul>
+            <ul>
+                <pre><code>http://epg.51zmt.top:8000/e.xml.gz
+https://epg.136605.xyz/9days.xml.gz
+</code></pre>
+            </ul>
+            
+        </section>
+        
+        <section id="vod" class="section">
+            <h2>点播</h2>
+            <p>下载安装影视仓，首次打开无内容，需填入接口才能看到相应内容。</p>
+            
+            <h3>软件下载</h3>
+            <p><a href="https://app.iyouhun.com/help/detail-2.html" target="_blank" rel="noopener noreferrer">使用说明<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></p>
+            <ul>
+                <li><a href="https://iptvindex.lanzn.com/iooCT3fijthc" target="_blank" rel="noopener noreferrer">电视版v6.1.8-2026年1月4日<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://iptvindex.lanzoum.com/iw5T83d3qrib" target="_blank" rel="noopener noreferrer">海信电视版6.1.7<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://iptvindex.lanzn.com/iFkPW3h180af" target="_blank" rel="noopener noreferrer">手机版v3.2.7.1-2026年1月21日<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　密码6666</li>
+                <li>云盘多版本：<a href="https://pan.quark.cn/s/61d324167c07" target="_blank" rel="noopener noreferrer">夸克网盘<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://pan.baidu.com/s/11RcWwauUQiWt_Ids_zs5Qw?pwd=a6g7" target="_blank" rel="noopener noreferrer">百度网盘<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://drive.uc.cn/s/b437317346a14" target="_blank" rel="noopener noreferrer">UC网盘<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></li>
+            </ul>
+            
+            <h3>接口</h3>
+            <p>在“设置-配置地址”中填入接口即可。</p>
+            <ul>
+                <li>大佬分享接口：<a href="https://tv.dqtx.cc/" target="_blank" rel="noopener noreferrer">电视喵<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://cnb.cool/fish2018" target="_blank" rel="noopener noreferrer">fish2018<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://www.catvod.com/" target="_blank" rel="noopener noreferrer">Catvod<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://dao.fongmi.eu.org/" target="_blank" rel="noopener noreferrer">FongMi<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://www.xn--sss604efuw.com/" target="_blank" rel="noopener noreferrer">饭太硬<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://www.xn--4kq62z5rby2qupq9ub.top/" target="_blank" rel="noopener noreferrer">王二小放牛娃<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://tv.nxog.top/" target="_blank" rel="noopener noreferrer">欧歌tvAPI<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://github.com/qist/tvbox" target="_blank" rel="noopener noreferrer">qist/tvbox<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>🚀　<a href="https://github.com/dlgt7/TVbox-interface" target="_blank" rel="noopener noreferrer">TVbox-interface<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>🚀　<a href="https://yuanzl77.github.io/" target="_blank" rel="noopener noreferrer">LR<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>🚀　<a href="https://www.tvbox.fit/" target="_blank" rel="noopener noreferrer">TVBOX接口地址编辑器<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></li>
+            </ul>
+            <pre><code>IPTVindex聚合各家大佬资源（即日起不再开放） 用一个就够了 支持影视仓/OK影视/天微影视…… 暂不支持TVBOX
+精美背景图：
+电影海报墙：https://pic1.imgdb.cn/item/68a95e8358cb8da5c844fafa.jpg
+黑胶唱片：https://pic1.imgdb.cn/item/689ec4ba58cb8da5c826b044.jpg
+黑晕：https://youke2.picui.cn/s1/2025/12/23/694a25e8c0eb8.jpg</code></pre>
+        </section>
+        
+        <section id="music" class="section">
+            <h2>音乐</h2>
+            <p></p>
+            
+            <h3>HellYell电台 - 让美好发声</h3>
+            <p>无需下载APK，浏览器直接访问radio.hellyell.com即可，<a href="https://radio.hellyell.com/" target="_blank" rel="noopener noreferrer">点击直达<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></p>
+            
+            <h3>青听音乐</h3>
+            <p><a href="https://github.com/kejichangqing/QingMusic" target="_blank" rel="noopener noreferrer">Github<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://iptvindex.lanzn.com/icXVq3ej8c2j" target="_blank" rel="noopener noreferrer">下载<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　密码6666</p>
+            <p>音源：<a href="https://awaw.cc/post/lx-music-source" target="_blank" rel="noopener noreferrer">更多音源<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></p>
+            <pre><code>https://13413.kstore.space/QingMusic/music.json</code></pre>
+
+            <h3>洛雪音乐</h3>
+            <p><a href="https://github.com/pdone/lx-music-source" target="_blank" rel="noopener noreferrer">Github<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://iptvindex.lanzn.com/ihfio3ej8bri" target="_blank" rel="noopener noreferrer">下载<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　密码6666</p>
+            <p>音源：<a href="https://awaw.cc/post/lx-music-source" target="_blank" rel="noopener noreferrer">更多音源<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></p>
+            <pre><code>https://ghproxy.net/raw.githubusercontent.com/pdone/lx-music-source/main/lx/latest.js</code></pre>
+
+            <h3>酷我音乐（VIP畅享版） + 酷狗音乐概念版（自动领VIP）</h3>
+            <p><a href="https://pan.quark.cn/s/a228fc0a940a" target="_blank" rel="noopener noreferrer">下载<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></p>
+
+            <h3>GD音乐台 - GD Studio's Online Music Platform</h3>
+            <p><a href="https://music.gdstudio.org/" target="_blank" rel="noopener noreferrer">点击直达<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　在歌曲搜索中输入GDSTUDIO有惊喜！</p>
+
+        </section>
+        
+        <section id="web" class="section">
+            <h2>在线</h2>
+            <p></p>
+            
+            <h3>在线直播</h3>
+            <p>广电各家官网直播。</p>
+            <ol>
+                <li><a href="https://tv.cctv.com/live" target="_blank" rel="noopener noreferrer">央视网CCTV所有频道直播<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></li>
+<li><a href="https://www.btime.com/btv/btvsy_index" target="_blank" rel="noopener noreferrer">北京电视直播<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>（北京卫视 BRTV文艺/纪实科教/影视/财经/体育休闲/i生活/新闻 卡酷少儿）</li>
+<li><a href="https://www.btime.com/live" target="_blank" rel="noopener noreferrer">BRTV北京时间直播<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></li>
+<li><a href="https://www.cbg.cn/web/list/4918/1.html" target="_blank" rel="noopener noreferrer">重庆新闻频道直播<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></li>
+<li><a href="https://www.sztv.com.cn/dianshi.shtml?id=7867" target="_blank" rel="noopener noreferrer">深圳直播<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></li>
+<li><a href="http://live.kankanews.com/huikan/" target="_blank" rel="noopener noreferrer">上海看看直播<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>（东方卫视 新闻综合 魔都眼 第一财经 新纪实 五星体育 都市频道 哈哈炫动）</li>
+<li><a href="https://www.yicai.com/tv/" target="_blank" rel="noopener noreferrer">上海直播<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>（第一财经 东方财经）</li>
+<li><a href="http://live.mgtv.com/" target="_blank" rel="noopener noreferrer">湖南芒果TV直播<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>（金鹰卡通 湖南经视 湖南娱乐 湖南电影 湖南都市 湖南电视剧 金鹰纪实 湖南爱晚）</li>
+<li><a href="https://www.cztv.com/liveTV" target="_blank" rel="noopener noreferrer">浙江新蓝网直播<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>（浙江卫视 钱江都市 经济生活 教科影视 民生休闲 新闻 少儿频道 浙江国际 之江纪录）</li>
+<li><a href="https://live.jstv.com/" target="_blank" rel="noopener noreferrer">江苏直播<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>（江苏卫视 江苏城市 江苏公共新闻 江苏综艺 江苏影视）</li>
+<li><a href="http://www.jxntv.cn/live/" target="_blank" rel="noopener noreferrer">江西直播<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>（江西卫视 都市频道 经济生活频道 影视·旅游频道 公共农业频道 少儿频道 新闻频道 移动电视 陶瓷频道）</li>
+<li><a href="http://live.fjtv.net/zhpd/" target="_blank" rel="noopener noreferrer">福建直播<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></li>
+<li><a href="https://www.gdtv.cn/tvChannelDetail/43" target="_blank" rel="noopener noreferrer">广东直播<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></li>
+<li><a href="https://www.hnntv.cn/live.html?playType=livePlay" target="_blank" rel="noopener noreferrer">海南直播<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></li>
+<li><a href="https://news.tvb.com/tc/live/83" target="_blank" rel="noopener noreferrer">香港无线新闻台<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>🚀</li>
+<li><a href="https://piko.live/c/news" target="_blank" rel="noopener noreferrer">皮克直播<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>🚀</li>
+<li><a href="https://www.youtube.com/results?search_query=%E6%96%B0%E9%97%BB+%E7%9B%B4%E6%92%AD&amp;sp=EgJAAQ%253D%253D" target="_blank" rel="noopener noreferrer">YouTube直播<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>🚀</li>
+<li>IPTV電視直播：<a href="http://m.iptv234.com/" target="_blank" rel="noopener noreferrer">1<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>🚀　<a href="https://iptv345.com/" target="_blank" rel="noopener noreferrer">2<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>🚀</li>
+            </ol>
+            
+            <h3>在线点播</h3>
+            <p>互联网大佬低调提供的点播。</p>
+            <ul>
+                <li><a href="https://v.iptvindex.com/" target="_blank" rel="noopener noreferrer">IPTVindex<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://tv.910501.xyz/" target="_blank" rel="noopener noreferrer">一万<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://www.hhkan0.com/" target="_blank" rel="noopener noreferrer">好好看<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></li>
+<li><a href="https://kk.wangwangit.com/" target="_blank" rel="noopener noreferrer">高端视频站点导航与测速平台<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://www.huya.com/g/2135" target="_blank" rel="noopener noreferrer">虎牙轮播频道<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></li>
+<li><a href="https://www.pipiys1.com/" target="_blank" rel="noopener noreferrer">皮皮影视<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://www.mydys1.com/" target="_blank" rel="noopener noreferrer">美益达影视<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://55kzx.wiki/" target="_blank" rel="noopener noreferrer">555电影<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></li>
+<li><a href="https://www.kkys01.com/" target="_blank" rel="noopener noreferrer">可可影视<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://www.gcapp.vip/" target="_blank" rel="noopener noreferrer">影视工场<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://www.libvio.app/" target="_blank" rel="noopener noreferrer">LIBVIO<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></li>
+<li><a href="https://www.novipnoad.com/" target="_blank" rel="noopener noreferrer">NO视频<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://dsxys.pro/" target="_blank" rel="noopener noreferrer">大师兄影视<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://ddys.tv/" target="_blank" rel="noopener noreferrer">低端影视<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></li>
+<li><a href="http://mjtt.tv/" target="_blank" rel="noopener noreferrer">美剧天堂<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://sway.cloud.microsoft/I7shpE33Fu3XIxb6?ref=Link" target="_blank" rel="noopener noreferrer">看片狂人<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://www.gyg.la/" target="_blank" rel="noopener noreferrer">观影(需注册)<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></li>
+<li><a href="https://www.hdmoli.pro/" target="_blank" rel="noopener noreferrer">HDmoli<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://www.ygg01.com/" target="_blank" rel="noopener noreferrer">一个G影视<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://www.tdgo.shop/" target="_blank" rel="noopener noreferrer">火车太堵<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></li>
+<li><a href="https://dm9fr.wiki/" target="_blank" rel="noopener noreferrer">大米星球<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://cz01.tv/" target="_blank" rel="noopener noreferrer">厂长资源<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://mtyy.tv/" target="_blank" rel="noopener noreferrer">麦田影院<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://www.haitu.site/" target="_blank" rel="noopener noreferrer">海兔影院<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></li>
+            </ul>
+        </section>
+        
+        <section id="search" class="section">
+            <h2>其他</h2>
+            <p></p>
+            
+            <h3>电报群</h3>
+            <p><a href="https://t.me/dianying4K" target="_blank" rel="noopener noreferrer">4K影视屋<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://t.me/shareAliyun" target="_blank" rel="noopener noreferrer">阿里云盘<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://t.me/zaihuayun" target="_blank" rel="noopener noreferrer">阿里云盘资源<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></p>
+            
+            <h3>采集站</h3>
+            <p><a href="http://mtzy.me/" target="_blank" rel="noopener noreferrer">茅台资源<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://jinyingzy.com/" target="_blank" rel="noopener noreferrer">金鹰资源<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://360zy.com/" target="_blank" rel="noopener noreferrer">360资源<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="http://www.jisuzy.com/" target="_blank" rel="noopener noreferrer">极速资源<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://hongniuziyuan.com/" target="_blank" rel="noopener noreferrer">红牛<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://www.wujinzy.com/" target="_blank" rel="noopener noreferrer">无尽<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></p>
+            
+            <h3>网盘</h3>
+            <p><a href="https://so.252035.xyz/" target="_blank" rel="noopener noreferrer">PanSou盘搜<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://www.codelicence.cn/" target="_blank" rel="noopener noreferrer">云盘4K<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></p>
+            <p><a href="https://miaosou.fun/" target="_blank" rel="noopener noreferrer">秒搜<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://yiso.eu.org/" target="_blank" rel="noopener noreferrer">易搜<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://pan.qianfan.app/" target="_blank" rel="noopener noreferrer">千帆搜索<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://www.sosoyunpan.com/" target="_blank" rel="noopener noreferrer">SOSO云盘<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></p>
+            <p><a href="https://www.dashengpan.com/" target="_blank" rel="noopener noreferrer">大圣盘<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://www.feizhupan.com/" target="_blank" rel="noopener noreferrer">飞猪盘<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="http://www.de56.com/" target="_blank" rel="noopener noreferrer">盘搜联盟<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></p>
+            <p><a href="https://www.alipansou.com/" target="_blank" rel="noopener noreferrer">猫狸盘搜<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://www.sobaidupan.com/" target="_blank" rel="noopener noreferrer">搜BaiDu盘<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="http://www.vpansou.com/" target="_blank" rel="noopener noreferrer">V盘搜：仅搜百度盘<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></p>
+            <p><a href="https://www.chaonengsou.com/" target="_blank" rel="noopener noreferrer">超能搜：网盘聚合搜索<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://www.taohuachang.com/" target="_blank" rel="noopener noreferrer">淘花场：网盘聚合搜索<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></p>
+            
+            <h3>不知看啥</h3>
+            <p>影猫：<a href="https://www.mvcat.com/" target="_blank" rel="noopener noreferrer">有趣的灵魂+丰富的标签<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></p>
+            <p>猫眼：<a href="https://piaofang.maoyan.com/dashboard/web-heat" target="_blank" rel="noopener noreferrer">电影票房+网播热度+电视收视<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></p>
+            <p>影视数据库：<a href="https://www.themoviedb.org/" target="_blank" rel="noopener noreferrer">TMDB<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://www.imdb.com/" target="_blank" rel="noopener noreferrer">IMDB<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></p>
+            <p>微博发布：<a href="https://weibo.com/u/6858267513" target="_blank" rel="noopener noreferrer">灯塔<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://weibo.com/u/1104220301" target="_blank" rel="noopener noreferrer">德塔文<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://weibo.com/vlink" target="_blank" rel="noopener noreferrer">Vlinkage<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></p>
+            
+            <h3>大佬合集</h3>
+            <p><a href="https://xhztv.pro/" target="_blank" rel="noopener noreferrer">小盒子工具箱<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://app.iyouhun.com/" target="_blank" rel="noopener noreferrer">优质电视盒子应用分享<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a> - <a href="https://github.com/youhunwl/TVAPP" target="_blank" rel="noopener noreferrer">Github<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></p>
+            <p><a href="https://pan.teyonds.com/" target="_blank" rel="noopener noreferrer">太阳云盘<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="http://www.wmsio.cn/" target="_blank" rel="noopener noreferrer">盒子地窖<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></p>
+            <p><a href="https://link3.cc/tansuotv" target="_blank" rel="noopener noreferrer">探索TV<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://423down.lanzouo.com/b0f1944aj" target="_blank" rel="noopener noreferrer">423Down<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></p>
+            <p><a href="https://www.iptvindex.com/"></a><a href="https://www.lanzoui.com/b481564/" target="_blank" rel="noopener noreferrer">烈火手机<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a> 密码a08l</p>
+            <p><a href="https://link3.cc/690479666" target="_blank" rel="noopener noreferrer">小白的私藏分享<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://www.iptvindex.com/"></a></p>
+            
+            <h3>国际APP</h3>
+            <p>Brave浏览器：<a href="https://www.brave.com/zh/download/" target="_blank" rel="noopener noreferrer">官网<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>🚀　<a href="https://github.com/brave/brave-browser" target="_blank" rel="noopener noreferrer">Github<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>🚀　<a href="https://play.google.com/store/apps/details?id=com.brave.browser&amp;hl=zh" target="_blank" rel="noopener noreferrer">Google play<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>🚀</p>
+            <p>NewPipe：<a href="https://newpipe.net/" target="_blank" rel="noopener noreferrer">官网<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>🚀　<a href="https://github.com/TeamNewPipe/NewPipe" target="_blank" rel="noopener noreferrer">Github<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>🚀</p>
+            <p><a href="https://apkfab.com/zh/vanced-official-block-all-ads-for-tube-vanced/com.biomes.vanced" target="_blank" rel="noopener noreferrer">Youtube Vanced Official<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>🚀</p>
+            <p><a href="https://liteapks.com/youtube-revanced.html" target="_blank" rel="noopener noreferrer">YouTube ReVanced APK<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a></p>
+            
+        </section>
+        
+        
+        <footer>
+            <p><a href="https://analytics.google.com/" target="_blank" rel="noopener noreferrer">Google统计<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://cps.nf.video/yinhe/cps/login" target="_blank" rel="noopener noreferrer">银河后台<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a>　<a href="https://t.me/tansuo" target="_blank" rel="noopener noreferrer">联系我们<i class="fas fa-external-link-alt" style="font-size: 0.8em; margin-left: 4px;"></i></a><br>本站内容仅供免费测试和学习研究，禁止商用，使用时请遵守相关法律法规。<br>© 2022-2026 IPTVindex.com 简洁有用的直播影视索引</p>
+        </footer>
+    </main>
+    
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top" id="backToTop" style="display: block;">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取DOM元素
+            const content = document.getElementById('content');
+            const tocList = document.getElementById('tocList');
+            const menuToggle = document.getElementById('menuToggle');
+            const sidebar = document.getElementById('sidebar');
+            const backToTop = document.getElementById('backToTop');
+            
+            // 自动生成目录
+            const sections = document.querySelectorAll('.section');
+            
+            sections.forEach(section => {
+                const id = section.id;
+                const title = section.querySelector('h2').textContent;
+                
+                // 创建目录项
+                const tocItem = document.createElement('li');
+                tocItem.className = 'toc-item';
+                tocItem.innerHTML = `<a href="#${id}" class="toc-link">${title}</a>`;
+                
+                tocList.appendChild(tocItem);
+            });
+            
+            // 为目录链接添加点击事件
+            const tocLinks = document.querySelectorAll('.toc-link');
+            
+            tocLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // 移除所有活动类
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    
+                    // 为当前点击的链接添加活动类
+                    this.classList.add('active');
+                    
+                    // 在移动设备上点击后关闭侧边栏
+                    if (window.innerWidth <= 768) {
+                        sidebar.classList.remove('active');
+                    }
+                });
+            });
+            
+            // 监听滚动，更新活动目录项
+            window.addEventListener('scroll', function() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (scrollY >= (sectionTop - 100)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                tocLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+                
+                // 显示/隐藏返回顶部按钮
+                if (window.scrollY > 500) {
+                    backToTop.style.display = 'block';
+                } else {
+                    backToTop.style.display = 'none';
+                }
+            });
+            
+            // 移动端菜单切换
+            menuToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('active');
+            });
+            
+            // 返回顶部功能
+            backToTop.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // 点击内容区域关闭移动端菜单
+            content.addEventListener('click', function() {
+                if (window.innerWidth <= 768 && sidebar.classList.contains('active')) {
+                    sidebar.classList.remove('active');
+                }
+            });
+            
+            // 初始设置第一个目录项为活动状态
+            if (tocLinks.length > 0) {
+                tocLinks[0].classList.add('active');
+            }
+            
+            // 为所有外部链接添加target="_blank"（打开新窗口）
+document.querySelectorAll('a').forEach(link => {
+    const href = link.getAttribute('href');
+    // 如果是http://或https://开头的链接，则认为是外部链接
+    if (href && (href.startsWith('http://') || href.startsWith('https://'))) {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+        
+        // 添加外部链接图标
+        const icon = document.createElement('i');
+        icon.className = 'fas fa-external-link-alt';
+        icon.style.fontSize = '0.8em';
+        icon.style.marginLeft = '4px';
+        link.appendChild(icon);
+    }
+});
+        });
+    </script>
+
+</body></html>
