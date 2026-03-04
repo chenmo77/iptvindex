@@ -49,8 +49,8 @@ CCTV12,http://hwrr.jx.chinamobile.com:8080/PLTV/88888888/224/3221225495/01.m3u8?
 CCTV12,http://hwrr.jx.chinamobile.com:8080/PLTV/88888888/224/3221225629/01.m3u8
 CCTV12,http://hwrr.jx.chinamobile.com:8080/PLTV/88888888/224/3221225637/01.m3u8
 CCTV12,http://hwrr.jx.chinamobile.com:8080/PLTV/88888888/224/3221226267/01.m3u8
-CCTV13,http://hwrr.jx.chinamobile.com:8080/PLTV/88888888/224/3221225638/01.m3u8
 CCTV13,http://hwrr.jx.chinamobile.com:8080/PLTV/88888888/224/3221226329/01.m3u8?fmt=ts2hls
+CCTV13,http://hwrr.jx.chinamobile.com:8080/PLTV/88888888/224/3221225638/01.m3u8
 CCTV13,http://hwrr.jx.chinamobile.com:8080/PLTV/88888888/224/3221226343/01.m3u8
 CCTV13,http://hwrr.jx.chinamobile.com:8080/PLTV/88888888/224/3221226286/01.m3u8
 CCTV14,http://hwrr.jx.chinamobile.com:8080/PLTV/88888888/224/3221225494/01.m3u8?fmt=ts2hls
@@ -770,4 +770,5 @@ http://phonehwei.qing.mgtv.com/nn_live/nn_x64/dWlwPTEwNi4xNC4zOC41NSZ0ZXJtPTUmcW
 酷9设置,#genre#
 其他设置,https://
 分组类型,https://
+
 二级分组模式,https://
