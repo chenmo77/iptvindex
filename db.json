@@ -1,6 +1,14 @@
 {
   "urls": [
     {
+      "name": "260305",
+      "url": "http://116.196.116.76/stv"
+    },
+    {
+      "name": "星河4K",
+      "url": "http://116.196.116.76/tv"
+    },
+    {
       "name": "王二小",
       "url": "https://9280.kstore.vip/newwex.json"
     },
@@ -27,14 +35,6 @@
     {
       "name": "OK",
       "url": "http://ok321.top/tv"
-    },
-    {
-      "name": "星河",
-      "url": "http://116.196.116.76/stv"
-    },
-    {
-      "name": "星河4K",
-      "url": "http://116.196.116.76/tv"
     },
     {
       "name": "嗷呜弹幕",
@@ -246,4 +246,5 @@
     }
   ],
   "message": "配置来自 iptvindex.com 20260302"
+
 }
