@@ -771,7 +771,7 @@ MTV LIVE HD,http://23.237.104.106:8080/USA_MTV_LIVE/mpegts
 MTV HD,http://23.237.104.106:8080/USA_MTV/mpegts
 TRAVEL CHANNEL WEST HD,http://restream-live.realiptv.to:8080/live/52748969/72335180/3845.ts
 TRAVEL CHANNEL HD,http://89.105.221.127/TravelChannel/mpegts?token=test
-260305,#group#
+260306,#group#
 温馨提示,#genre#
 ★★★,https://
 根据家中宽带,https://
@@ -781,4 +781,3 @@ TRAVEL CHANNEL HD,http://89.105.221.127/TravelChannel/mpegts?token=test
 其他设置,https://
 分组类型,https://
 二级分组模式,https://
-
