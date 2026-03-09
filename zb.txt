@@ -724,45 +724,6 @@ ABC News,https://abcnews-streams.akamaized.net/hls/live/2023569/abcnewshudson6/m
 Sky News Extra 1,https://skynewsau-live.akamaized.net/hls/live/2002689/skynewsau-extra1/master.m3u8
 Sky News Extra 2,https://skynewsau-live.akamaized.net/hls/live/2002690/skynewsau-extra2/master.m3u8
 Sky News Extra 3,https://skynewsau-live.akamaized.net/hls/live/2002691/skynewsau-extra3/master.m3u8
-央视,#genre#
-CCTV1,http://58.57.40.22:9901/tsfile/live/0001_1.m3u8
-CCTV2,http://58.57.40.22:9901/tsfile/live/1001_1.m3u8
-CCTV3,http://58.57.40.22:9901/tsfile/live/1002_1.m3u8
-CCTV4,http://58.57.40.22:9901/tsfile/live/1003_1.m3u8
-CCTV5,http://58.57.40.22:9901/tsfile/live/1004_1.m3u8
-CCTV5+,http://58.57.40.22:9901/tsfile/live/1005_1.m3u8
-CCTV6,http://58.57.40.22:9901/tsfile/live/1006_1.m3u8
-CCTV7,http://58.57.40.22:9901/tsfile/live/1007_1.m3u8
-CCTV8,http://58.57.40.22:9901/tsfile/live/1008_1.m3u8
-CCTV9,http://58.57.40.22:9901/tsfile/live/1009_1.m3u8
-CCTV10,http://58.57.40.22:9901/tsfile/live/1010_1.m3u8
-CCTV11,http://58.57.40.22:9901/tsfile/live/1011_1.m3u8
-CCTV12,http://58.57.40.22:9901/tsfile/live/1012_1.m3u8
-CCTV13,http://58.57.40.22:9901/tsfile/live/1013_1.m3u8
-CCTV14,http://58.57.40.22:9901/tsfile/live/1014_1.m3u8
-CCTV15,http://58.57.40.22:9901/tsfile/live/1015_1.m3u8
-CCTV16,http://69.30.246.194/live/cctv16.m3u8
-CCTV17,http://58.57.40.22:9901/tsfile/live/0019_1.m3u8
-CCTV央视台球,https://epg.pw/stream/ca9c1cd4b97fb824cedd7fedfd0c7a950afdd7f00751cfbb7c2d89831d7746a5.m3u8
-CCTV女性时尚,http://38.75.136.137:98/gslb/dsdqpub/nxss.m3u8?auth=testpub
-CCTV怀旧剧场,http://38.75.136.137:98/gslb/dsdqpub/hjjc.m3u8?auth=testpub
-CCTV第一剧场,https://epg.pw/stream/6d7bf281e3d739806a73f5373acaa6e01988ec9739f5ac1355ce54b47a928472.m3u8
-CCTV风云足球,https://epg.pw/stream/ac8062ec9484078061d3bef507c15a423ac57ae4144e3fcc4b0a198dd420f911.m3u8
-CGTN,https://0472.org/hls/cgtn.m3u8
-CGTN俄语,https://0472.org/hls/cgtne.m3u8
-CGTN法语,https://0472.org/hls/cgtnf.m3u8
-CGTN纪录,https://0472.org/hls/cgtnd.m3u8
-CGTN西语,https://0472.org/hls/cgtnx.m3u8
-CGTN阿语,https://0472.org/hls/cgtna.m3u8
-CCTV文化精品,http://38.75.136.137:98/gslb/dsdqpub/ysjp.m3u8?auth=testpub
-中国交通,http://drive.mxmy.net:8888/udp/239.3.1.188:8001
-兵器科技,http://38.75.136.137:98/gslb/dsdqpub/gfjs.m3u8?auth=testpub
-熊猫直播,https://gcwbndali.v.myalicdn.com/gcwbnd/ipanda1000_2/index.m3u8
-电视指南,http://38.75.136.137:98/gslb/dsdqpub/dszn.m3u8?auth=testpub
-直播中国,https://gcalic.v.myalicdn.com/gc/wgw05_1/index.m3u8?contentid=2820180516001
-风云剧场,http://38.75.136.137:98/gslb/dsdqpub/fyjc.m3u8?auth=testpub
-风云音乐,http://38.75.136.137:98/gslb/dsdqpub/fyyy.m3u8?auth=testpub
-高尔夫网球,http://38.75.136.137:98/gslb/dsdqpub/gefwq.m3u8?auth=testpub
 其他,#genre#
 凤凰电影,http://iot-mqqt.111yao.cn:8080/live/diyp_fhdy.m3u8$阿里云
 星空卫视,http://iot-mqqt.111yao.cn:8080/live/diyp_xingkong.m3u8$阿里云
@@ -820,4 +781,5 @@ TRAVEL CHANNEL HD,http://89.105.221.127/TravelChannel/mpegts?token=test
 其他设置,https://
 分组类型,https://
 二级分组模式,https://
+
 
