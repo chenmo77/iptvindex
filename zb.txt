@@ -771,7 +771,85 @@ MTV LIVE HD,http://23.237.104.106:8080/USA_MTV_LIVE/mpegts
 MTV HD,http://23.237.104.106:8080/USA_MTV/mpegts
 TRAVEL CHANNEL WEST HD,http://restream-live.realiptv.to:8080/live/52748969/72335180/3845.ts
 TRAVEL CHANNEL HD,http://89.105.221.127/TravelChannel/mpegts?token=test
-260309,#group#
+USA NetWork FHD,https://7pal.short.gy/usanetwork
+SEC Network,https://7pal.short.gy/secnw
+FS 2,https://7pal.short.gy/fs2us
+FS 1,https://7pal.short.gy/fs1us
+YES Network,https://7pal.short.gy/yesnw
+Tennis Channel,https://7pal.short.gy/tennisc
+NHL Network,https://7pal.short.gy/nhlnw
+MLB Network,https://7pal.short.gy/mlbnw
+NBA TV,https://7pal.short.gy/nbatvus
+WWE Network,https://7pal.short.gy/wwenw
+ESPN,https://7pal.short.gy/espnus
+USA: NFL Redzone,https://7pal.short.gy/nflredz
+NFL Network,https://7pal.short.gy/nflnw
+MSG,https://7pal.short.gy/msgusa
+CBS Sport Network,https://7pal.short.gy/cbssptnw
+HDNet Movies,https://dvrfl04.tulix.tv/teleup-hdnet/mpegts
+
+Discovery Science,http://23.237.104.106:8080/USA_SCIENCE/index.m3u8
+Discovery Science,http://23.237.104.106:8080/USA_SCIENCE/mpegts
+Discovery Science,http://xxip25.top:8080/zC3Eby/245776/20866
+Discovery Channel East,http://23.237.104.106:8080/USA_DISCOVERY/index.m3u8
+Discovery West,http://restream-live.realiptv.to:8080/live/52748969/72335180/3826.ts
+Discovery Science,http://23.237.104.106:8080/USA_SCIENCE/mpegts
+Discovery East,http://23.237.104.106:8080/USA_DISCOVERY/mpegts
+DISCOVERY CHANNEL HD,http://23.237.104.106:8080/USA_DISCOVERY/mpegts
+DISCOVERY CHANNEL,http://23.237.104.106:8080/USA_DISCOVERY/mpegts
+DISCOVERY SCIENCE HD,http://23.237.104.106:8080/USA_SCIENCE/mpegts
+DISCOVERY HD (WEST),http://restream-live.realiptv.to:8080/live/52748969/72335180/3826.ts
+DISCOVERY HD (EAST),http://23.237.104.106:8080/USA_DISCOVERY/mpegts
+DISCOVERY SCIENCE HD,http://23.237.104.106:8080/USA_SCIENCE/mpegts
+DISCOVERY WEST HD,http://restream-live.realiptv.to:8080/live/52748969/72335180/3826.ts
+DISCOVERY HD,http://23.237.104.106:8080/USA_DISCOVERY/mpegts
+Discovery East,http://23.237.104.106:8080/USA_DISCOVERY/mpegts
+DISCOVERY HD EAST,http://23.237.104.106:8080/USA_DISCOVERY/mpegts
+DISCOVERY HD WEST,http://restream-live.realiptv.to:8080/live/52748969/72335180/3826.ts
+DISCOVERY TURBO,http://tecnotv.club/FEB27/phpcode/lista4.php?c=a0c4&token=tecnotokenplustv230516F&f=.m3u8
+Discovery Channels Eastern Feed,http://23.237.104.106:8080/USA_DISCOVERY/index.m3u8
+Discovery Channels,http://41.205.93.154/DISCOVERY/index.m3u8
+DISCOVERY FAMILY HD,http://restream-live.realiptv.to:8080/live/52748969/72335180/2598.ts
+DISCOVERY SCIENCE,http://181.114.57.246:4000/play/xDmVBDWKHJDg/index.m3u8
+DISCOVERY,http://41.205.93.154/DISCOVERY/index.m3u8
+Discovery Channel East,https://dvrfl04.tulix.tv/teleup-discovery/mpegts
+Discovery Life,http://46.151.196.243:80/play/Y5v1n1Qxf3Kd-l9oc4PGlOzNUjuRTrGSr00caVl475usaTtUcxFqGygNUUCoI1S9
+Discovery Family,http://46.151.196.243:80/play/Y5v1n1Qxf3Kd-l9oc4PGlAcpQ-vSOetxr9XSw5JHrlIBODbdelpu0Hji9nOzkxp1
+Discovery Familia,http://46.151.196.243:80/play/Y5v1n1Qxf3Kd-l9oc4PGlEcRB8v-6NxG1pAU3YL4jRpSzMlk-h98CZvqB1FmMxlI
+Discovery (West),http://46.151.196.243:80/play/Y5v1n1Qxf3Kd-l9oc4PGlEOnFY5tuMjArG5n9Ebgr40EbOu3jXBreoI7AlOCRLfO
+Discovery (East),http://46.151.196.243:80/play/Y5v1n1Qxf3Kd-l9oc4PGlBx6zR3qUQGUtNb2U1z7SLIW7_sqE5F_C588qd1ou5KO
+Investigation Discovery West LHD,http://supersonictv.live:8080/864072/196529/22111
+Investigation Discovery East UHD,http://supersonictv.live:8080/864072/196529/22110
+Discovery West LHD,http://supersonictv.live:8080/864072/196529/22079
+DISCOVERY VELOCITY,http://supersonictv.live:8080/864072/196529/22078
+Discovery Science,http://supersonictv.live:8080/864072/196529/22077
+Discovery Family,http://supersonictv.live:8080/864072/196529/22076
+Discovery Life UHD,http://supersonictv.live:8080/864072/196529/22075
+Discovery Channel UHD,http://supersonictv.live:8080/864072/196529/22074
+Discovery Science HD,http://epicboss.live:80/bjune@teksavvy.com/5193594414/25
+DISCOVERY HD US,http://epicboss.live:80/bjune@teksavvy.com/5193594414/33328
+I.D DISCOVERY HD,http://tkosportz.live:25461/catrinamcdermott/catrinamcdermott/10417
+DISCOVERY SCIENCE,http://tkosportz.live:25461/catrinamcdermott/catrinamcdermott/10389
+DISCOVERY,http://tkosportz.live:25461/catrinamcdermott/catrinamcdermott/10388
+DISCOVERY FAMILY,http://tkosportz.live:25461/catrinamcdermott/catrinamcdermott/10387
+TLC Discovery,http://tv-cool.com:25461/ULtR63183811dd/kquFuCz3EpNa/30331
+Discovery Velocity,http://tv-cool.com:25461/ULtR63183811dd/kquFuCz3EpNa/160132
+Discovery Family,http://tv-cool.com:25461/ULtR63183811dd/kquFuCz3EpNa/68092
+Discovery Life Channel,http://tv-cool.com:25461/ULtR63183811dd/kquFuCz3EpNa/30356
+Investigation Discovery,http://181.114.57.246:4000/play/8EVmhNhJHQUwrNKA/index.m3u8
+Investigation Discovery,http://tv-cool.com:25461/ULtR63183811dd/kquFuCz3EpNa/30338
+Investigation Discovery,http://hardcoremedia.xyz:80/ymgiaxkw/5Hr5ZQuVfU/130122
+Investigation Discovery,http://hardcoremedia.xyz:80/ymgiaxkw/5Hr5ZQuVfU/129899
+DISCOVERY SCIENCE,http://hardcoremedia.xyz:80/ymgiaxkw/5Hr5ZQuVfU/129867
+DISCOVERY LIFE,http://hardcoremedia.xyz:80/ymgiaxkw/5Hr5ZQuVfU/129866
+DISCOVERY FAMILY,http://hardcoremedia.xyz:80/ymgiaxkw/5Hr5ZQuVfU/129865
+DISCOVERY CHANNEL,http://hardcoremedia.xyz:80/ymgiaxkw/5Hr5ZQuVfU/129864
+ID Investigation Discovery,http://xxip25.top:8080/zC3Eby/245776/46810
+Discovery Life HD,http://xxip25.top:8080/zC3Eby/245776/9861
+DISCOVERY FAMILY,http://xxip25.top:8080/zC3Eby/245776/10538
+Discovery Channel East,http://xxip25.top:8080/zC3Eby/245776/9811
+Discovery Channel (East),http://xxip25.top:8080/zC3Eby/245776/46720
+260311,#group#
 温馨提示,#genre#
 ★★★,https://
 根据家中宽带,https://
@@ -781,5 +859,6 @@ TRAVEL CHANNEL HD,http://89.105.221.127/TravelChannel/mpegts?token=test
 其他设置,https://
 分组类型,https://
 二级分组模式,https://
+
 
 
