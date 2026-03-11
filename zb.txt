@@ -725,48 +725,32 @@ Sky News Extra 1,https://skynewsau-live.akamaized.net/hls/live/2002689/skynewsau
 Sky News Extra 2,https://skynewsau-live.akamaized.net/hls/live/2002690/skynewsau-extra2/master.m3u8
 Sky News Extra 3,https://skynewsau-live.akamaized.net/hls/live/2002691/skynewsau-extra3/master.m3u8
 其他,#genre#
-凤凰电影,http://iot-mqqt.111yao.cn:8080/live/diyp_fhdy.m3u8$阿里云
-星空卫视,http://iot-mqqt.111yao.cn:8080/live/diyp_xingkong.m3u8$阿里云
-翡翠台1,https://o11.163189.xyz/stream/tvb/fct/
-翡翠台2,http://mytv.cdn.loc.cc/o12.php?id=fct
-TVB 华丽翡翠(新加坡),https://o11.163189.xyz/stream/live/jade/
+翡翠台,https://o11.163189.xyz/stream/tvb/fct/
+翡翠台,http://mytv.cdn.loc.cc/o12.php?id=fct
 TVB 华丽翡翠,https://o11.163189.xyz/stream/live/hlt/
-TVB 千禧经典,https://o11.163189.xyz/stream/live/tvbc/
+TVB 华丽翡翠(新加坡),https://o11.163189.xyz/stream/live/jade/
+TVB 千禧经典台,https://o11.163189.xyz/stream/live/tvbc/
 TVB星河,https://o11.163189.xyz/stream/live/tvbxh/
 明珠台,http://mytv.cdn.loc.cc/o12.php?id=mzt
 天映经典,https://o11.163189.xyz/stream/live/ccm/
 天映频道,https://o11.163189.xyz/stream/live/typd/
 爱奇艺,https://o11.163189.xyz/stream/live/iqiyi/
-Astro AEC,https://o11.163189.xyz/stream/live/aec/
-Astro AOD,https://o11.163189.xyz/stream/live/aod/
+astro AEC,https://o11.163189.xyz/stream/live/aec/
+astro AOD,https://o11.163189.xyz/stream/live/aod/
 FTV,http://fashion.mediacdn.ru/cdn/fashiontv/tracks-v1a1/mono.m3u8
-FTV,https://edge20.vedge.infomaniak.com/livecast/ik:fusiontv/manifest.m3u8
-FTV,https://amg01546-amg01546c1-rakuten-gb-9592.playouts.now.amagi.tv/ts-eu-w1-n2/playlist/amg01546-fashiontv-fashiontv-rakutengb/playlist.m3u8
-FTV,https://edge21.vedge.infomaniak.com/livecast/fusiontv/playlist.m3u8
 FTV,http://lb.streaming.sk/fashiontv/stream/chunklist_w1702070444.m3u8
 Red Bull TV,https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master_6660.m3u8
 Red Bull TV,http://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master_1660.m3u8?zshijd
 Red Bull TV,http://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master_928.m3u8?zshijd
-Red Bull TV,https://stream.iptv-search.com/main.php?id=Red+Bull+TV+HD&t=1752825547&token=72031ad076356fa86cec443996a8a3e0
 Red Bull TV,https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master.m3u8
 PARAMOUNT NETWORK HD,http://104.255.88.155/paramount/mpegts
 AHC HD,http://23.237.104.106:8080/USA_AMERICAN_HEROES/mpegts
-NAT GEO HD,http://23.237.104.106:8080/USA_NAT_GEO/mpegts
-NAT GEO WILD HD,http://23.237.104.106:8080/USA_NAT_GEO_WILD/mpegts
-DISCOVERY SCIENCE HD,http://23.237.104.106:8080/USA_SCIENCE/mpegts
-DISCOVERY HD (WEST),http://restream-live.realiptv.to:8080/live/52748969/72335180/3826.ts
-DISCOVERY HD (EAST),http://23.237.104.106:8080/USA_DISCOVERY/mpegts
 DESTINATION AMERICA HD,http://23.237.104.106:8080/USA_DESTINATION_AMERICA/mpegts
 OUTDOOR CHANNEL HD,http://23.237.104.106:8080/USA_OUTDOOR/mpegts
-ANIMAL PLANET HD (WEST),http://restream-live.realiptv.to:8080/live/52748969/72335180/2661.ts
-ANIMAL PLANET HD (EAST),http://23.237.104.106:8080/USA_ANIMAL_PLANET/mpegts
 CRIME AND INVESTIGATION FHD,http://23.237.104.106:8080/USA_CRIME_INVESTIGATION/mpegts
-TRAVEL CHANNEL HD,http://89.105.221.127/TravelChannel/mpegts?token=test
 tvpe,https://cdnhd.iblups.com/hls/777b4d4cc0984575a7d14f6ee57dbcaf7.m3u8
 MTV LIVE HD,http://23.237.104.106:8080/USA_MTV_LIVE/mpegts
 MTV HD,http://23.237.104.106:8080/USA_MTV/mpegts
-TRAVEL CHANNEL WEST HD,http://restream-live.realiptv.to:8080/live/52748969/72335180/3845.ts
-TRAVEL CHANNEL HD,http://89.105.221.127/TravelChannel/mpegts?token=test
 USA NetWork FHD,https://7pal.short.gy/usanetwork
 SEC Network,https://7pal.short.gy/secnw
 FS 1,https://7pal.short.gy/fs1us
@@ -782,6 +766,12 @@ NFL Redzone,https://7pal.short.gy/nflredz
 NFL Network,https://7pal.short.gy/nflnw
 MSG,https://7pal.short.gy/msgusa
 CBS Sport Network,https://7pal.short.gy/cbssptnw
+
+NAT GEO HD,http://23.237.104.106:8080/USA_NAT_GEO/mpegts
+NAT GEO WILD HD,http://23.237.104.106:8080/USA_NAT_GEO_WILD/mpegts
+ANIMAL PLANET HD (WEST),http://restream-live.realiptv.to:8080/live/52748969/72335180/2661.ts
+ANIMAL PLANET HD (EAST),http://23.237.104.106:8080/USA_ANIMAL_PLANET/mpegts
+
 Discovery Channel UHD,http://supersonictv.live:8080/864072/196529/22074
 Discovery West LHD,http://supersonictv.live:8080/864072/196529/22079
 DISCOVERY VELOCITY,http://supersonictv.live:8080/864072/196529/22078
@@ -790,6 +780,12 @@ Discovery Family,http://supersonictv.live:8080/864072/196529/22076
 Discovery Life UHD,http://supersonictv.live:8080/864072/196529/22075
 TLC Discovery,http://tv-cool.com:25461/ULtR63183811dd/kquFuCz3EpNa/30331
 
+TRAVEL CHANNEL WEST HD,http://restream-live.realiptv.to:8080/live/52748969/72335180/3845.ts
+TRAVEL CHANNEL HD,http://89.105.221.127/TravelChannel/mpegts?token=test
+TRAVEL CHANNEL HD,http://89.105.221.127/TravelChannel/mpegts?token=test
+DISCOVERY SCIENCE HD,http://23.237.104.106:8080/USA_SCIENCE/mpegts
+DISCOVERY HD (WEST),http://restream-live.realiptv.to:8080/live/52748969/72335180/3826.ts
+DISCOVERY HD (EAST),http://23.237.104.106:8080/USA_DISCOVERY/mpegts
 HDNet Movies,https://dvrfl04.tulix.tv/teleup-hdnet/mpegts
 Discovery Science,http://23.237.104.106:8080/USA_SCIENCE/mpegts
 Discovery Science,http://23.237.104.106:8080/USA_SCIENCE/index.m3u8
@@ -845,6 +841,7 @@ Discovery Channel (East),http://xxip25.top:8080/zC3Eby/245776/46720
 其他设置,https://
 分组类型,https://
 二级分组模式,https://
+
 
 
 
