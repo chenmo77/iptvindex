@@ -372,29 +372,30 @@
             display: inline-block;
             vertical-align: middle;
         }
-<!-- ===== 极简黑色电视边框 ===== -->
-        .black-tv {
-            max-width: 400px;
-            margin: 20px auto;
-            background: #2d2d2d;  /* 外框 */
-            border-radius: 15px 15px 8px 8px;
-            padding: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-            border: 1px solid #444;
-        }
+        
+     /* 极简黑色电视边框 */
+    .gray-tv {
+        max-width: 360px;
+        margin: 20px auto;
+        background: #2d2d2d;      /* 深灰色外框 */
+        border-radius: 15px 15px 8px 8px;
+        padding: 12px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        border: 1px solid #444;
+    }
 
-        .black-screen {
-            background: black;
-            border-radius: 6px;
-            border: 2px solid #2a2a2a;  /* 深灰色内边框 */
-            overflow: hidden;
-        }
+    .gray-screen {
+        background: black;
+        border-radius: 6px;
+        border: 2px solid #3a3a3a;  /* 中灰色内边框 */
+        overflow: hidden;
+    }
 
-        #blackVideo {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+    #grayVideo {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
     </style>
 </head>
 <body>
@@ -432,19 +433,18 @@
     <!-- 右侧内容 -->
     <main class="content" id="content">
         <p>🕗2026年3月12日15:23　<a href="https://nf.video/xo7uy">4K私人影院</a>　 <a href="https://ihezu.zone/esf7nk">超省钱合租</a>　 ❤️<a href="http://www.bmhtv.vip/h5/#/pages/index/index?invit_url=iptvindex"><font color="red">领免费观影</font></a></p>
-        <div class="black-tv">
-    <div class="black-screen">
-        <video id="blackVideo" controls playsinline muted></video>
+        <div class="gray-tv">
+    <div class="gray-screen">
+        <video id="grayVideo" controls playsinline muted></video>
     </div>
 </div>
 
-<!-- HLS播放脚本 -->
+<!-- HLS播放脚本，同上 -->
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        var video = document.getElementById('blackVideo');
-        // 👇 在这里替换成你的m3u8地址
-        var videoSrc = 'https://uni01rtmp.tulix.tv/amazingdtv/amazingdtv/playlist.m3u8';
+        var video = document.getElementById('grayVideo');
+        var videoSrc = 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8'; // 替换你的地址
 
         if (Hls.isSupported()) {
             var hls = new Hls();
