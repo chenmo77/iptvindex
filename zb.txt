@@ -746,6 +746,7 @@ BBC America (East),http://23.239.31.26:8989/bbcamerica/index.m3u8
 BBC Earth,https://amg00793-amg00793c6-xumo-us-2669.playouts.now.amagi.tv/BBCStudios-BBCEarthA-hls/playlist.m3u8
 BBC EARTH HD,http://119.156.228.231:9983/stream/channelid/1270213654?ticket=4A568EA0A06A7502D1EE084A1C63937E610B11E1&profile=pass
 BBC Earth US,https://d3u3pfhhvuad9k.cloudfront.net/playlist/amg00793-bbcstudios-bbcearta-lgus/playlist.m3u8
+BBC Earth US,https://live-manifest.production-public.tubi.io/live/88810cb1-e91e-4f19-870b-513ffc9a39cb/playlist.m3u8
 astro AEC,https://o11.163189.xyz/stream/live/aec/
 astro AOD,https://o11.163189.xyz/stream/live/aod/
 FTV,http://fashion.mediacdn.ru/cdn/fashiontv/tracks-v1a1/mono.m3u8
@@ -857,6 +858,7 @@ Discovery Channel (East),http://xxip25.top:8080/zC3Eby/245776/46720
 其他设置,https://
 分组类型,https://
 二级分组模式,https://
+
 
 
 
