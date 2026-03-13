@@ -689,33 +689,13 @@ IPTV地理,http://182.110.170.146:4022/rtp/239.252.220.207:5140
 IPTV美妆,http://182.110.170.146:4022/rtp/239.252.220.208:5140
 IPTV解密,http://182.110.170.146:4022/rtp/239.252.220.209:5140
 光影,http://182.110.170.146:4022/rtp/239.252.220.200:5140
+
+
+
 全网线路,#group#
 财经,#genre#
-Bloomberg Tv 4K,https://1cd69008d08c486ca5abc0f1c4e2ef63.mediatailor.ap-northeast-1.amazonaws.com/v1/manifest/3722c60a815c199d9c0ef36c5b73da68a62b09d1/Bloomberg-kr-prod/87e22cf4-e302-42f6-a781-1d726fc87835/0.m3u8
-Bloomberg Tv,https://liveprodusphoenixeast.akamaized.net/USPhx-HD/Channel-TX-USPhx-AWS-virginia-1/Source-USPhx-16k-1-s6lk2-BP-07-03-0Yn1cQZHOtP_live.m3u8
-Bloomberg Tv,http://nmk.ioapk.com:5050/4gtv-live059/index.m3u8?proxy=true
-CNBC Asia,https://liveh34.vtvprime.vn/hls/CNBC/03.m3u8
-CNBC Asia,http://nmk.ioapk.com:5050/4gtv-live130/index.m3u8?proxy=true
-BBC World News,https://newsxott.in/hls/newsxworld.m3u8
-BBC NEWS,https://vs-hls-push-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_news_channel_hd/t=3840/v=pv14/b=5070016/main.m3u8
-BBC NEWS,http://84.17.50.102/bbcnews/index.m3u8
-BBC News North America,http://23.237.104.106:8080/USA_BBC_NEWS/index.m3u8
-BBC Three HD,https://streamer.nexyl.uk/39290a19-b8dd-43ea-b8dc-081c37790f24.m3u8
-CNN,http://84.17.50.102/cnn/index.m3u8
-CNN,http://89.105.221.127/CNN/mpegts?token=test
-CNN,http://89.105.221.127/CNN/index.m3u8?token=test
-CNN,https://gh-proxy.com/https://raw.githubusercontent.com/InsolenceWillow/insolencetvgo/main/streams/cnn.us.m3u8
-CNA,http://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index_5.m3u8?zshijd
-CNA,https://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index_4.m3u8
-CNA,https://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index_4.m3u8?zshijd
-CNA,https://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index.m3u8?zshijd
-CNA,https://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index.m3u8
-GB NEWS,http://live-gbnews.simplestreamcdn.com/live5/gbnews/bitrate1.isml/bitrate1-audio_0=192000-video=1000000.m3u8
-FRANCE 24 English,https://live.france24.com/hls/live/2037218-b/F24_EN_HI_HLS/master_5000.m3u8
-Yahoo! Finance,https://ef4ea95e975c485c95caa803fd970bd3.mediatailor.us-east-1.amazonaws.com/v1/manifest/7b67fbda7ab859400a821e9aa0deda20ab7ca3d2/yahooLive/47920746-bcbf-4bde-827d-ac70719eef4b/4.m3u8
-Al Jazeera,https://f803ea8ce9bb4c4da10de19d54266609.mediatailor.us-east-1.amazonaws.com/v1/manifest/7b67fbda7ab859400a821e9aa0deda20ab7ca3d2/aljazeeraLive/3ebb53e0-3c1e-4a5f-bc7c-88deb81d109e/0.m3u8
-WION,https://d7x8z4yuq42qn.cloudfront.net/index_7.m3u8
-NDTV Profit,https://ndtvprofit.akamaized.net/hls/live/2107404/ndtvprofit/chunklist_5.m3u8
+Aaj Tak,https://feeds.intoday.in/aajtak/api/master.m3u8
+ABC News,http://41.205.93.154/ABC/index.m3u8
 ABC News,https://abc-news-dmd-streams-1.akamaized.net/out/v1/701126012d044971b3fa89406a440133/index.m3u8
 ABC News,https://abcnews-streams.akamaized.net/hls/live/2023560/abcnewshudson1/master_4000.m3u8
 ABC News,https://abcnews-streams.akamaized.net/hls/live/2023561/abcnewshudson2/master_4000.m3u8
@@ -727,9 +707,41 @@ ABC News,https://abcnews-streams.akamaized.net/hls/live/2023566/abcnewshudson6/m
 ABC News,https://abcnews-streams.akamaized.net/hls/live/2023567/abcnewshudson6/master_4000.m3u8
 ABC News,https://abcnews-streams.akamaized.net/hls/live/2023568/abcnewshudson6/master_4000.m3u8
 ABC News,https://abcnews-streams.akamaized.net/hls/live/2023569/abcnewshudson6/master_4000.m3u8
+Al Jazeera,https://f803ea8ce9bb4c4da10de19d54266609.mediatailor.us-east-1.amazonaws.com/v1/manifest/7b67fbda7ab859400a821e9aa0deda20ab7ca3d2/aljazeeraLive/3ebb53e0-3c1e-4a5f-bc7c-88deb81d109e/0.m3u8
+Bloomberg Tv 4K,https://1cd69008d08c486ca5abc0f1c4e2ef63.mediatailor.ap-northeast-1.amazonaws.com/v1/manifest/3722c60a815c199d9c0ef36c5b73da68a62b09d1/Bloomberg-kr-prod/87e22cf4-e302-42f6-a781-1d726fc87835/0.m3u8
+Bloomberg Tv,https://liveprodusphoenixeast.akamaized.net/USPhx-HD/Channel-TX-USPhx-AWS-virginia-1/Source-USPhx-16k-1-s6lk2-BP-07-03-0Yn1cQZHOtP_live.m3u8
+Bloomberg Tv,http://nmk.ioapk.com:5050/4gtv-live059/index.m3u8?proxy=true
+Bloomberg 美国,https://www.bloomberg.com/media-manifest/streams/phoenix-us.m3u8
+Bloomberg 亚洲,https://www.bloomberg.com/media-manifest/streams/asia.m3u8
+BBC World News,https://newsxott.in/hls/newsxworld.m3u8
+BBC NEWS,https://vs-hls-push-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_news_channel_hd/t=3840/v=pv14/b=5070016/main.m3u8
+BBC NEWS,http://84.17.50.102/bbcnews/index.m3u8
+BBC News North America,http://23.237.104.106:8080/USA_BBC_NEWS/index.m3u8
+BBC Three HD,https://streamer.nexyl.uk/39290a19-b8dd-43ea-b8dc-081c37790f24.m3u8
+CBS News,https://cbsn-us.cbsnstream.cbsnews.com/out/v1/55a8648e8f134e82a470f83d562deeca/master.m3u8
+CNBC Asia,https://liveh34.vtvprime.vn/hls/CNBC/03.m3u8
+CNBC Asia,http://nmk.ioapk.com:5050/4gtv-live130/index.m3u8?proxy=true
+CNN,http://84.17.50.102/cnn/index.m3u8
+CNN,http://89.105.221.127/CNN/mpegts?token=test
+CNN,http://89.105.221.127/CNN/index.m3u8?token=test
+CNN,https://gh-proxy.com/https://raw.githubusercontent.com/InsolenceWillow/insolencetvgo/main/streams/cnn.us.m3u8
+CNA,http://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index_5.m3u8?zshijd
+CNA,https://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index_4.m3u8
+CNA,https://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index_4.m3u8?zshijd
+CNA,https://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index.m3u8?zshijd
+CNA,https://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index.m3u8
+FRANCE 24 English,https://live.france24.com/hls/live/2037218-b/F24_EN_HI_HLS/master_5000.m3u8
+GB NEWS,http://live-gbnews.simplestreamcdn.com/live5/gbnews/bitrate1.isml/bitrate1-audio_0=192000-video=1000000.m3u8
+NDTV Profit,https://ndtvprofit.akamaized.net/hls/live/2107404/ndtvprofit/chunklist_5.m3u8
+Russia Today,https://rt-glb.rttv.com/dvr/rtnews/playlist.m3u8
+Russia Today,https://rt-glb.rttv.com/dvr/rtnews/playlist_4500Kb.m3u8
+Russia Today Documentary,https://rt-rtd.rttv.com/dvr/rtdoc/playlist.m3u8
 Sky News Extra 1,https://skynewsau-live.akamaized.net/hls/live/2002689/skynewsau-extra1/master.m3u8
 Sky News Extra 2,https://skynewsau-live.akamaized.net/hls/live/2002690/skynewsau-extra2/master.m3u8
 Sky News Extra 3,https://skynewsau-live.akamaized.net/hls/live/2002691/skynewsau-extra3/master.m3u8
+WION,https://d7x8z4yuq42qn.cloudfront.net/index_7.m3u8
+Yahoo! Finance,https://d1ewctnvcwvvvu.cloudfront.net/playlist.m3u8
+
 其他,#genre#
 翡翠台,https://o11.163189.xyz/stream/tvb/fct/
 翡翠台,http://mytv.cdn.loc.cc/o12.php?id=fct
@@ -741,114 +753,164 @@ TVB星河,https://o11.163189.xyz/stream/live/tvbxh/
 天映经典,https://o11.163189.xyz/stream/live/ccm/
 天映频道,https://o11.163189.xyz/stream/live/typd/
 爱奇艺,https://o11.163189.xyz/stream/live/iqiyi/
-BBC America (East),http://23.237.104.106:8080/USA_BBC_AMERICA/mpegts
-BBC America (East),http://23.239.31.26:8989/bbcamerica/index.m3u8
-BBC Earth,https://amg00793-amg00793c6-xumo-us-2669.playouts.now.amagi.tv/BBCStudios-BBCEarthA-hls/playlist.m3u8
-BBC EARTH HD,http://119.156.228.231:9983/stream/channelid/1270213654?ticket=4A568EA0A06A7502D1EE084A1C63937E610B11E1&profile=pass
-BBC Earth US,https://d3u3pfhhvuad9k.cloudfront.net/playlist/amg00793-bbcstudios-bbcearta-lgus/playlist.m3u8
-BBC Earth US,https://live-manifest.production-public.tubi.io/live/88810cb1-e91e-4f19-870b-513ffc9a39cb/playlist.m3u8
+广州新闻,http://tencentplay.gztv.com/live/xinwen.m3u8?txSecret=d2c2db0b598c02ec1b5623728434d367&txTime=18d57929bd3
+广州综合,http://tencentplay.gztv.com/live/zonghes.m3u8?txSecret=c8dbe86d6f86eb1a21999ab479fd5667&txTime=18d3c4690e8
+广州影视,http://tencentplay.gztv.com/live/yingshi.m3u8?txSecret=1bd3a1082ab5b89f48c1bff9a3760da4&txTime=18d57929bd4
+广州南国都市,http://tencentplay.gztv.com/live/nanguodushi.m3u8?txSecret=140110ae3d6c936a77f94c4f4d85b0d3&txTime=18d57929bd4
+浙江钱江,https://ali-m-l.cztv.com/channels/lantian/channel002/1080p.m3u8
+浙江经济生活,https://ali-m-l.cztv.com/channels/lantian/channel003/1080p.m3u8
+浙江综合,https://ali-m-l.cztv.com/channels/lantian/channel004/1080p.m3u8
+浙江影视娱乐,https://ali-m-l.cztv.com/channels/lantian/channel005/1080p.m3u8
+浙江新闻,https://ali-m-l.cztv.com/channels/lantian/channel007/1080p.m3u8
+浙江少儿,https://ali-m-l.cztv.com/channels/lantian/channel008/1080p.m3u8
+浙江国际,https://ali-m-l.cztv.com/channels/lantian/channel010/1080p.m3u8
+浙江之江记录,https://ali-m-l.cztv.com/channels/lantian/channel012/1080p.m3u8
+
+24 HOURS FREE MOVIES,https://d1j2u714xk898n.cloudfront.net/scheduler/scheduleMaster/145.m3u8
 astro AEC,https://o11.163189.xyz/stream/live/aec/
 astro AOD,https://o11.163189.xyz/stream/live/aod/
+Action Hollywood Movies,https://cdn-apse1-prod.tsv2.amagi.tv/linear/amg01076-lightningintern-actionhollywood-samsungnz/playlist.m3u8
+AMC 电影,https://5def33c73f084e11a19ca77697d6b413.mediatailor.us-east-1.amazonaws.com/v1/master/44f73ba4d03e9607dcd9bebdcb8494d86964f1d8/Plex_AMCPresents/playlist.m3u8
+AMC Thrillers 电影,https://436f59579436473e8168284cac5d725f.mediatailor.us-east-1.amazonaws.com/v1/master/44f73ba4d03e9607dcd9bebdcb8494d86964f1d8/Plex_RushByAMC/playlist.m3u8
+Adventure Earth,https://a57e9c69976649b582a8d7604c00e69a.mediatailor.us-east-1.amazonaws.com/v1/master/44f73ba4d03e9607dcd9bebdcb8494d86964f1d8/RlaxxTV-eu_AdventureEarth/playlist.m3u8
+Adventure Earth,https://autentic-adventure-earth-1-eu.rakuten.wurl.tv/playlist.m3u8
+AHC HD,http://23.237.104.106:8080/USA_AMERICAN_HEROES/mpegts
+ANIMAL PLANET WEST,http://restream-live.realiptv.to:8080/live/52748969/72335180/2661.ts
+ANIMAL PLANET EAST,http://23.237.104.106:8080/USA_ANIMAL_PLANET/mpegts
+Animal Planet,http://41.205.93.154/ANIMALPLANET/index.m3u8
+BBC America,http://208.86.19.13:81/34.stream/index.m3u8
+BBC America,https://bcovlive-a.akamaihd.net/7f5ec16d102f4b5d92e8e27bc95ff424/us-east-1/6240731308001/profile_0/chunklist.m3u8
+BBC America East,http://23.237.104.106:8080/USA_BBC_AMERICA/mpegts
+BBC America East,http://23.239.31.26:8989/bbcamerica/index.m3u8
+BBC Earth,https://amg00793-amg00793c6-xumo-us-2669.playouts.now.amagi.tv/BBCStudios-BBCEarthA-hls/playlist.m3u8
+BBC Earth,http://119.156.228.231:9983/stream/channelid/1270213654?ticket=4A568EA0A06A7502D1EE084A1C63937E610B11E1&profile=pass
+BBC Earth,https://d3u3pfhhvuad9k.cloudfront.net/playlist/amg00793-bbcstudios-bbcearta-lgus/playlist.m3u8
+BBC Earth,https://live-manifest.production-public.tubi.io/live/88810cb1-e91e-4f19-870b-513ffc9a39cb/playlist.m3u8
+BBC TOP GEAR,https://amg00793-amg00793c5-xumo-us-2664.playouts.now.amagi.tv/bbcstudios-bbctopgear8min-all/playlist360-tp.m3u8
+BBC TOP GEAR,https://amg00793-amg00793c5-xumo-us-2664.playouts.now.amagi.tv/bbcstudios-bbctopgear8min-all/playlist240-tp.m3u8
+bravo,http://41.205.93.154/BRAVO/index.m3u8
+Cable 14 Hamilton,https://flowcaster1-ch.cdn.clearcable.net/C14/smil:C14.smil/playlist.m3u8?iimae0UC2aendtime=1665196120&iimae0UC2ahash=NzcDbuotaJAVf1DsNxuGHBlfCXSvHDIt5sqMUMgrRMU=&iimae0UC2astarttime=1665181720
+CBS Sport Network,https://7pal.short.gy/cbssptnw
+Crime & Justice,https://linear-474.frequency.stream/dist/glewedtv/474/hls/master/playlist.m3u8
+
+CRIME AND INVESTIGATION FHD,http://23.237.104.106:8080/USA_CRIME_INVESTIGATION/mpegts
+DESTINATION AMERICA HD,http://23.237.104.106:8080/USA_DESTINATION_AMERICA/mpegts
+
+Discovery,http://supersonictv.live:8080/864072/196529/22074
+Discovery Velocity,http://supersonictv.live:8080/864072/196529/22078
+Discovery West,http://supersonictv.live:8080/864072/196529/22079
+Discovery Science,http://supersonictv.live:8080/864072/196529/22077
+Discovery Family,http://supersonictv.live:8080/864072/196529/22076
+Discovery Life,http://supersonictv.live:8080/864072/196529/22075
+Investigation Discovery West,http://supersonictv.live:8080/864072/196529/22111
+Investigation Discovery East,http://supersonictv.live:8080/864072/196529/22110
+
+Discovery East,http://23.237.104.106:8080/USA_DISCOVERY/mpegts
+Discovery East,http://23.237.104.106:8080/USA_DISCOVERY/index.m3u8
+Discovery Science,http://23.237.104.106:8080/USA_SCIENCE/mpegts
+Discovery Science,http://23.237.104.106:8080/USA_SCIENCE/index.m3u8
+
+Discovery Science,http://xxip25.top:8080/zC3Eby/245776/20866
+Discovery Life,http://xxip25.top:8080/zC3Eby/245776/9861
+Discovery Family,http://xxip25.top:8080/zC3Eby/245776/10538
+Discovery East,http://xxip25.top:8080/zC3Eby/245776/9811
+Discovery East,http://xxip25.top:8080/zC3Eby/245776/46720
+Investigation Discovery,http://xxip25.top:8080/zC3Eby/245776/46810
+
+Discovery Life,http://46.151.196.243:80/play/Y5v1n1Qxf3Kd-l9oc4PGlOzNUjuRTrGSr00caVl475usaTtUcxFqGygNUUCoI1S9
+Discovery Family,http://46.151.196.243:80/play/Y5v1n1Qxf3Kd-l9oc4PGlAcpQ-vSOetxr9XSw5JHrlIBODbdelpu0Hji9nOzkxp1
+Discovery Family,http://46.151.196.243:80/play/Y5v1n1Qxf3Kd-l9oc4PGlEcRB8v-6NxG1pAU3YL4jRpSzMlk-h98CZvqB1FmMxlI
+Discovery West,http://46.151.196.243:80/play/Y5v1n1Qxf3Kd-l9oc4PGlEOnFY5tuMjArG5n9Ebgr40EbOu3jXBreoI7AlOCRLfO
+Discovery East,http://46.151.196.243:80/play/Y5v1n1Qxf3Kd-l9oc4PGlBx6zR3qUQGUtNb2U1z7SLIW7_sqE5F_C588qd1ou5KO
+
+Discovery TLC,http://tv-cool.com:25461/ULtR63183811dd/kquFuCz3EpNa/30331
+Discovery Velocity,http://tv-cool.com:25461/ULtR63183811dd/kquFuCz3EpNa/160132
+Discovery Family,http://tv-cool.com:25461/ULtR63183811dd/kquFuCz3EpNa/68092
+Discovery Life Channel,http://tv-cool.com:25461/ULtR63183811dd/kquFuCz3EpNa/30356
+Investigation Discovery,http://tv-cool.com:25461/ULtR63183811dd/kquFuCz3EpNa/30338
+
+Discovery Science,http://hardcoremedia.xyz:80/ymgiaxkw/5Hr5ZQuVfU/129867
+Discovery Life,http://hardcoremedia.xyz:80/ymgiaxkw/5Hr5ZQuVfU/129866
+Discovery Family,http://hardcoremedia.xyz:80/ymgiaxkw/5Hr5ZQuVfU/129865
+Discovery,http://hardcoremedia.xyz:80/ymgiaxkw/5Hr5ZQuVfU/129864
+Investigation Discovery,http://hardcoremedia.xyz:80/ymgiaxkw/5Hr5ZQuVfU/130122
+Investigation Discovery,http://hardcoremedia.xyz:80/ymgiaxkw/5Hr5ZQuVfU/129899
+
+Discovery West,http://restream-live.realiptv.to:8080/live/52748969/72335180/3826.ts
+Discovery Family,http://restream-live.realiptv.to:8080/live/52748969/72335180/2598.ts
+
+Discovery,http://epicboss.live:80/bjune@teksavvy.com/5193594414/33328
+Discovery Science,http://epicboss.live:80/bjune@teksavvy.com/5193594414/25
+
+Discovery Science,http://tkosportz.live:25461/catrinamcdermott/catrinamcdermott/10389
+Discovery,http://tkosportz.live:25461/catrinamcdermott/catrinamcdermott/10388
+Discovery Family,http://tkosportz.live:25461/catrinamcdermott/catrinamcdermott/10387
+Investigation Discovery,http://tkosportz.live:25461/catrinamcdermott/catrinamcdermott/10417
+
+Discovery Science,http://181.114.57.246:4000/play/xDmVBDWKHJDg/index.m3u8
+Investigation Discovery,http://181.114.57.246:4000/play/8EVmhNhJHQUwrNKA/index.m3u8
+
+Discovery,http://41.205.93.154/DISCOVERY/index.m3u8
+Discovery East,https://dvrfl04.tulix.tv/teleup-discovery/mpegts
+Discovery TURBO,http://tecnotv.club/FEB27/phpcode/lista4.php?c=a0c4&token=tecnotokenplustv230516F&f=.m3u8
+
+ESPN,https://7pal.short.gy/espnus
+ESPN,http://41.205.93.154/ESPN/index.m3u8
+FIFA+,https://a62dad94.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmFrdXRlblRWLWV1X0ZJRkFQbHVzRW5nbGlzaF9ITFM/playlist.m3u8
+FS 1,https://7pal.short.gy/fs1us
+FS 2,https://7pal.short.gy/fs2us
 FTV,http://fashion.mediacdn.ru/cdn/fashiontv/tracks-v1a1/mono.m3u8
 FTV,http://lb.streaming.sk/fashiontv/stream/chunklist_w1702070444.m3u8
 FTV,http://103.175.73.12:8080/live/332/332_0.m3u8
 FTV,http://lb.streaming.sk/fashiontv/stream/playlist.m3u8
+Fuji TV,https://nl.utako.moe/Fuji_TV/index.m3u8
 Global Fashion Channel,https://pubgfc.teleosmedia.com/linear/globalfashionchannel/globalfashionchannel/playlist.m3u8
+Golf Network,https://nl.utako.moe/golf_network/index.m3u8
+HDNet Movies,https://dvrfl04.tulix.tv/teleup-hdnet/mpegts
+MBS,https://nl.utako.moe/mbs/index.m3u8
+MSG,https://7pal.short.gy/msgusa
+MTV LIVE HD,http://23.237.104.106:8080/USA_MTV_LIVE/mpegts
+MTV HD,http://23.237.104.106:8080/USA_MTV/mpegts
+mix fm 音乐,http://strm.mixlive.eu/mixfm/tracks-v3a1/mono.m3u8
+MLB Network,https://7pal.short.gy/mlbnw
+NAT GEO HD,http://23.237.104.106:8080/USA_NAT_GEO/mpegts
+NAT GEO WILD HD,http://23.237.104.106:8080/USA_NAT_GEO_WILD/mpegts
+NBA TV,https://7pal.short.gy/nbatvus
+NHL Network,https://7pal.short.gy/nhlnw
+NFL Redzone,https://7pal.short.gy/nflredz
+NFL Network,https://7pal.short.gy/nflnw
+NHK BS,https://nl.utako.moe/NHK_BS/index.m3u8
+NHK BS 4K,https://nl.utako.moe/bsp4k/index.m3u8
+OUTDOOR CHANNEL HD,http://23.237.104.106:8080/USA_OUTDOOR/mpegts
+PARAMOUNT NETWORK HD,http://104.255.88.155/paramount/mpegts
+Rakuten Top Movies,https://0145451975a64b35866170fd2e8fa486.mediatailor.eu-west-1.amazonaws.com/v1/manifest/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-5987/92f85b9d-ef4d-4693-8384-a4a09597831e/4.m3u8
+Rakuten Top Movies,https://0145451975a64b35866170fd2e8fa486.mediatailor.eu-west-1.amazonaws.com/v1/manifest/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-5987/92f85b9d-ef4d-4693-8384-a4a09597831e/3.m3u8
+Rakuten Top Movies,https://0145451975a64b35866170fd2e8fa486.mediatailor.eu-west-1.amazonaws.com/v1/manifest/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-5987/92f85b9d-ef4d-4693-8384-a4a09597831e/1.m3u8
+Rakuten Top Movies,https://0145451975a64b35866170fd2e8fa486.mediatailor.eu-west-1.amazonaws.com/v1/manifest/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-5987/92f85b9d-ef4d-4693-8384-a4a09597831e/0.m3u8
+Rakuten TV Action Movies,https://54045f0c40fd442c8b06df076aaf1e85.mediatailor.eu-west-1.amazonaws.com/v1/manifest/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6065/2e96eb54-bb99-44f2-8205-61735c95094f/4.m3u8
+Rakuten TV Action Movies,https://54045f0c40fd442c8b06df076aaf1e85.mediatailor.eu-west-1.amazonaws.com/v1/manifest/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6065/2e96eb54-bb99-44f2-8205-61735c95094f/3.m3u8
+Rakuten TV Action Movies,https://54045f0c40fd442c8b06df076aaf1e85.mediatailor.eu-west-1.amazonaws.com/v1/manifest/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6065/2e96eb54-bb99-44f2-8205-61735c95094f/2.m3u8
 Red Bull TV,https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master_6660.m3u8
 Red Bull TV,http://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master_1660.m3u8?zshijd
 Red Bull TV,http://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master_928.m3u8?zshijd
 Red Bull TV,https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master.m3u8
-Adventure Earth,https://a57e9c69976649b582a8d7604c00e69a.mediatailor.us-east-1.amazonaws.com/v1/master/44f73ba4d03e9607dcd9bebdcb8494d86964f1d8/RlaxxTV-eu_AdventureEarth/playlist.m3u8
-Adventure Earth,https://autentic-adventure-earth-1-eu.rakuten.wurl.tv/playlist.m3u8
-PARAMOUNT NETWORK HD,http://104.255.88.155/paramount/mpegts
-AHC HD,http://23.237.104.106:8080/USA_AMERICAN_HEROES/mpegts
-DESTINATION AMERICA HD,http://23.237.104.106:8080/USA_DESTINATION_AMERICA/mpegts
-OUTDOOR CHANNEL HD,http://23.237.104.106:8080/USA_OUTDOOR/mpegts
-CRIME AND INVESTIGATION FHD,http://23.237.104.106:8080/USA_CRIME_INVESTIGATION/mpegts
-tvpe,https://cdnhd.iblups.com/hls/777b4d4cc0984575a7d14f6ee57dbcaf7.m3u8
-MTV LIVE HD,http://23.237.104.106:8080/USA_MTV_LIVE/mpegts
-MTV HD,http://23.237.104.106:8080/USA_MTV/mpegts
-USA NetWork FHD,https://7pal.short.gy/usanetwork
+Red Bull TV,https://1a3566cb46914c5499fbc86fbc4ac87e.mediatailor.us-west-2.amazonaws.com/v1/master/ba62fe743df0fe93366eba3a257d792884136c7f/LINEAR-932-WORBUKENFAST-WHALETVPLUS/932/whaletvplus/hls/master/playlist.m3u8
 SEC Network,https://7pal.short.gy/secnw
-FS 1,https://7pal.short.gy/fs1us
-FS 2,https://7pal.short.gy/fs2us
-YES Network,https://7pal.short.gy/yesnw
+STAR SPORTS 1,http://41.205.93.154/STARSPORTS1/index.m3u8
 Tennis Channel,https://7pal.short.gy/tennisc
-NHL Network,https://7pal.short.gy/nhlnw
-MLB Network,https://7pal.short.gy/mlbnw
-NBA TV,https://7pal.short.gy/nbatvus
+TOKYO MX1,https://nl.utako.moe/Tokyo_MX1/index.m3u8
+TOKYO MX2,https://nl.utako.moe/Tokyo_MX2/index.m3u8
+TRAVEL CHANNEL WEST,http://restream-live.realiptv.to:8080/live/52748969/72335180/3845.ts
+TRAVEL CHANNEL,http://89.105.221.127/TravelChannel/mpegts?token=test
+TRAVEL CHANNEL,http://89.105.221.127/TravelChannel/mpegts?token=test
+tvpe,https://cdnhd.iblups.com/hls/777b4d4cc0984575a7d14f6ee57dbcaf7.m3u8
+USA NetWork FHD,https://7pal.short.gy/usanetwork
+WildEarth,https://wildearth-plex.amagi.tv/master.m3u8
+WildEarth,https://wildearth-plex.amagi.tv/masterR1080p.m3u8
 WWE Network,https://7pal.short.gy/wwenw
-ESPN,https://7pal.short.gy/espnus
-NFL Redzone,https://7pal.short.gy/nflredz
-NFL Network,https://7pal.short.gy/nflnw
-MSG,https://7pal.short.gy/msgusa
-CBS Sport Network,https://7pal.short.gy/cbssptnw
+YES Network,https://7pal.short.gy/yesnw
 
-NAT GEO HD,http://23.237.104.106:8080/USA_NAT_GEO/mpegts
-NAT GEO WILD HD,http://23.237.104.106:8080/USA_NAT_GEO_WILD/mpegts
-ANIMAL PLANET HD (WEST),http://restream-live.realiptv.to:8080/live/52748969/72335180/2661.ts
-ANIMAL PLANET HD (EAST),http://23.237.104.106:8080/USA_ANIMAL_PLANET/mpegts
-
-Discovery Channel UHD,http://supersonictv.live:8080/864072/196529/22074
-Discovery West LHD,http://supersonictv.live:8080/864072/196529/22079
-DISCOVERY VELOCITY,http://supersonictv.live:8080/864072/196529/22078
-Discovery Science,http://supersonictv.live:8080/864072/196529/22077
-Discovery Family,http://supersonictv.live:8080/864072/196529/22076
-Discovery Life UHD,http://supersonictv.live:8080/864072/196529/22075
-TLC Discovery,http://tv-cool.com:25461/ULtR63183811dd/kquFuCz3EpNa/30331
-
-TRAVEL CHANNEL WEST HD,http://restream-live.realiptv.to:8080/live/52748969/72335180/3845.ts
-TRAVEL CHANNEL HD,http://89.105.221.127/TravelChannel/mpegts?token=test
-TRAVEL CHANNEL HD,http://89.105.221.127/TravelChannel/mpegts?token=test
-DISCOVERY SCIENCE HD,http://23.237.104.106:8080/USA_SCIENCE/mpegts
-DISCOVERY HD (WEST),http://restream-live.realiptv.to:8080/live/52748969/72335180/3826.ts
-DISCOVERY HD (EAST),http://23.237.104.106:8080/USA_DISCOVERY/mpegts
-HDNet Movies,https://dvrfl04.tulix.tv/teleup-hdnet/mpegts
-Discovery Science,http://23.237.104.106:8080/USA_SCIENCE/mpegts
-Discovery Science,http://23.237.104.106:8080/USA_SCIENCE/index.m3u8
-Discovery Science,http://xxip25.top:8080/zC3Eby/245776/20866
-Discovery Channel East,http://23.237.104.106:8080/USA_DISCOVERY/index.m3u8
-Discovery West,http://restream-live.realiptv.to:8080/live/52748969/72335180/3826.ts
-Discovery East,http://23.237.104.106:8080/USA_DISCOVERY/mpegts
-DISCOVERY SCIENCE HD,http://23.237.104.106:8080/USA_SCIENCE/mpegts
-DISCOVERY HD (WEST),http://restream-live.realiptv.to:8080/live/52748969/72335180/3826.ts
-DISCOVERY SCIENCE HD,http://23.237.104.106:8080/USA_SCIENCE/mpegts
-DISCOVERY WEST HD,http://restream-live.realiptv.to:8080/live/52748969/72335180/3826.ts
-DISCOVERY TURBO,http://tecnotv.club/FEB27/phpcode/lista4.php?c=a0c4&token=tecnotokenplustv230516F&f=.m3u8
-DISCOVERY FAMILY HD,http://restream-live.realiptv.to:8080/live/52748969/72335180/2598.ts
-DISCOVERY SCIENCE,http://181.114.57.246:4000/play/xDmVBDWKHJDg/index.m3u8
-DISCOVERY,http://41.205.93.154/DISCOVERY/index.m3u8
-Discovery Channel East,https://dvrfl04.tulix.tv/teleup-discovery/mpegts
-Discovery Life,http://46.151.196.243:80/play/Y5v1n1Qxf3Kd-l9oc4PGlOzNUjuRTrGSr00caVl475usaTtUcxFqGygNUUCoI1S9
-Discovery Family,http://46.151.196.243:80/play/Y5v1n1Qxf3Kd-l9oc4PGlAcpQ-vSOetxr9XSw5JHrlIBODbdelpu0Hji9nOzkxp1
-Discovery Familia,http://46.151.196.243:80/play/Y5v1n1Qxf3Kd-l9oc4PGlEcRB8v-6NxG1pAU3YL4jRpSzMlk-h98CZvqB1FmMxlI
-Discovery (West),http://46.151.196.243:80/play/Y5v1n1Qxf3Kd-l9oc4PGlEOnFY5tuMjArG5n9Ebgr40EbOu3jXBreoI7AlOCRLfO
-Discovery (East),http://46.151.196.243:80/play/Y5v1n1Qxf3Kd-l9oc4PGlBx6zR3qUQGUtNb2U1z7SLIW7_sqE5F_C588qd1ou5KO
-Investigation Discovery West LHD,http://supersonictv.live:8080/864072/196529/22111
-Investigation Discovery East UHD,http://supersonictv.live:8080/864072/196529/22110
-Discovery Science HD,http://epicboss.live:80/bjune@teksavvy.com/5193594414/25
-DISCOVERY HD US,http://epicboss.live:80/bjune@teksavvy.com/5193594414/33328
-I.D DISCOVERY HD,http://tkosportz.live:25461/catrinamcdermott/catrinamcdermott/10417
-DISCOVERY SCIENCE,http://tkosportz.live:25461/catrinamcdermott/catrinamcdermott/10389
-DISCOVERY,http://tkosportz.live:25461/catrinamcdermott/catrinamcdermott/10388
-DISCOVERY FAMILY,http://tkosportz.live:25461/catrinamcdermott/catrinamcdermott/10387
-Discovery Velocity,http://tv-cool.com:25461/ULtR63183811dd/kquFuCz3EpNa/160132
-Discovery Family,http://tv-cool.com:25461/ULtR63183811dd/kquFuCz3EpNa/68092
-Discovery Life Channel,http://tv-cool.com:25461/ULtR63183811dd/kquFuCz3EpNa/30356
-Investigation Discovery,http://181.114.57.246:4000/play/8EVmhNhJHQUwrNKA/index.m3u8
-Investigation Discovery,http://tv-cool.com:25461/ULtR63183811dd/kquFuCz3EpNa/30338
-Investigation Discovery,http://hardcoremedia.xyz:80/ymgiaxkw/5Hr5ZQuVfU/130122
-Investigation Discovery,http://hardcoremedia.xyz:80/ymgiaxkw/5Hr5ZQuVfU/129899
-DISCOVERY SCIENCE,http://hardcoremedia.xyz:80/ymgiaxkw/5Hr5ZQuVfU/129867
-DISCOVERY LIFE,http://hardcoremedia.xyz:80/ymgiaxkw/5Hr5ZQuVfU/129866
-DISCOVERY FAMILY,http://hardcoremedia.xyz:80/ymgiaxkw/5Hr5ZQuVfU/129865
-DISCOVERY CHANNEL,http://hardcoremedia.xyz:80/ymgiaxkw/5Hr5ZQuVfU/129864
-ID Investigation Discovery,http://xxip25.top:8080/zC3Eby/245776/46810
-Discovery Life HD,http://xxip25.top:8080/zC3Eby/245776/9861
-DISCOVERY FAMILY,http://xxip25.top:8080/zC3Eby/245776/10538
-Discovery Channel East,http://xxip25.top:8080/zC3Eby/245776/9811
-Discovery Channel (East),http://xxip25.top:8080/zC3Eby/245776/46720
-260312,#group#
+260313,#group#
 温馨提示,#genre#
 ★★★,https://
 根据家中宽带,https://
@@ -858,10 +920,7 @@ Discovery Channel (East),http://xxip25.top:8080/zC3Eby/245776/46720
 其他设置,https://
 分组类型,https://
 二级分组模式,https://
-
-
-
-
-
-
-
+部分频道,#genre#
+可能需要,https://
+科学上网,https://
+网络环境,https://
