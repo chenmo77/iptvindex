@@ -25,6 +25,8 @@ SOURCE_URLS = [
 
 # ================ 🔧 配置区域 2：输出设置 ================
 OUTPUT_FILE = "live.txt"
+# 您个人源的标识字符串（用于识别和优先排序）
+PERSONAL_SOURCE_ID = "chenmo77/iptvindex/refs/heads/main/zb.txt"
 # ================================================================
 
 # ================ 📺 严格按照您指定的顺序 ================
@@ -61,7 +63,7 @@ OVERSEAS_KEYWORDS = [
 # ----- 直播平台源标识 -----
 PLATFORM_SOURCES = [
     "yylunbo.m3u",
-    "bililive.m3u", 
+    "bililive.m3u",
     "huyayqk.m3u",
     "douyuyqk.m3u"
 ]
@@ -72,9 +74,9 @@ def is_valid_url(url):
     """检查URL是否有效（不是空链接或占位符）"""
     if not url or len(url) < 10:
         return False
-    
+
     url = url.strip().lower()
-    
+
     # 过滤无效URL
     invalid_patterns = [
         r'^https?://$',  # 只有http://或https://
@@ -85,15 +87,15 @@ def is_valid_url(url):
         r'null',
         r'undefined'
     ]
-    
+
     for pattern in invalid_patterns:
         if re.match(pattern, url):
             return False
-    
+
     # 必须有有效的域名结构
     if not re.match(r'^https?://[^\s]+', url):
         return False
-    
+
     return True
 
 def clean_channel_name(name):
@@ -103,7 +105,7 @@ def clean_channel_name(name):
     name = re.sub(r'[\s-]*\d+[PpKk]', '', name)
     name = re.sub(r'[\s-]*(超清|高清|HD|4K|8K|UHD)', '', name)
     name = re.sub(r'[\s-]*\d{3,4}x\d{3,4}', '', name)
-    
+
     # 去掉多余的空白
     name = re.sub(r'\s+', ' ', name).strip()
     return name
@@ -114,47 +116,47 @@ def normalize_cctv_name(name):
     for cctv_name in CCTV_CHANNELS:
         if cctv_name.lower() in name.lower():
             return cctv_name
-    
+
     # 匹配CCTV数字格式
     name_upper = name.upper()
-    
+
     # 处理CCTV5+这种特殊格式
     if re.search(r'CCTV[\s-]*5[\s-]*\+', name_upper):
         return "CCTV5+"
-    
+
     # 匹配普通CCTV数字
     match = re.search(r'CCTV[\s-]*(\d+)', name_upper)
     if match:
         num = match.group(1)
         # 只保留1-17的数字
-        if 1 <= int(num) <= 17:
+        if num.isdigit() and 1 <= int(num) <= 17:
             return f"CCTV{num}"
-    
+
     # 匹配中文中央
     match = re.search(r'中央[^\d]*(\d+)', name_upper)
     if match:
         num = match.group(1)
-        if 1 <= int(num) <= 17:
+        if num.isdigit() and 1 <= int(num) <= 17:
             return f"CCTV{num}"
-    
+
     return None
 
 def normalize_weishi_name(name):
     """标准化卫视名称"""
     if '卫视' not in name:
         return None
-    
+
     # 提取卫视核心名（去掉"卫视"及后面所有内容）
     core = re.sub(r'卫视.*$', '', name)
     # 去掉清晰度标记
     core = clean_channel_name(core)
-    
+
     # 如果提取后为空，返回原清理后的名称
     if not core:
         cleaned = clean_channel_name(name)
         if '卫视' in cleaned:
             return cleaned
-    
+
     return core + '卫视'
 
 def normalize_gangao_name(name):
@@ -166,7 +168,7 @@ def normalize_gangao_name(name):
         return '凤凰资讯'
     elif '凤凰香港' in name:
         return '凤凰香港'
-    
+
     # 其他港澳频道
     return clean_channel_name(name)
 
@@ -177,6 +179,10 @@ def is_platform_source(source_url):
             return True
     return False
 
+def is_personal_source(source_url):
+    """判断是否为个人精心优化的源"""
+    return PERSONAL_SOURCE_ID in source_url
+
 def parse_txt_content(content, source_url):
     """解析TXT格式的直播源"""
     channels = []
@@ -185,22 +191,23 @@ def parse_txt_content(content, source_url):
         line = line.strip()
         if not line or '#genre#' in line or line.startswith('#'):
             continue
-        
+
         match = re.match(r'([^,]+),(.+)', line)
         if match:
             channel_name = match.group(1).strip()
             channel_url = match.group(2).strip()
-            
+
             # 去掉注释
             if ' #' in channel_url:
                 channel_url = channel_url.split(' #')[0]
-            
+
             # 只保留有效URL的频道
             if is_valid_url(channel_url):
                 channels.append({
                     'name': channel_name,
                     'url': channel_url,
-                    'source': source_url
+                    'source': source_url,
+                    'is_personal': is_personal_source(source_url)  # 标记是否为个人源
                 })
     return channels
 
@@ -211,12 +218,12 @@ def parse_m3u_content(content, source_url):
     i = 0
     while i < len(lines):
         line = lines[i].strip()
-        
+
         if line.startswith('#EXTINF:'):
             name_match = re.search(r',([^,]+)$', line)
             if name_match:
                 channel_name = name_match.group(1).strip()
-                
+
                 if i + 1 < len(lines):
                     channel_url = lines[i + 1].strip()
                     if channel_url and not channel_url.startswith('#'):
@@ -225,7 +232,8 @@ def parse_m3u_content(content, source_url):
                             channels.append({
                                 'name': channel_name,
                                 'url': channel_url,
-                                'source': source_url
+                                'source': source_url,
+                                'is_personal': is_personal_source(source_url)  # 标记是否为个人源
                             })
             i += 2
         else:
@@ -234,11 +242,11 @@ def parse_m3u_content(content, source_url):
 
 def fetch_and_merge():
     all_channels = []
-    
+
     print("=" * 70)
-    print("🚀 开始抓取直播源（严格按照您的规则分类）...")
+    print("🚀 开始抓取直播源（优先使用您个人源中的地址）...")
     print("=" * 70)
-    
+
     # 1. 抓取所有源
     for url in SOURCE_URLS:
         try:
@@ -246,163 +254,195 @@ def fetch_and_merge():
             response = requests.get(url, timeout=10)
             response.encoding = 'utf-8'
             content = response.text
-            
+
             if '.m3u' in url.lower() or '#EXTM3U' in content:
                 print(f"   📋 检测到M3U格式")
                 channels = parse_m3u_content(content, url)
             else:
                 print(f"   📋 检测到TXT格式")
                 channels = parse_txt_content(content, url)
-            
+
             print(f"   ✅ 解析到 {len(channels)} 个有效频道")
             all_channels.extend(channels)
-            
+
         except Exception as e:
             print(f"   ❌ 抓取失败: {e}")
-    
+
     print(f"\n📊 共抓取到 {len(all_channels)} 个有效频道（已过滤无效URL）")
-    
+
     # 2. 初始化分类字典
     current_date = time.strftime('%y%m%d')
     current_time_full = time.strftime('%Y-%m-%d %H:%M:%S')
-    
+
     # 定义5大分类
     categories = ['央视', '卫视', '港澳', '海外', '其他']
-    
-    # 每个分类存储 {标准化名称: {去重后的URL列表}}
-    channels_by_category = {cat: OrderedDict() for cat in categories}
-    
+
+    # 每个分类存储 {标准化名称: {"personal": [个人源URLs], "other": [其他源URLs]}}
+    # 这样设计是为了在写入时先写personal，再写other
+    channels_by_category = {cat: {} for cat in categories}
+
     # 用于全局URL去重
     unique_urls = set()
-    
+
     # 3. 先处理直播平台源（放在“其他”分类的最前面）
     platform_channels = []
     regular_channels = []
-    
+
     for ch in all_channels:
         if is_platform_source(ch['source']):
             platform_channels.append(ch)
         else:
             regular_channels.append(ch)
-    
+
     print(f"\n🔍 识别到 {len(platform_channels)} 个直播平台频道（将放在其他分类最前面）")
-    
+
     # 4. 处理直播平台频道（直接进“其他”）
     for ch in platform_channels:
         if ch['url'] in unique_urls:
             continue
         unique_urls.add(ch['url'])
-        
+
         std_name = clean_channel_name(ch['name'])
         if std_name and len(std_name) > 1:
             if std_name not in channels_by_category['其他']:
-                channels_by_category['其他'][std_name] = []
-            channels_by_category['其他'][std_name].append({
+                channels_by_category['其他'][std_name] = {"personal": [], "other": []}
+
+            # 平台频道都归为"other"类别，不享受个人源优先
+            channels_by_category['其他'][std_name]["other"].append({
                 'url': ch['url'],
                 'original_name': ch['name']
             })
-    
+
     # 5. 处理其他频道（按规则分类）
     for ch in regular_channels:
         if ch['url'] in unique_urls:
             continue
         unique_urls.add(ch['url'])
-        
+
         # 央视匹配
-        matched = False
         cctv_std = normalize_cctv_name(ch['name'])
         if cctv_std and cctv_std in CCTV_CHANNELS:
             if cctv_std not in channels_by_category['央视']:
-                channels_by_category['央视'][cctv_std] = []
-            channels_by_category['央视'][cctv_std].append({
+                channels_by_category['央视'][cctv_std] = {"personal": [], "other": []}
+
+            target_list = "personal" if ch['is_personal'] else "other"
+            channels_by_category['央视'][cctv_std][target_list].append({
                 'url': ch['url'],
                 'original_name': ch['name']
             })
             continue
-        
+
         # 卫视匹配
         weishi_std = normalize_weishi_name(ch['name'])
         if weishi_std:
             if weishi_std not in channels_by_category['卫视']:
-                channels_by_category['卫视'][weishi_std] = []
-            channels_by_category['卫视'][weishi_std].append({
+                channels_by_category['卫视'][weishi_std] = {"personal": [], "other": []}
+
+            target_list = "personal" if ch['is_personal'] else "other"
+            channels_by_category['卫视'][weishi_std][target_list].append({
                 'url': ch['url'],
                 'original_name': ch['name']
             })
             continue
-        
+
         # 港澳匹配
+        matched = False
         for kw in GANGAO_KEYWORDS:
             if kw in ch['name']:
                 gangao_std = normalize_gangao_name(ch['name'])
                 if gangao_std not in channels_by_category['港澳']:
-                    channels_by_category['港澳'][gangao_std] = []
-                channels_by_category['港澳'][gangao_std].append({
+                    channels_by_category['港澳'][gangao_std] = {"personal": [], "other": []}
+
+                target_list = "personal" if ch['is_personal'] else "other"
+                channels_by_category['港澳'][gangao_std][target_list].append({
                     'url': ch['url'],
                     'original_name': ch['name']
                 })
                 matched = True
                 break
-        
+
         if matched:
             continue
-        
+
         # 海外匹配
         for kw in OVERSEAS_KEYWORDS:
             if kw.upper() in ch['name'].upper():
                 std_name = clean_channel_name(ch['name'])
                 if std_name not in channels_by_category['海外']:
-                    channels_by_category['海外'][std_name] = []
-                channels_by_category['海外'][std_name].append({
+                    channels_by_category['海外'][std_name] = {"personal": [], "other": []}
+
+                target_list = "personal" if ch['is_personal'] else "other"
+                channels_by_category['海外'][std_name][target_list].append({
                     'url': ch['url'],
                     'original_name': ch['name']
                 })
                 matched = True
                 break
-        
+
         if matched:
             continue
-        
+
         # 其他分类（非平台源）
         std_name = clean_channel_name(ch['name'])
         if std_name and len(std_name) > 1:
             if std_name not in channels_by_category['其他']:
-                channels_by_category['其他'][std_name] = []
-            channels_by_category['其他'][std_name].append({
+                channels_by_category['其他'][std_name] = {"personal": [], "other": []}
+
+            target_list = "personal" if ch['is_personal'] else "other"
+            channels_by_category['其他'][std_name][target_list].append({
                 'url': ch['url'],
                 'original_name': ch['name']
             })
-    
+
     # 6. 统计各分类源数量
     category_counts = {}
     for cat in categories:
-        count = sum(len(urls) for urls in channels_by_category[cat].values())
+        count = 0
+        for std_name in channels_by_category[cat]:
+            count += len(channels_by_category[cat][std_name]["personal"])
+            count += len(channels_by_category[cat][std_name]["other"])
         category_counts[cat] = count
-    
+
     total_channels = sum(category_counts.values())
     total_unique_urls = len(unique_urls)
-    
+
+    # 统计个人源数量
+    personal_count = 0
+    for cat in categories:
+        for std_name in channels_by_category[cat]:
+            personal_count += len(channels_by_category[cat][std_name]["personal"])
+
     print("\n📊 分类统计（按源数量）：")
     for cat in categories:
         if category_counts[cat] > 0:
             print(f"   {cat}: {category_counts[cat]} 个源")
-    
+    print(f"   👤 其中您的个人源: {personal_count} 个（将优先显示）")
+
     # 7. 写入最终文件
     print(f"\n💾 正在写入TXT文件: {OUTPUT_FILE}")
-    
+
     with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
         f.write(f"# 自动聚合直播源 - 生成时间: {current_time_full}\n")
         f.write(f"# 总源数: {total_channels} | 总去重后URL数: {total_unique_urls}\n")
+        f.write(f"# 个人源优先: 您的源将排在每个频道的最前面\n")
         f.write(f"# 分类: 央视/卫视/港澳/海外/其他\n\n")
-        
+
+        # 辅助函数：写入频道的所有源（先写personal，再写other）
+        def write_channel_sources(f, std_name, sources_dict):
+            # 先写个人源
+            for ch in sources_dict["personal"]:
+                f.write(f"{std_name},{ch['url']}\n")
+            # 再写其他源
+            for ch in sources_dict["other"]:
+                f.write(f"{std_name},{ch['url']}\n")
+
         # ----- 央视分类（严格按照您指定的顺序）-----
         if channels_by_category['央视']:
             f.write(f"\n央视,#genre#\n")
             for cctv_name in CCTV_CHANNELS:
                 if cctv_name in channels_by_category['央视']:
-                    for ch in channels_by_category['央视'][cctv_name]:
-                        f.write(f"{cctv_name},{ch['url']}\n")
-        
+                    write_channel_sources(f, cctv_name, channels_by_category['央视'][cctv_name])
+
         # ----- 卫视分类（优先级+拼音）-----
         if channels_by_category['卫视']:
             f.write(f"\n卫视,#genre#\n")
@@ -410,15 +450,13 @@ def fetch_and_merge():
             written = set()
             for weishi in WEISHI_PRIORITY:
                 if weishi in channels_by_category['卫视']:
-                    for ch in channels_by_category['卫视'][weishi]:
-                        f.write(f"{weishi},{ch['url']}\n")
+                    write_channel_sources(f, weishi, channels_by_category['卫视'][weishi])
                     written.add(weishi)
             # 再写其他的（按拼音排序）
             others = sorted([name for name in channels_by_category['卫视'].keys() if name not in written])
             for name in others:
-                for ch in channels_by_category['卫视'][name]:
-                    f.write(f"{name},{ch['url']}\n")
-        
+                write_channel_sources(f, name, channels_by_category['卫视'][name])
+
         # ----- 港澳分类（凤凰优先+拼音）-----
         if channels_by_category['港澳']:
             f.write(f"\n港澳,#genre#\n")
@@ -426,61 +464,52 @@ def fetch_and_merge():
             written = set()
             for phoenix in GANGAO_PRIORITY:
                 if phoenix in channels_by_category['港澳']:
-                    for ch in channels_by_category['港澳'][phoenix]:
-                        f.write(f"{phoenix},{ch['url']}\n")
+                    write_channel_sources(f, phoenix, channels_by_category['港澳'][phoenix])
                     written.add(phoenix)
             # 再写其他的（按拼音排序）
             others = sorted([name for name in channels_by_category['港澳'].keys() if name not in written])
             for name in others:
-                for ch in channels_by_category['港澳'][name]:
-                    f.write(f"{name},{ch['url']}\n")
-        
+                write_channel_sources(f, name, channels_by_category['港澳'][name])
+
         # ----- 海外分类（拼音排序）-----
         if channels_by_category['海外']:
             f.write(f"\n海外,#genre#\n")
             for name in sorted(channels_by_category['海外'].keys()):
-                for ch in channels_by_category['海外'][name]:
-                    f.write(f"{name},{ch['url']}\n")
-        
+                write_channel_sources(f, name, channels_by_category['海外'][name])
+
         # ----- 其他分类（直播平台优先+拼音）-----
         if channels_by_category['其他']:
             f.write(f"\n其他,#genre#\n")
-            
-            # 先写直播平台频道（保持原有顺序）
-            platform_names = []
-            for name in channels_by_category['其他'].keys():
-                # 这里可以根据需要标记哪些是平台频道
-                f.write(f"{name},{ch['url']}\n")
-            
             # 按拼音排序写入所有其他频道
             for name in sorted(channels_by_category['其他'].keys()):
-                for ch in channels_by_category['其他'][name]:
-                    f.write(f"{name},{ch['url']}\n")
-        
+                write_channel_sources(f, name, channels_by_category['其他'][name])
+
         # ========== 日期分类 ==========
         f.write(f"\n{current_date},#genre#\n")
         f.write(f"总源数{total_channels}个,http://\n")
         for cat in categories:
             if category_counts[cat] > 0:
                 f.write(f"{cat}{category_counts[cat]}个,http://\n")
-        
+
         # 文件末尾信息
         f.write(f"\n\n# ========================================\n")
         f.write(f"# 文件生成时间: {current_time_full}\n")
         f.write(f"# 总源数量: {total_channels} 个\n")
         f.write(f"# 总去重后URL数: {total_unique_urls} 个\n")
         f.write(f"# 来源数量: {len(SOURCE_URLS)} 个\n")
+        f.write(f"# 您的个人源数量: {personal_count} 个（已优先排序）\n")
         for cat in categories:
             if category_counts[cat] > 0:
                 f.write(f"#   {cat}: {category_counts[cat]} 个\n")
         f.write(f"# ========================================\n")
-    
+
     print(f"✅ 完成！")
     print(f"   📊 总共 {total_channels} 个有效源（去重后 {total_unique_urls} 个唯一URL）")
     print(f"   📁 保存到: {OUTPUT_FILE}")
     print(f"   🕐 日期分类: {current_date}")
+    print(f"   👤 您的个人源已优先排序: {personal_count} 个")
     print("=" * 70)
-    
+
     # 调试信息
     print("\n🔍 调试信息：")
     print(f"   当前目录: {os.getcwd()}")
