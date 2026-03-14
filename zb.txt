@@ -311,12 +311,12 @@ china陶瓷,http://hwrr.jx.chinamobile.com:8080/PLTV/88888888/224/3221226304/01.
 江西IPTV,http://hwrr.jx.chinamobile.com:8080/PLTV/88888888/224/3221226389/01.m3u8?fmt=ts2hls
 江西IPTV,http://hwrr.jx.chinamobile.com:8080/PLTV/88888888/224/3221226414/01.m3u8?fmt=ts2hls
 4K,#genre#
-纯享4K,http://hwrr.jx.chinamobile.com:8080/PLTV/88888888/224/3221225786/01.m3u8
-北京卫视4K,http://hwrr.jx.chinamobile.com:8080/PLTV/88888888/224/3221226386/01.m3u8?fmt=ts2hls
-北京卫视4K,http://hwrr.jx.chinamobile.com:8080/PLTV/88888888/224/3221226394/01.m3u8
-广东卫视4K,http://hwrr.jx.chinamobile.com:8080/PLTV/88888888/224/3221226405/01.m3u8?fmt=ts2hls
-深圳卫视4K,http://hwrr.jx.chinamobile.com:8080/PLTV/88888888/224/3221226409/01.m3u8?fmt=ts2hls
 CCTV16,http://hwrr.jx.chinamobile.com:8080/PLTV/88888888/224/3221226236/2/index.m3u8?fmt=ts2hls$江西移动
+纯享4K,http://hwrr.jx.chinamobile.com:8080/PLTV/88888888/224/3221225786/01.m3u8
+北京卫视,http://hwrr.jx.chinamobile.com:8080/PLTV/88888888/224/3221226386/01.m3u8?fmt=ts2hls
+北京卫视,http://hwrr.jx.chinamobile.com:8080/PLTV/88888888/224/3221226394/01.m3u8
+广东卫视,http://hwrr.jx.chinamobile.com:8080/PLTV/88888888/224/3221226405/01.m3u8?fmt=ts2hls
+深圳卫视,http://hwrr.jx.chinamobile.com:8080/PLTV/88888888/224/3221226409/01.m3u8?fmt=ts2hls
 北京卫视,http://hwrr.jx.chinamobile.com:8080/PLTV/88888888/224/3221226386/2/index.m3u8?fmt=ts2hls$江西移动
 湖南卫视,http://hwrr.jx.chinamobile.com:8080/PLTV/88888888/224/3221226398/2/index.m3u8?fmt=ts2hls$江西移动
 江苏卫视,http://hwrr.jx.chinamobile.com:8080/PLTV/88888888/224/3221226401/2/index.m3u8?fmt=ts2hls$江西移动
@@ -745,6 +745,8 @@ Yahoo! Finance,https://d1ewctnvcwvvvu.cloudfront.net/playlist.m3u8
 其他,#genre#
 翡翠台,https://o11.163189.xyz/stream/tvb/fct/
 翡翠台,http://mytv.cdn.loc.cc/o12.php?id=fct
+翡翠台,http://74.91.26.218:82/live/jade.m3u8
+无线新闻台,http://74.91.26.218:82/live/inews.m3u8
 TVB 华丽翡翠,https://o11.163189.xyz/stream/live/hlt/
 TVB 华丽翡翠(新加坡),https://o11.163189.xyz/stream/live/jade/
 TVB 千禧经典台,https://o11.163189.xyz/stream/live/tvbc/
@@ -755,7 +757,6 @@ TVB星河,https://o11.163189.xyz/stream/live/tvbxh/
 爱奇艺,https://o11.163189.xyz/stream/live/iqiyi/
 广州新闻,http://tencentplay.gztv.com/live/xinwen.m3u8?txSecret=d2c2db0b598c02ec1b5623728434d367&txTime=18d57929bd3
 广州综合,http://tencentplay.gztv.com/live/zonghes.m3u8?txSecret=c8dbe86d6f86eb1a21999ab479fd5667&txTime=18d3c4690e8
-广州影视,http://tencentplay.gztv.com/live/yingshi.m3u8?txSecret=1bd3a1082ab5b89f48c1bff9a3760da4&txTime=18d57929bd4
 广州南国都市,http://tencentplay.gztv.com/live/nanguodushi.m3u8?txSecret=140110ae3d6c936a77f94c4f4d85b0d3&txTime=18d57929bd4
 浙江钱江,https://ali-m-l.cztv.com/channels/lantian/channel002/1080p.m3u8
 浙江经济生活,https://ali-m-l.cztv.com/channels/lantian/channel003/1080p.m3u8
@@ -766,7 +767,7 @@ TVB星河,https://o11.163189.xyz/stream/live/tvbxh/
 浙江国际,https://ali-m-l.cztv.com/channels/lantian/channel010/1080p.m3u8
 浙江之江记录,https://ali-m-l.cztv.com/channels/lantian/channel012/1080p.m3u8
 
-24 HOURS FREE MOVIES,https://d1j2u714xk898n.cloudfront.net/scheduler/scheduleMaster/145.m3u8
+24 HOUR FREE MOVIES,https://d1j2u714xk898n.cloudfront.net/scheduler/scheduleMaster/145.m3u8
 astro AEC,https://o11.163189.xyz/stream/live/aec/
 astro AOD,https://o11.163189.xyz/stream/live/aod/
 Action Hollywood Movies,https://cdn-apse1-prod.tsv2.amagi.tv/linear/amg01076-lightningintern-actionhollywood-samsungnz/playlist.m3u8
@@ -910,17 +911,15 @@ WildEarth,https://wildearth-plex.amagi.tv/masterR1080p.m3u8
 WWE Network,https://7pal.short.gy/wwenw
 YES Network,https://7pal.short.gy/yesnw
 
-260313,#group#
+260314,#group#
 温馨提示,#genre#
-★★★,https://
-根据家中宽带,https://
-选择不同线路,https://
-免费测试使用,https://
-酷9设置,#genre#
-其他设置,https://
-分组类型,https://
-二级分组模式,https://
-部分频道,#genre#
-可能需要,https://
-科学上网,https://
-网络环境,https://
+根据上网宽带,https://
+选择相应线路,https://
+仅为免费测试,https://
+部分全网线路频道,https://
+需要科学上网,https://
+
+分组设置,#genre#
+酷9-其他设置,https://
+-分组类型,https://
+-二级分组模式,https://
