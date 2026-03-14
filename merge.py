@@ -1,8 +1,6 @@
 import requests
 import time
 import re
-import socket
-import ipaddress
 from collections import OrderedDict
 
 # ================ 🔧 配置区域 1：你的直播源地址列表 ================
@@ -17,132 +15,15 @@ SOURCE_URLS = [
     "https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/ipv6.m3u",
     "https://raw.githubusercontent.com/cai23511/yex/master/TVlist/20210808384.m3u",
     "https://raw.githubusercontent.com/cai23511/yex/master/TVlist/20210808226.m3u",
-    "https://raw.githubusercontent.com/Guovin/iptv-api/gd/output/result.m3u",
     "https://raw.githubusercontent.com/mursor1985/LIVE/refs/heads/main/yylunbo.m3u",
     "https://raw.githubusercontent.com/mursor1985/LIVE/refs/heads/main/bililive.m3u",
     "https://raw.githubusercontent.com/mursor1985/LIVE/refs/heads/main/huyayqk.m3u",
     "https://raw.githubusercontent.com/mursor1985/LIVE/refs/heads/main/douyuyqk.m3u"
-    # 在这里继续添加源地址，TXT或M3U格式都支持
 ]
 
 # ================ 🔧 配置区域 2：输出设置 ================
-OUTPUT_FILE = "live.txt"
-ADD_ISP_TAG = True  # 是否自动添加运营商标记
+OUTPUT_FILE = "live.txt"  # 最终生成的文件名
 # ================================================================
-
-# 中国主要运营商IP段（精简常用段）
-CHINA_IPS = {
-    'telecom': [  # 电信
-        '1.0.0.0/24', '1.2.0.0/16', '14.0.0.0/14', '27.8.0.0/13',
-        '36.0.0.0/11', '39.0.0.0/12', '42.48.0.0/13', '49.52.0.0/14',
-        '58.16.0.0/13', '59.32.0.0/11', '60.0.0.0/11', '61.128.0.0/10',
-        '101.64.0.0/13', '110.80.0.0/13', '111.0.0.0/10', '112.0.0.0/10',
-        '113.64.0.0/10', '114.80.0.0/12', '115.48.0.0/12', '116.192.0.0/12',
-        '117.136.0.0/13', '118.112.0.0/13', '119.128.0.0/12', '120.192.0.0/10',
-        '121.32.0.0/11', '122.64.0.0/11', '123.128.0.0/13', '124.64.0.0/15',
-        '125.64.0.0/11', '175.0.0.0/12', '180.96.0.0/11', '182.112.0.0/12',
-        '183.128.0.0/11', '202.96.0.0/12', '218.0.0.0/11', '219.128.0.0/11',
-        '220.160.0.0/11', '221.0.0.0/12', '222.64.0.0/11', '223.0.0.0/12'
-    ],
-    'unicom': [  # 联通
-        '27.184.0.0/13', '36.96.0.0/12', '39.64.0.0/11', '42.0.0.0/12',
-        '49.64.0.0/11', '58.240.0.0/12', '60.208.0.0/12', '61.48.0.0/12',
-        '101.16.0.0/12', '106.32.0.0/12', '110.96.0.0/11', '111.160.0.0/13',
-        '112.96.0.0/12', '113.128.0.0/10', '115.24.0.0/14', '116.224.0.0/12',
-        '117.8.0.0/13', '118.80.0.0/13', '119.112.0.0/13', '120.0.0.0/12',
-        '121.16.0.0/12', '122.96.0.0/11', '123.160.0.0/12', '124.128.0.0/13',
-        '175.148.0.0/14', '182.32.0.0/12', '183.160.0.0/12', '202.96.0.0/12',
-        '210.192.0.0/11', '218.56.0.0/13', '219.148.0.0/14', '220.192.0.0/12',
-        '221.192.0.0/13', '222.160.0.0/12'
-    ],
-    'mobile': [  # 移动
-        '36.128.0.0/10', '39.128.0.0/10', '111.0.0.0/10', '112.0.0.0/10',
-        '117.128.0.0/10', '120.192.0.0/10', '183.192.0.0/10', '211.136.0.0/13',
-        '211.144.0.0/12', '218.200.0.0/13', '218.206.0.0/15', '219.156.0.0/15',
-        '221.176.0.0/13', '222.128.0.0/12', '223.96.0.0/12'
-    ]
-}
-
-# 港澳台及海外常用域名后缀（用于辅助判断）
-OVERSEAS_KEYWORDS = [
-    '.hk', '.tw', '.mo', '.uk', '.jp', '.kr', '.us', '.sg', '.my', '.th',
-    'youtube', 'twitch', 'akamaized', 'cloudfront', 'netflix'
-]
-
-# DNS缓存，避免重复解析
-DNS_CACHE = {}
-
-def get_ip_from_url(url):
-    """从URL中提取域名并解析IP地址"""
-    try:
-        # 提取域名
-        domain_match = re.match(r'https?://([^/:]+)', url)
-        if not domain_match:
-            return None
-        
-        domain = domain_match.group(1)
-        
-        # 如果本身就是IP
-        try:
-            ipaddress.ip_address(domain)
-            return domain
-        except ValueError:
-            pass
-        
-        # 查DNS缓存
-        if domain in DNS_CACHE:
-            return DNS_CACHE[domain]
-        
-        # 解析域名
-        ip = socket.gethostbyname(domain)
-        DNS_CACHE[domain] = ip
-        return ip
-    except Exception:
-        return None
-
-def is_ip_in_network(ip, network_cidr):
-    """判断IP是否在某个网段内"""
-    try:
-        ip_obj = ipaddress.ip_address(ip)
-        network = ipaddress.ip_network(network_cidr)
-        return ip_obj in network
-    except Exception:
-        return False
-
-def detect_isp_from_ip(ip):
-    """根据IP判断运营商"""
-    if not ip:
-        return 'unknown'
-    
-    for isp, networks in CHINA_IPS.items():
-        for network in networks:
-            if is_ip_in_network(ip, network):
-                return isp
-    
-    return 'foreign'
-
-def is_likely_overseas_by_domain(url):
-    """通过域名后缀判断是否为海外源"""
-    url_lower = url.lower()
-    for keyword in OVERSEAS_KEYWORDS:
-        if keyword in url_lower:
-            return True
-    return False
-
-def isp_to_tag(isp, url):
-    """运营商代码转标记（海外源标记为#海外，无法判断的标记为#全网）"""
-    # 先通过域名辅助判断
-    if is_likely_overseas_by_domain(url):
-        return '#海外'
-    
-    isp_map = {
-        'telecom': '#电信',
-        'unicom': '#联通',
-        'mobile': '#移动',
-        'foreign': '#海外',  # 海外IP标记为海外
-        'unknown': '#全网'   # 无法判断的标记为全网
-    }
-    return isp_map.get(isp, '#全网')
 
 def get_channel_category(channel_name):
     """根据频道名判断所属分类"""
@@ -152,11 +33,11 @@ def get_channel_category(channel_name):
     cctv_keywords = ['CCTV', '中央', '央视', 'CETV', 'CGTN']
     for kw in cctv_keywords:
         if kw in name:
-            return '央视,#genre#'
+            return '央视'
     
     # 4K分类
-    if '4K' in name or '4k' in channel_name or '超清' in name:
-        return '4K,#genre#'
+    if '4K' in name or '4k' in channel_name or '超清' in name or 'UHD' in name:
+        return '4K'
     
     # 卫视分类
     weishi_keywords = ['卫视', '湖南', '浙江', '江苏', '东方', '北京', '深圳', '广东', 
@@ -166,27 +47,26 @@ def get_channel_category(channel_name):
                        '东南', '旅游', '金鹰', '卡酷', '炫动', '优漫', 'BRTV', 'BTV']
     for kw in weishi_keywords:
         if kw in name:
-            return '卫视,#genre#'
+            return '卫视'
     
     # 港澳分类
     gangao_keywords = ['香港', '澳门', 'TVB', '明珠', '翡翠', 'J2', '互动新闻', 
                        '无线', '凤凰', 'HK', 'MACAU', '澳亚', '莲花', '澳视']
     for kw in gangao_keywords:
         if kw in name:
-            return '港澳,#genre#'
+            return '港澳'
     
     # 海外分类
-    overseas_keywords = ['CNN', 'BBC', 'NHK', 'KBS', 'SBS', 'MBC', 'TVB', 'FOX', 
+    overseas_keywords = ['CNN', 'BBC', 'NHK', 'KBS', 'SBS', 'MBC', 'FOX', 
                          'HBO', 'CINEMAX', '卫视电影', '卫视体育', '卫视中文',
-                         'Discovery', 'National Geographic', 'HISTORY', 'DW',
-                         'FRANCE', 'ALJAZEERA', 'CGTN', 'RT', 'TRT', 'EURONEWS',
-                         'Bloomberg', 'CNBC', 'ABC', 'NBC', 'CBS', 'FOX']
+                         'DISCOVERY', 'NGC', 'HISTORY', 'DW', 'FRANCE', 'ALJAZEERA',
+                         'BLOOMBERG', 'CNBC', 'ABC', 'NBC', 'CBS']
     for kw in overseas_keywords:
         if kw in name:
-            return '海外,#genre#'
+            return '海外'
     
     # 默认为其他
-    return '其他,#genre#'
+    return '其他'
 
 def parse_txt_content(content, source_url):
     """解析TXT格式的直播源"""
@@ -220,10 +100,12 @@ def parse_m3u_content(content, source_url):
         line = lines[i].strip()
         
         if line.startswith('#EXTINF:'):
+            # 提取频道名称
             name_match = re.search(r',([^,]+)$', line)
             if name_match:
                 channel_name = name_match.group(1).strip()
                 
+                # 下一行应该是URL
                 if i + 1 < len(lines):
                     channel_url = lines[i + 1].strip()
                     if channel_url and not channel_url.startswith('#'):
@@ -237,19 +119,11 @@ def parse_m3u_content(content, source_url):
             i += 1
     return channels
 
-def get_isp_tag_for_url(url):
-    """获取URL对应的运营商标记"""
-    ip = get_ip_from_url(url)
-    if ip:
-        isp = detect_isp_from_ip(ip)
-        return isp_to_tag(isp, url)
-    return isp_to_tag('unknown', url)  # 解析失败也走统一逻辑
-
 def fetch_and_merge():
     all_channels = []
     
     print("=" * 60)
-    print("🚀 开始抓取直播源（快速模式：只识别运营商，不测速）...")
+    print("🚀 开始抓取直播源（极速模式：只合并分类，不测速）...")
     print("=" * 60)
     
     # 1. 抓取所有源
@@ -275,57 +149,37 @@ def fetch_and_merge():
     
     print(f"\n📊 共抓取到 {len(all_channels)} 个频道")
     
-    # 2. 识别每个频道的运营商和分类
-    print("\n🔍 正在识别运营商和分类...")
-    print("-" * 60)
+    # 2. 为每个频道分类
+    print("\n🔍 正在分类频道...")
+    
+    # 获取当前日期，用于日期分类
+    current_date = time.strftime('%y%m%d')  # 格式：260314
+    current_time_full = time.strftime('%Y-%m-%d %H:%M:%S')
     
     # 统计各分类数量
     category_stats = {
         '央视': 0, '卫视': 0, '4K': 0, 
-        '港澳': 0, '海外': 0, '其他': 0
-    }
-    # 统计运营商标记
-    isp_stats = {'#电信': 0, '#联通': 0, '#移动': 0, '#海外': 0, '#全网': 0}
-    
-    for i, ch in enumerate(all_channels, 1):
-        # 获取分类
-        ch['category'] = get_channel_category(ch['name'])
-        
-        # 获取运营商标记
-        isp_tag = get_isp_tag_for_url(ch['url'])
-        ch['isp_tag'] = isp_tag
-        
-        # 更新统计
-        category_name = ch['category'].split(',')[0]
-        category_stats[category_name] = category_stats.get(category_name, 0) + 1
-        isp_stats[isp_tag] = isp_stats.get(isp_tag, 0) + 1
-        
-        # 每20个显示一次进度
-        if i % 20 == 0 or i == len(all_channels):
-            print(f"   已处理 {i}/{len(all_channels)} 个频道...")
-    
-    print("-" * 60)
-    print("📊 分类统计：")
-    for cat, count in category_stats.items():
-        if count > 0:
-            print(f"   {cat}: {count} 个")
-    print("\n📊 运营商标记统计：")
-    for isp, count in isp_stats.items():
-        if count > 0:
-            print(f"   {isp}: {count} 个")
-    
-    # 3. 按分类和频道名分组
-    channels_by_category = {
-        '央视': {},
-        '卫视': {},
-        '4K': {},
-        '港澳': {},
-        '海外': {},
-        '其他': {}
+        '港澳': 0, '海外': 0, '其他': 0,
+        current_date: 0  # 添加日期分类
     }
     
     for ch in all_channels:
-        category = ch['category'].split(',')[0]
+        ch['category'] = get_channel_category(ch['name'])
+        category_stats[ch['category']] = category_stats.get(ch['category'], 0) + 1
+    
+    print("📊 分类统计：")
+    for cat, count in category_stats.items():
+        if count > 0 and cat != current_date:  # 日期分类暂时没频道，稍后手动加
+            print(f"   {cat}: {count} 个")
+    
+    # 3. 按分类和频道名分组（保留所有源）
+    # 定义所有分类（包括动态日期分类）
+    all_categories = ['央视', '卫视', '4K', '港澳', '海外', '其他', current_date]
+    
+    channels_by_category = {cat: {} for cat in all_categories}
+    
+    for ch in all_channels:
+        category = ch['category']
         if ch['name'] not in channels_by_category[category]:
             channels_by_category[category][ch['name']] = []
         channels_by_category[category][ch['name']].append(ch)
@@ -334,32 +188,52 @@ def fetch_and_merge():
     print(f"\n💾 正在写入TXT文件: {OUTPUT_FILE}")
     
     with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
-        f.write(f"# 自动聚合直播源 - 生成时间: {time.strftime('%Y-%m-%d %H:%M:%S')}\n")
-        f.write(f"# 总频道数: {len(all_channels)} | 分类: 央视/卫视/4K/港澳/海外/其他\n")
-        f.write(f"# 运营商标记: {'开启' if ADD_ISP_TAG else '关闭'}（电信/联通/移动/海外/全网）\n\n")
+        f.write(f"# 自动聚合直播源 - 生成时间: {current_time_full}\n")
+        f.write(f"# 总频道数: {len(all_channels)} | 分类: 央视/卫视/4K/港澳/海外/其他/日期\n")
+        f.write(f"# 注：同一个频道可能有多个源地址，全部保留\n\n")
         
-        # 按分类顺序写入
-        category_order = ['央视', '卫视', '4K', '港澳', '海外', '其他']
+        # 按分类顺序写入（央视、卫视、4K、港澳、海外、其他、日期）
+        category_order = ['央视', '卫视', '4K', '港澳', '海外', '其他', current_date]
         
         for category in category_order:
             channels_dict = channels_by_category[category]
-            if not channels_dict:
-                continue
             
-            # 写入分类标题
-            f.write(f"\n{category},#genre#\n")
-            
-            # 按频道名排序写入
-            for channel_name in sorted(channels_dict.keys()):
-                for ch in channels_dict[channel_name]:
-                    if ADD_ISP_TAG:
-                        f.write(f"{ch['name']},{ch['url']} {ch['isp_tag']}\n")
-                    else:
+            if category == current_date:
+                # 日期分类：只放一条说明信息
+                f.write(f"\n{category},#genre#\n")
+                f.write(f"更新时间,本频道列表更新于 {current_time_full}\n")
+                f.write(f"总频道数,共 {len(all_channels)} 个频道\n")
+                for cat, count in category_stats.items():
+                    if cat != current_date and count > 0:
+                        f.write(f"{cat}频道,{count} 个\n")
+            else:
+                # 正常分类
+                if not channels_dict:
+                    continue
+                
+                f.write(f"\n{category},#genre#\n")
+                
+                # 按频道名排序写入
+                for channel_name in sorted(channels_dict.keys()):
+                    for ch in channels_dict[channel_name]:
                         f.write(f"{ch['name']},{ch['url']}\n")
+        
+        # 在文件末尾添加时间标记
+        f.write(f"\n\n# ========================================\n")
+        f.write(f"# 文件生成时间: {current_time_full}\n")
+        f.write(f"# 总频道数量: {len(all_channels)} 个\n")
+        f.write(f"# 来源数量: {len(SOURCE_URLS)} 个\n")
+        f.write(f"# 分类详情:\n")
+        for cat, count in category_stats.items():
+            if count > 0:
+                f.write(f"#   {cat}: {count} 个\n")
+        f.write(f"# ========================================\n")
     
     print(f"✅ 完成！")
     print(f"   📊 总共 {len(all_channels)} 个频道")
+    print(f"   📋 涉及 {sum(len(v) for v in channels_by_category.values())} 个不同的频道名")
     print(f"   📁 保存到: {OUTPUT_FILE}")
+    print(f"   🕐 日期分类: {current_date}（已添加）")
     print("=" * 60)
 
 if __name__ == "__main__":
