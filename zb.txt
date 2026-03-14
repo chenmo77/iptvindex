@@ -915,11 +915,11 @@ YES Network,https://7pal.short.gy/yesnw
 温馨提示,#genre#
 根据上网宽带,https://
 选择相应线路,https://
-★★★○,https://
+☆☆☆☆,https://
 全网线路中的,https://
 部分频道需要,https://
 科学上网环境,https://
-★★★●,https://
+★★★★,https://
 仅供免费测试,https://
 
 分组说明,#genre#
