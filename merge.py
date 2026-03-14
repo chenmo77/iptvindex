@@ -5,10 +5,10 @@ from collections import OrderedDict
 
 # ================ 🔧 配置区域 1：你的直播源地址列表 ================
 SOURCE_URLS = [
-    "https://raw.githubusercontent.com/chenmo77/iptvindex/refs/heads/main/zb.txt", 
+    "https://raw.githubusercontent.com/chenmo77/iptvindex/refs/heads/main/zb.txt",
     "https://raw.githubusercontent.com/develop202/migu_video/refs/heads/main/interface.txt",
-    "https://raw.githubusercontent.com/Guovin/iptv-api/gd/output/result.txt", 
-    "https://gitee.com/mytv-android/iptv-api/raw/master/output/result.m3u", 
+    "https://raw.githubusercontent.com/Guovin/iptv-api/gd/output/result.txt",
+    "https://gitee.com/mytv-android/iptv-api/raw/master/output/result.m3u",
     "https://d.h6room.com/frjzb.txt",
     "http://bxtv.3a.ink/live.m3u",
     "https://live.zbds.org/tv/iptv4.txt",
@@ -22,51 +22,82 @@ SOURCE_URLS = [
 ]
 
 # ================ 🔧 配置区域 2：输出设置 ================
-OUTPUT_FILE = "live.txt"  # 最终生成的文件名
+OUTPUT_FILE = "live.txt"
 # ================================================================
+
+# ----- 央视排序专用列表 (1-17) -----
+CCTV_ORDER = [
+    "CCTV1", "CCTV2", "CCTV3", "CCTV4", "CCTV5", "CCTV5+", "CCTV6", "CCTV7",
+    "CCTV8", "CCTV9", "CCTV10", "CCTV11", "CCTV12", "CCTV13", "CCTV14",
+    "CCTV15", "CCTV16", "CCTV17"
+]
+
+def standardize_cctv_name(name):
+    """
+    将各类央视名称标准化为 "CCTV数字" 或 "CCTV5+" 格式，
+    非标准数字系列（如兵器科技）则保留原名且不加CCTV前缀。
+    """
+    upper_name = name.upper()
+    # 特殊处理：CCTV5+ 或 风云足球 等非数字频道，不强制加CCTV前缀
+    if '兵器科技' in upper_name or '台球' in upper_name or '风云' in upper_name:
+        return name.strip()
+    
+    # 提取数字部分（包括可能的'+'号）
+    match = re.search(r'CCTV?[\s-]*(\d+[\+]?)', upper_name)
+    if match:
+        num = match.group(1)
+        return f"CCTV{num}"
+    
+    # 处理中文“中央一套”等情况
+    match = re.search(r'中央[^\d]*(\d+)', upper_name)
+    if match:
+        num = match.group(1)
+        return f"CCTV{num}"
+    
+    return name.strip()
 
 def get_channel_category(channel_name):
     """根据频道名判断所属分类"""
     name = channel_name.upper()
     
-    # 央视分类
-    cctv_keywords = ['CCTV', '中央', '央视', 'CETV', 'CGTN']
-    for kw in cctv_keywords:
-        if kw in name:
-            return '央视'
+    # ----- 央视分类 -----
+    # 先标准化名称
+    std_name = standardize_cctv_name(channel_name)
+    # 如果标准化后以CCTV开头，且确实是数字系列，才归入央视
+    if std_name.startswith('CCTV'):
+        # 过滤掉非标准数字频道（如CCTV兵器科技不应该进央视）
+        if '兵器' not in std_name and '台球' not in std_name:
+            return '央视', std_name
     
-    # 4K分类
+    # ----- 卫视分类（严格筛选）-----
+    # 只有频道名明确包含“卫视”二字的才归入此类
+    if '卫视' in channel_name:
+        # 提取卫视名（去掉“卫视”二字以便排序）
+        weishi_name = channel_name.replace('卫视', '').strip()
+        return '卫视', weishi_name
+    
+    # ----- 4K分类 -----
     if '4K' in name or '4k' in channel_name or '超清' in name or 'UHD' in name:
-        return '4K'
+        return '4K', channel_name.strip()
     
-    # 卫视分类
-    weishi_keywords = ['卫视', '湖南', '浙江', '江苏', '东方', '北京', '深圳', '广东', 
-                       '安徽', '山东', '天津', '重庆', '黑龙江', '辽宁', '吉林', '湖北',
-                       '江西', '广西', '内蒙古', '宁夏', '青海', '陕西', '山西', '河北',
-                       '河南', '云南', '贵州', '四川', '福建', '海南', '甘肃', '新疆',
-                       '东南', '旅游', '金鹰', '卡酷', '炫动', '优漫', 'BRTV', 'BTV']
-    for kw in weishi_keywords:
-        if kw in name:
-            return '卫视'
-    
-    # 港澳分类
-    gangao_keywords = ['香港', '澳门', 'TVB', '明珠', '翡翠', 'J2', '互动新闻', 
+    # ----- 港澳分类 -----
+    gangao_keywords = ['香港', '澳门', 'TVB', '明珠', '翡翠', 'J2', '互动新闻',
                        '无线', '凤凰', 'HK', 'MACAU', '澳亚', '莲花', '澳视']
     for kw in gangao_keywords:
         if kw in name:
-            return '港澳'
+            return '港澳', channel_name.strip()
     
-    # 海外分类
-    overseas_keywords = ['CNN', 'BBC', 'NHK', 'KBS', 'SBS', 'MBC', 'FOX', 
+    # ----- 海外分类 -----
+    overseas_keywords = ['CNN', 'BBC', 'NHK', 'KBS', 'SBS', 'MBC', 'FOX',
                          'HBO', 'CINEMAX', '卫视电影', '卫视体育', '卫视中文',
                          'DISCOVERY', 'NGC', 'HISTORY', 'DW', 'FRANCE', 'ALJAZEERA',
                          'BLOOMBERG', 'CNBC', 'ABC', 'NBC', 'CBS']
     for kw in overseas_keywords:
         if kw in name:
-            return '海外'
+            return '海外', channel_name.strip()
     
-    # 默认为其他
-    return '其他'
+    # ----- 其他分类 -----
+    return '其他', channel_name.strip()
 
 def parse_txt_content(content, source_url):
     """解析TXT格式的直播源"""
@@ -81,7 +112,6 @@ def parse_txt_content(content, source_url):
         if match:
             channel_name = match.group(1).strip()
             channel_url = match.group(2).strip()
-            # 去掉可能存在的注释
             if ' #' in channel_url:
                 channel_url = channel_url.split(' #')[0]
             channels.append({
@@ -100,12 +130,10 @@ def parse_m3u_content(content, source_url):
         line = lines[i].strip()
         
         if line.startswith('#EXTINF:'):
-            # 提取频道名称
             name_match = re.search(r',([^,]+)$', line)
             if name_match:
                 channel_name = name_match.group(1).strip()
                 
-                # 下一行应该是URL
                 if i + 1 < len(lines):
                     channel_url = lines[i + 1].strip()
                     if channel_url and not channel_url.startswith('#'):
@@ -123,10 +151,9 @@ def fetch_and_merge():
     all_channels = []
     
     print("=" * 60)
-    print("🚀 开始抓取直播源（极速模式：只合并分类，不测速）...")
+    print("🚀 开始抓取直播源...")
     print("=" * 60)
     
-    # 1. 抓取所有源
     for url in SOURCE_URLS:
         try:
             print(f"📡 正在抓取: {url}")
@@ -147,93 +174,148 @@ def fetch_and_merge():
         except Exception as e:
             print(f"   ❌ 抓取失败: {e}")
     
-    print(f"\n📊 共抓取到 {len(all_channels)} 个频道")
+    print(f"\n📊 共抓取到 {len(all_channels)} 个原始频道")
     
-    # 2. 为每个频道分类
-    print("\n🔍 正在分类频道...")
+    # 分类并标准化名称
+    print("\n🔍 正在分类和标准化频道名...")
     
-    # 获取当前日期，用于日期分类
-    current_date = time.strftime('%y%m%d')  # 格式：260314
+    current_date = time.strftime('%y%m%d')
     current_time_full = time.strftime('%Y-%m-%d %H:%M:%S')
     
-    # 统计各分类数量
-    category_stats = {
-        '央视': 0, '卫视': 0, '4K': 0, 
-        '港澳': 0, '海外': 0, '其他': 0,
-        current_date: 0  # 添加日期分类
-    }
+    # 存储标准化后的频道对象，同时保留原始名用于去重
+    processed_channels = []
+    category_stats = {cat: 0 for cat in ['央视', '卫视', '4K', '港澳', '海外', '其他', current_date]}
     
     for ch in all_channels:
-        ch['category'] = get_channel_category(ch['name'])
-        category_stats[ch['category']] = category_stats.get(ch['category'], 0) + 1
+        category, sort_key = get_channel_category(ch['name'])
+        
+        # 标准化央视名称
+        if category == '央视':
+            display_name = sort_key  # sort_key已经是标准化后的CCTV名称
+        else:
+            display_name = ch['name'].strip()
+        
+        processed_channels.append({
+            'display_name': display_name,
+            'sort_key': sort_key,
+            'category': category,
+            'url': ch['url'],
+            'source': ch['source']
+        })
+        category_stats[category] += 1
     
+    # 按分类和排序键分组
+    channels_by_category = {cat: {} for cat in ['央视', '卫视', '4K', '港澳', '海外', '其他', current_date]}
+    
+    for ch in processed_channels:
+        cat = ch['category']
+        key = ch['sort_key']  # 卫视这里存的是去掉“卫视”后的名字，用于排序
+        
+        if key not in channels_by_category[cat]:
+            channels_by_category[cat][key] = []
+        channels_by_category[cat][key].append(ch)
+    
+    # 输出统计
     print("📊 分类统计：")
-    for cat, count in category_stats.items():
-        if count > 0 and cat != current_date:  # 日期分类暂时没频道，稍后手动加
-            print(f"   {cat}: {count} 个")
+    for cat in ['央视', '卫视', '4K', '港澳', '海外', '其他']:
+        if category_stats[cat] > 0:
+            print(f"   {cat}: {category_stats[cat]} 个")
     
-    # 3. 按分类和频道名分组（保留所有源）
-    # 定义所有分类（包括动态日期分类）
-    all_categories = ['央视', '卫视', '4K', '港澳', '海外', '其他', current_date]
-    
-    channels_by_category = {cat: {} for cat in all_categories}
-    
-    for ch in all_channels:
-        category = ch['category']
-        if ch['name'] not in channels_by_category[category]:
-            channels_by_category[category][ch['name']] = []
-        channels_by_category[category][ch['name']].append(ch)
-    
-    # 4. 写入最终文件
+    # 写入文件
     print(f"\n💾 正在写入TXT文件: {OUTPUT_FILE}")
     
     with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
         f.write(f"# 自动聚合直播源 - 生成时间: {current_time_full}\n")
-        f.write(f"# 总频道数: {len(all_channels)} | 分类: 央视/卫视/4K/港澳/海外/其他/日期\n")
-        f.write(f"# 注：同一个频道可能有多个源地址，全部保留\n\n")
+        f.write(f"# 总频道数: {len(processed_channels)} | 分类: 央视/卫视/4K/港澳/海外/其他/日期\n\n")
         
-        # 按分类顺序写入（央视、卫视、4K、港澳、海外、其他、日期）
-        category_order = ['央视', '卫视', '4K', '港澳', '海外', '其他', current_date]
+        # ----- 央视分类 (按CCTV_ORDER排序) -----
+        cctv_dict = channels_by_category['央视']
+        if cctv_dict:
+            f.write(f"\n央视,#genre#\n")
+            # 先按指定顺序写入1-17
+            written = set()
+            for std_name in CCTV_ORDER:
+                if std_name in cctv_dict:
+                    for ch in cctv_dict[std_name]:
+                        f.write(f"{ch['display_name']},{ch['url']}\n")
+                    written.add(std_name)
+            # 再写入其他央视（如CCTVNews等）按字母顺序
+            others = sorted([k for k in cctv_dict.keys() if k not in written])
+            for key in others:
+                for ch in cctv_dict[key]:
+                    f.write(f"{ch['display_name']},{ch['url']}\n")
         
-        for category in category_order:
-            channels_dict = channels_by_category[category]
-            
-            if category == current_date:
-                # 日期分类：只放一条说明信息
-                f.write(f"\n{category},#genre#\n")
-                f.write(f"更新时间,本频道列表更新于 {current_time_full}\n")
-                f.write(f"总频道数,共 {len(all_channels)} 个频道\n")
-                for cat, count in category_stats.items():
-                    if cat != current_date and count > 0:
-                        f.write(f"{cat}频道,{count} 个\n")
-            else:
-                # 正常分类
-                if not channels_dict:
-                    continue
-                
-                f.write(f"\n{category},#genre#\n")
-                
-                # 按频道名排序写入
-                for channel_name in sorted(channels_dict.keys()):
-                    for ch in channels_dict[channel_name]:
-                        f.write(f"{ch['name']},{ch['url']}\n")
+        # ----- 卫视分类 (指定顺序+拼音) -----
+        weishi_dict = channels_by_category['卫视']
+        if weishi_dict:
+            f.write(f"\n卫视,#genre#\n")
+            # 指定顺序
+            priority = ['湖南', '浙江', '北京', '东方']
+            written = set()
+            for p in priority:
+                if p in weishi_dict:
+                    for ch in weishi_dict[p]:
+                        f.write(f"{ch['display_name']},{ch['url']}\n")
+                    written.add(p)
+            # 其余按拼音排序
+            others = sorted([k for k in weishi_dict.keys() if k not in written])
+            for key in others:
+                for ch in weishi_dict[key]:
+                    f.write(f"{ch['display_name']},{ch['url']}\n")
         
-        # 在文件末尾添加时间标记
+        # ----- 4K分类 (拼音排序) -----
+        dict_4k = channels_by_category['4K']
+        if dict_4k:
+            f.write(f"\n4K,#genre#\n")
+            for key in sorted(dict_4k.keys()):
+                for ch in dict_4k[key]:
+                    f.write(f"{ch['display_name']},{ch['url']}\n")
+        
+        # ----- 港澳分类 (拼音排序) -----
+        dict_gangao = channels_by_category['港澳']
+        if dict_gangao:
+            f.write(f"\n港澳,#genre#\n")
+            for key in sorted(dict_gangao.keys()):
+                for ch in dict_gangao[key]:
+                    f.write(f"{ch['display_name']},{ch['url']}\n")
+        
+        # ----- 海外分类 (拼音排序) -----
+        dict_overseas = channels_by_category['海外']
+        if dict_overseas:
+            f.write(f"\n海外,#genre#\n")
+            for key in sorted(dict_overseas.keys()):
+                for ch in dict_overseas[key]:
+                    f.write(f"{ch['display_name']},{ch['url']}\n")
+        
+        # ----- 其他分类 (拼音排序) -----
+        dict_other = channels_by_category['其他']
+        if dict_other:
+            f.write(f"\n其他,#genre#\n")
+            for key in sorted(dict_other.keys()):
+                for ch in dict_other[key]:
+                    f.write(f"{ch['display_name']},{ch['url']}\n")
+        
+        # ----- 日期分类 (统计数据) -----
+        f.write(f"\n{current_date},#genre#\n")
+        f.write(f"更新时间 本频道列表更新于 {current_time_full}\n")
+        f.write(f"总频道数 {len(processed_channels)} 个\n")
+        for cat in ['央视', '卫视', '4K', '港澳', '海外', '其他']:
+            if category_stats[cat] > 0:
+                f.write(f"{cat} {category_stats[cat]} 个\n")
+        
+        # 文件末尾信息
         f.write(f"\n\n# ========================================\n")
         f.write(f"# 文件生成时间: {current_time_full}\n")
-        f.write(f"# 总频道数量: {len(all_channels)} 个\n")
+        f.write(f"# 总频道数量: {len(processed_channels)} 个\n")
         f.write(f"# 来源数量: {len(SOURCE_URLS)} 个\n")
-        f.write(f"# 分类详情:\n")
-        for cat, count in category_stats.items():
-            if count > 0:
-                f.write(f"#   {cat}: {count} 个\n")
+        for cat in ['央视', '卫视', '4K', '港澳', '海外', '其他']:
+            if category_stats[cat] > 0:
+                f.write(f"#   {cat}: {category_stats[cat]} 个\n")
         f.write(f"# ========================================\n")
     
     print(f"✅ 完成！")
-    print(f"   📊 总共 {len(all_channels)} 个频道")
-    print(f"   📋 涉及 {sum(len(v) for v in channels_by_category.values())} 个不同的频道名")
+    print(f"   📊 总共 {len(processed_channels)} 个频道")
     print(f"   📁 保存到: {OUTPUT_FILE}")
-    print(f"   🕐 日期分类: {current_date}（已添加）")
     print("=" * 60)
 
 if __name__ == "__main__":
