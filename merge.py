@@ -10,6 +10,7 @@ SOURCE_URLS = [
     "https://raw.githubusercontent.com/develop202/migu_video/refs/heads/main/interface.txt",
     "https://raw.githubusercontent.com/Guovin/iptv-api/gd/output/result.txt",
     "https://gitee.com/mytv-android/iptv-api/raw/master/output/result.m3u",
+    "https://php.946985.filegear-sg.me/test.m3u",
     "https://d.h6room.com/frjzb.txt",
     "http://bxtv.3a.ink/live.m3u",
     "https://live.zbds.org/tv/iptv4.txt",
