@@ -713,6 +713,7 @@ Bloomberg Tv,https://www.bloomberg.com/media-manifest/streams/originals-global.m
 Bloomberg 美国,https://www.bloomberg.com/media-manifest/streams/phoenix-us.m3u8
 Bloomberg 亚洲,https://www.bloomberg.com/media-manifest/streams/asia.m3u8
 Btv,https://www.bloomberg.com/media-manifest/streams/btv-global.m3u8
+Btv,https://www.bloomberg.com/media-manifest/streams/radio-national-video.m3u8
 BBC World News,https://newsxott.in/hls/newsxworld.m3u8
 BBC NEWS,https://vs-hls-push-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_news_channel_hd/t=3840/v=pv14/b=5070016/main.m3u8
 BBC NEWS,http://84.17.50.102/bbcnews/index.m3u8
