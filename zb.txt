@@ -906,6 +906,7 @@ Red Bull TV,https://1a3566cb46914c5499fbc86fbc4ac87e.mediatailor.us-west-2.amazo
 SEC Network,https://7pal.short.gy/secnw
 STAR SPORTS 1,http://41.205.93.154/STARSPORTS1/index.m3u8
 Tennis Channel,https://7pal.short.gy/tennisc
+THE LOT RADIO,https://mdw-prod-catalyst-0.lp-playback.studio/hls/video+85c28sa2o8wppm58/index.m3u8
 TOKYO MX1,https://nl.utako.moe/Tokyo_MX1/index.m3u8
 TOKYO MX2,https://nl.utako.moe/Tokyo_MX2/index.m3u8
 TRAVEL CHANNEL WEST,http://restream-live.realiptv.to:8080/live/52748969/72335180/3845.ts
