@@ -7,13 +7,11 @@ import re
 # 1. 您的蓝本文件地址 (zb.txt)
 MASTER_FILE_URL = "https://raw.githubusercontent.com/chenmo77/iptvindex/refs/heads/main/zb.txt"
 
-# 2. 您自定义的其他直播源列表
-#    格式: [("一级分组名称", "源地址"), ...]
+# 2. 您自定义的其他直播源列表（已按您的要求填好）
 CUSTOM_SOURCES = [
     ("咪咕", "https://raw.githubusercontent.com/develop202/migu_video/refs/heads/main/interface.txt"),
     ("Guovin", "https://raw.githubusercontent.com/Guovin/iptv-api/gd/output/result.txt"),
     ("mytv", "https://gitee.com/mytv-android/iptv-api/raw/master/output/result.m3u"),
-    ("946985", "https://php.946985.filegear-sg.me/test.m3u"),
     ("h6room", "https://d.h6room.com/frjzb.txt"),
     ("bxtv", "http://bxtv.3a.ink/live.m3u"),
     ("zbds", "https://live.zbds.org/tv/iptv4.txt"),
@@ -42,45 +40,77 @@ def fetch_file_content(url):
         print(f"   ❌ 抓取失败: {e}")
         return None
 
-def m3u_to_txt(content):
+def is_m3u_format(content):
+    """判断内容是否为M3U格式（通过文件头或内容特征）"""
+    # 检查第一行是否包含 #EXTM3U
+    first_line = content.strip().split('\n')[0] if content else ''
+    if '#EXTM3U' in first_line:
+        return True
+    
+    # 检查是否包含典型的M3U标签
+    if '#EXTINF:' in content:
+        return True
+    
+    return False
+
+def parse_m3u_to_txt(content):
     """
-    将M3U/M3U8格式转换为TXT格式
-    M3U格式：
-        #EXTINF:-1,CCTV1
-        http://example.com/cctv1.m3u8
-    转换为：
-        CCTV1,http://example.com/cctv1.m3u8
+    将M3U格式内容转换为TXT格式，并尝试从 group-title 提取分类
+    返回格式：可能是 "#genre#" 分类行，也可能是 "频道名,URL" 行
     """
     lines = content.split('\n')
     txt_lines = []
+    current_genre = None  # 用于跟踪当前的分类
     
     i = 0
     while i < len(lines):
         line = lines[i].strip()
         
-        if line.startswith('#EXTINF:'):
-            # 提取频道名称（逗号后面的部分）
+        # 提取分类信息（如果有）
+        if '#EXTINF:' in line:
+            # 尝试从 group-title 提取分类名
+            group_match = re.search(r'group-title="([^"]+)"', line)
+            if group_match:
+                genre_name = group_match.group(1).strip()
+                if genre_name and genre_name != current_genre:
+                    current_genre = genre_name
+                    # 添加分类行，格式为 "分类名,#genre#"
+                    txt_lines.append(f"{current_genre},#genre#")
+            
+            # 提取频道名称（从最后一个逗号后面）
             name_match = re.search(r',([^,]+)$', line)
-            if name_match:
-                channel_name = name_match.group(1).strip()
-                
-                # 下一行应该是URL
-                if i + 1 < len(lines):
-                    channel_url = lines[i + 1].strip()
-                    if channel_url and not channel_url.startswith('#'):
-                        txt_lines.append(f"{channel_name},{channel_url}")
+            channel_name = name_match.group(1).strip() if name_match else ""
+            
+            # 下一行应该是URL
+            if i + 1 < len(lines):
+                channel_url = lines[i + 1].strip()
+                if channel_url and not channel_url.startswith('#'):
+                    # 添加频道行
+                    txt_lines.append(f"{channel_name},{channel_url}")
             i += 2
         else:
-            # 保留非EXTINF行（如注释、分组标记等）
-            if line and not line.startswith('#EXT'):
+            # 非EXTINF行：保留注释、空行等，但过滤掉 #EXTM3U 头
+            if line and not line.startswith('#EXTM3U'):
                 txt_lines.append(line)
             i += 1
     
     return '\n'.join(txt_lines)
 
+def convert_to_txt(content, url):
+    """
+    智能转换函数：判断内容格式，统一输出TXT
+    """
+    # 如果内容是M3U格式（无论是 .m3u 后缀还是内容特征）
+    if '.m3u' in url.lower() or is_m3u_format(content):
+        print(f"   📋 检测到M3U格式，正在智能转换（保留分类）...")
+        return parse_m3u_to_txt(content)
+    else:
+        # 普通TXT内容，原样返回
+        return content
+
 def main():
     print("=" * 70)
-    print("🚀 开始合并直播源（只合并，不修改）...")
+    print("🚀 开始合并直播源（智能解析M3U分类）...")
     print("=" * 70)
     
     # 1. 获取蓝本文件
@@ -116,13 +146,11 @@ def main():
                 # 获取源内容
                 source_content = fetch_file_content(source_url)
                 if source_content:
-                    # 如果是M3U/M3U8格式，转换为TXT
-                    if '.m3u' in source_url.lower() or '#EXTM3U' in source_content:
-                        print(f"   📋 检测到M3U格式，正在转换...")
-                        source_content = m3u_to_txt(source_content)
+                    # 智能转换为TXT格式
+                    converted_content = convert_to_txt(source_content, source_url)
                     
-                    # 添加源内容（原样保留）
-                    source_lines = source_content.split('\n')
+                    # 添加转换后的内容（原样保留）
+                    source_lines = converted_content.split('\n')
                     for source_line in source_lines:
                         if source_line.strip():  # 跳过空行
                             final_lines.append(source_line.rstrip())
