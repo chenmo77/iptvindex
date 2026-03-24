@@ -9,7 +9,7 @@ MASTER_FILE_URL = "https://raw.githubusercontent.com/chenmo77/iptvindex/refs/hea
 
 # 2. 您自定义的其他直播源列表（已按您的要求填好）
 CUSTOM_SOURCES = [
-    ("cq", "https://iptv.cqshushu.com/iptv807.php?jk=txt&token=1baa74c431b01cc72b3a0086ef7cba8d"),
+    ("cq", "http://iptv.cqshushu.com/iptv807.php?jk=txt&token=0ee4f16c464ca62e92fc55546885b327"),
     ("咪咕", "https://raw.githubusercontent.com/develop202/migu_video/refs/heads/main/interface.txt"),
     ("Guovin", "https://raw.githubusercontent.com/Guovin/iptv-api/gd/output/result.txt"),
     ("mytv", "https://gitee.com/mytv-android/iptv-api/raw/master/output/result.m3u"),
