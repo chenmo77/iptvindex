@@ -6277,7 +6277,7 @@ yaoyao说,https://goodiptv.club/douyu/884073
 更新时间,#genre#
 2026-03-24 12:26:32,https://vd2.bdstatic.com/mda-scfjjr0gw3rrk0nm/sc/cae_h264/1773669284080863767/mda-scfjjr0gw3rrk0nm.mp4
 www.izbds.com,https://vd2.bdstatic.com/mda-scfjjr0gw3rrk0nm/sc/cae_h264/1773669284080863767/mda-scfjjr0gw3rrk0nm.mp4
-cai23511-1,#group#
+tv84,#group#
 CCTV-1,http://39.134.115.163:8080/PLTV/88888910/224/3221225618/index.m3u8
 CCTV-2,http://39.134.115.163:8080/PLTV/88888910/224/3221225619/index.m3u8
 CCTV-3,http://39.134.115.163:8080/PLTV/88888910/224/3221225647/index.m3u8
@@ -6662,8 +6662,8 @@ cptv2,http://jsylivealone302.iqilu.com/live/chiping_tv02/index.m3u8
 雪乡大石碑,https://gcalic.v.myalicdn.com/gc/mdjxxdsb_1/index.m3u8?contentid=2820180516001
 中央电视台中塔东,https://gcalic.v.myalicdn.com/gc/ztd_1/index.m3u8?contentid=2820180516001
 中央电视台中塔北,https://gcalic.v.myalicdn.com/gc/ztb_1/index.m3u8?contentid=2820180516001
-cai23511-2,#group#
-CCTV-31,http://117.169.124.36:6610/ysten-businessmobile/live/cctv-3/1.m3u8
+tv26,#group#
+CCTV-3,http://117.169.124.36:6610/ysten-businessmobile/live/cctv-3/1.m3u8
 CCTV-3,http://111.63.117.13:6060/030000001000/CCTV-3/CCTV-3.m3u8
 CCTV-5+,http://117.169.124.46:6410/ysten-businessmobile/live/hdcctv05plus/1.m3u8
 CCTV-6,http://117.169.124.36:6610/ysten-businessmobile/live/cctv-6/1.m3u8
