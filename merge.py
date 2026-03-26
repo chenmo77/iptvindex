@@ -10,7 +10,6 @@ MASTER_FILE_URL = "https://raw.githubusercontent.com/chenmo77/iptvindex/refs/hea
 # 2. 您自定义的其他直播源列表（已按您的要求填好）
 CUSTOM_SOURCES = [
     ("IPV4", "https://live.hacks.tools/tv/iptv4.txt"),
-    ("IPV6", "https://live.hacks.tools/tv/iptv6.txt"),
     ("IPHW", "https://live.hacks.tools/iptv/index.m3u"),
     ("咪咕", "https://raw.githubusercontent.com/develop202/migu_video/refs/heads/main/interface.txt"),
     ("Guovin", "https://raw.githubusercontent.com/Guovin/iptv-api/gd/output/result.txt"),
