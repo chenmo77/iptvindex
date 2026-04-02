@@ -12,12 +12,9 @@ CUSTOM_SOURCES = [
     ("IPV4", "https://live.hacks.tools/tv/iptv4.txt"),
     ("咪咕", "https://raw.githubusercontent.com/develop202/migu_video/refs/heads/main/interface.txt"),
     ("Guovin", "https://raw.githubusercontent.com/Guovin/iptv-api/gd/output/result.txt"),
-    ("h6room", "https://d.h6room.com/frjzb.txt"),
     ("zbds", "https://live.zbds.org/tv/iptv4.txt"),
-    ("tv84", "https://raw.githubusercontent.com/cai23511/yex/master/TVlist/20210808384.m3u"),
-    ("tv26", "https://raw.githubusercontent.com/cai23511/yex/master/TVlist/20210808226.m3u"),
+    ("alan", "https://raw.githubusercontent.com/alantang1977/aTV/refs/heads/master/output/result.txt"),
     ("YY", "https://raw.githubusercontent.com/mursor1985/LIVE/refs/heads/main/yylunbo.m3u"),
-    ("B站", "https://raw.githubusercontent.com/mursor1985/LIVE/refs/heads/main/bililive.m3u"),
     ("虎牙", "https://raw.githubusercontent.com/mursor1985/LIVE/refs/heads/main/huyayqk.m3u"),
     ("斗鱼", "https://raw.githubusercontent.com/mursor1985/LIVE/refs/heads/main/douyuyqk.m3u")
 ]
