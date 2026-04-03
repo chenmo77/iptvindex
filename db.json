@@ -1,7 +1,7 @@
 {
   "urls": [
     {
-      "name": "260326",
+      "name": "260403",
       "url": "http://116.196.116.76/stv"
     },
     {
@@ -19,6 +19,18 @@
     {
       "name": "肥猫",
       "url": "http://肥猫.com/"
+    },
+    {
+      "name": "俊哥",
+      "url": "http://home.jundie.top:81/top98.json"
+    },
+    {
+      "name": "4K云盘",
+      "url": "https://9xi4o.tk/0725.json"
+    },
+    {
+      "name": "巧儿",
+      "url": "http://pandown.pro/tvbox/tvbox.json"
     },
     {
       "name": "liucn",
@@ -229,6 +241,6 @@
       "url": "http://hb.小虎斑.site:25252/仅供测试"
     }
   ],
-  "message": "配置来自 iptvindex.com 20260326"
+  "message": "配置来自 iptvindex.com 20260403"
 
 }
