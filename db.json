@@ -1,12 +1,24 @@
 {
   "urls": [
     {
-      "name": "260403",
+      "name": "260407",
       "url": "http://116.196.116.76/stv"
     },
     {
       "name": "星河4K",
       "url": "http://116.196.116.76/tv"
+    },
+    {
+      "name": "资源",
+      "url": "http://124.223.214.31:8/api.json"
+    },
+    {
+      "name": "爱优腾高速",
+      "url": "http://47.96.82.41:5188/config.json"
+    },
+    {
+      "name": "SVIP",
+      "url": "http://47.96.82.41:5188/svip/svip.json"
     },
     {
       "name": "王二小",
@@ -241,6 +253,6 @@
       "url": "http://hb.小虎斑.site:25252/仅供测试"
     }
   ],
-  "message": "配置来自 iptvindex.com 20260403"
+  "message": "配置文件均来自互联网 iptvindex.com 收集整理"
 
 }
