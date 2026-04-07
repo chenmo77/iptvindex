@@ -9,15 +9,15 @@
       "url": "http://116.196.116.76/tv"
     },
     {
-      "name": "资源",
+      "name": "starlink",
       "url": "http://124.223.214.31:8/api.json"
     },
     {
-      "name": "爱优腾高速",
+      "name": "电影天堂",
       "url": "http://47.96.82.41:5188/config.json"
     },
     {
-      "name": "SVIP",
+      "name": "软件小哥哥",
       "url": "http://47.96.82.41:5188/svip/svip.json"
     },
     {
