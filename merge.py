@@ -9,6 +9,7 @@ MASTER_FILE_URL = "https://raw.githubusercontent.com/chenmo77/iptvindex/refs/hea
 
 # 2. 您自定义的其他直播源列表（已按您的要求填好）
 CUSTOM_SOURCES = [
+    ("先锋", "http://ge.html-5.me//ii/%E9%BB%84%E8%9A%82%E8%9A%81%E5%85%88%E9%94%8B%E6%8E%A8%E6%B5%81%E6%BA%90.txt"),
     ("zbds", "https://live.zbds.org/tv/iptv4.txt"),
     ("咪咕", "https://raw.githubusercontent.com/develop202/migu_video/refs/heads/main/interface.txt"),
     ("Guovin", "https://raw.githubusercontent.com/Guovin/iptv-api/gd/output/result.txt"),
