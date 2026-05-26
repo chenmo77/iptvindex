@@ -1,7 +1,7 @@
 {
   "urls": [
     {
-      "name": "260517",
+      "name": "260526",
       "url": "http://www.饭太硬.cc/tv"
     },
     {
@@ -19,6 +19,26 @@
     {
       "name": "星河4K",
       "url": "http://116.196.116.76/tv"
+    },
+    {
+      "name": "影视仓",
+      "url": "http://www.影视仓.com"
+    },
+    {
+      "name": "影视仓-备",
+      "url": "https://700sjro44343.vicp.fun/vip/vip/tv.json"
+    },
+    {
+      "name": "EasyTV多仓",
+      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/EasyXC/EasyTVbox/main/easydc.jpg"
+    },
+    {
+      "name": "EasyTV4K",
+      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/EasyXC/EasyTVbox/main/easytv.jpg"
+    },
+    {
+      "name": "EasyTV少儿",
+      "url": "https://jihulab.com/ymz1231/xymz/-/raw/main/ymshaoer"
     },
     {
       "name": "starlink",
