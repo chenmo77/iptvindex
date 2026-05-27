@@ -7,7 +7,7 @@ from urllib3.util.retry import Retry
 # ================ 🔧 配置区域 ================
 # 1. 您的蓝本文件地址 (zb.txt)
 MASTER_FILE_URL = "https://raw.githubusercontent.com/chenmo77/iptvindex/refs/heads/main/zb.txt"
-# 2. 您自定义的其他直播源列表（已按您的要求填好）
+# 2. 您自定义的其他直播源列表
 CUSTOM_SOURCES = [
     ("先锋", "http://ge.html-5.me//ii/%E9%BB%84%E8%9A%82%E8%9A%81%E5%85%88%E9%94%8B%E6%8E%A8%E6%B5%81%E6%BA%90.txt"),
     ("iptvz", "https://raw.githubusercontent.com/q1017673817/iptvz/refs/heads/main/zubo_all.txt"),
@@ -19,8 +19,11 @@ CUSTOM_SOURCES = [
     ("虎牙", "https://raw.githubusercontent.com/mursor1985/LIVE/refs/heads/main/huyayqk.m3u"),
     ("斗鱼", "https://raw.githubusercontent.com/mursor1985/LIVE/refs/heads/main/douyuyqk.m3u")
 ]
-# 3. 输出文件
-OUTPUT_FILE = "live.txt"
+# 3. 输出文件配置
+OUTPUT_TXT = "live.txt"
+OUTPUT_M3U = "live.m3u"
+# 4. EPG配置（双EPG源，逗号分隔）
+EPG_URLS = "http://epg.cdn.loc.cc,https://diyp.epg.qzz.io/"
 # =============================================
 
 # 模拟浏览器的请求头，解决反爬虫问题
@@ -139,9 +142,63 @@ def convert_to_txt(content, url):
     else:
         return content
 
+def convert_to_m3u(txt_lines):
+    """
+    将TXT格式的直播源转换为标准精简M3U格式
+    支持双EPG源，自动处理分组和分类，无台标图片
+    """
+    # M3U文件头，包含双EPG配置
+    m3u_lines = [f'#EXTM3U x-tvg-url="{EPG_URLS}"']
+    
+    current_group = "未分类"
+    current_genre = ""
+    
+    for line in txt_lines:
+        line = line.strip()
+        if not line:
+            continue
+            
+        # 处理分组标记（跳过日期格式的分组）
+        if ",#group#" in line:
+            group_name = line.split(",#group#")[0].strip()
+            # 跳过6位数字的日期分组（如260527）
+            if group_name.isdigit() and len(group_name) == 6:
+                continue
+            current_group = group_name
+            current_genre = ""
+            continue
+            
+        # 处理分类标记
+        if ",#genre#" in line:
+            current_genre = line.split(",#genre#")[0].strip()
+            continue
+            
+        # 处理频道行（只分割第一个逗号，避免URL中包含逗号的情况）
+        parts = line.split(",", 1)
+        if len(parts) != 2:
+            continue
+            
+        channel_name = parts[0].strip().replace('"', "'")  # 替换双引号避免格式错误
+        channel_url = parts[1].strip()
+        
+        if not channel_name or not channel_url:
+            continue
+            
+        # 构建分组标题（分组/分类）
+        if current_genre:
+            group_title = f"{current_group}/{current_genre}"
+        else:
+            group_title = current_group
+            
+        # 生成标准M3U行（无台标，精简属性）
+        m3u_lines.append(f'#EXTINF:-1 tvg-id="{channel_name}" tvg-name="{channel_name}" group-title="{group_title}",{channel_name}')
+        m3u_lines.append(channel_url)
+    
+    return '\n'.join(m3u_lines)
+
 def main():
     print("=" * 70)
-    print("🚀 开始合并直播源（智能解析M3U分类）...")
+    print("🚀 开始合并直播源（智能解析M3U分类 + 双格式输出）...")
     print("=" * 70)
     
     # 1. 获取蓝本文件
@@ -150,7 +207,7 @@ def main():
         print("❌ 无法获取蓝本文件，程序终止")
         return
     
-    # 2. 构建最终文件内容
+    # 2. 构建最终TXT格式内容
     final_lines = []
     lines = master_content.split('\n')
     
@@ -182,10 +239,9 @@ def main():
                 if source_content:
                     converted_content = convert_to_txt(source_content, source_url)
                     source_lines = converted_content.split('\n')
-                    for source_line in source_lines:
-                        if source_line.strip():
-                            final_lines.append(source_line.rstrip())
-                    print(f"   ✅ 添加 {len(source_lines)} 行内容")
+                    valid_lines = [l.rstrip() for l in source_lines if l.strip()]
+                    final_lines.extend(valid_lines)
+                    print(f"   ✅ 添加 {len(valid_lines)} 行有效内容")
                 else:
                     print(f"   ⚠️ 该源无有效内容")
             
@@ -197,16 +253,30 @@ def main():
     current_date = time.strftime('%y%m%d')
     final_lines = [line.replace("温馨提示,#group#", f"{current_date},#group#") for line in final_lines]
     
-    # 4. 写入文件
-    print(f"\n💾 正在写入最终文件: {OUTPUT_FILE}")
-    with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
+    # 4. 写入TXT文件
+    print(f"\n💾 正在写入TXT文件: {OUTPUT_TXT}")
+    with open(OUTPUT_TXT, 'w', encoding='utf-8') as f:
         f.write('\n'.join(final_lines))
     
-    total_lines = len(final_lines)
-    print(f"✅ 完成！")
-    print(f"   📊 总行数: {total_lines}")
-    print(f"   📁 保存到: {OUTPUT_FILE}")
-    print(f"   🕐 日期标记: {current_date},#genre#")
+    txt_channel_count = len([l for l in final_lines if ',' in l and not l.endswith(('#group#', '#genre#'))])
+    print(f"   ✅ TXT文件生成完成")
+    print(f"   📊 TXT频道数: {txt_channel_count}")
+    
+    # 5. 生成并写入M3U文件
+    print(f"\n💾 正在生成M3U文件: {OUTPUT_M3U}")
+    m3u_content = convert_to_m3u(final_lines)
+    with open(OUTPUT_M3U, 'w', encoding='utf-8') as f:
+        f.write(m3u_content)
+    
+    m3u_channel_count = len([l for l in m3u_content.split('\n') if l.startswith('#EXTINF:')])
+    print(f"   ✅ M3U文件生成完成")
+    print(f"   📊 M3U频道数: {m3u_channel_count}")
+    print(f"   📡 EPG源: {EPG_URLS}")
+    
+    # 6. 最终统计
+    print(f"\n✅ 全部任务完成！")
+    print(f"   📁 输出文件: {OUTPUT_TXT}, {OUTPUT_M3U}")
+    print(f"   🕐 生成时间: {time.strftime('%Y-%m-%d %H:%M:%S')}")
     print("=" * 70)
 
 if __name__ == "__main__":
