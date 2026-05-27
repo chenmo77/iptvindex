@@ -1,12 +1,12 @@
 import requests
 import time
 import re
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 
 # ================ 🔧 配置区域 ================
-
 # 1. 您的蓝本文件地址 (zb.txt)
 MASTER_FILE_URL = "https://raw.githubusercontent.com/chenmo77/iptvindex/refs/heads/main/zb.txt"
-
 # 2. 您自定义的其他直播源列表（已按您的要求填好）
 CUSTOM_SOURCES = [
     ("先锋", "http://ge.html-5.me//ii/%E9%BB%84%E8%9A%82%E8%9A%81%E5%85%88%E9%94%8B%E6%8E%A8%E6%B5%81%E6%BA%90.txt"),
@@ -19,21 +19,70 @@ CUSTOM_SOURCES = [
     ("虎牙", "https://raw.githubusercontent.com/mursor1985/LIVE/refs/heads/main/huyayqk.m3u"),
     ("斗鱼", "https://raw.githubusercontent.com/mursor1985/LIVE/refs/heads/main/douyuyqk.m3u")
 ]
-
 # 3. 输出文件
 OUTPUT_FILE = "live.txt"
-
 # =============================================
 
+# 模拟浏览器的请求头，解决反爬虫问题
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+    "Accept-Language": "zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2",
+    "Accept-Encoding": "gzip, deflate",
+    "Connection": "keep-alive",
+    "Upgrade-Insecure-Requests": "1",
+    "Cache-Control": "max-age=0"
+}
+
+def create_session_with_retry(retries=3, backoff_factor=0.3):
+    """创建带有重试机制的requests会话"""
+    session = requests.Session()
+    
+    # 配置重试策略
+    retry_strategy = Retry(
+        total=retries,
+        backoff_factor=backoff_factor,
+        status_forcelist=[429, 500, 502, 503, 504],
+        allowed_methods=["GET"]
+    )
+    
+    adapter = HTTPAdapter(max_retries=retry_strategy)
+    session.mount("http://", adapter)
+    session.mount("https://", adapter)
+    
+    # 设置全局请求头
+    session.headers.update(HEADERS)
+    
+    return session
+
+# 创建全局会话
+session = create_session_with_retry()
+
 def fetch_file_content(url):
-    """获取远程文件内容"""
+    """获取远程文件内容（增强版：支持反爬虫、重试和自动编码检测）"""
     try:
         print(f"📡 正在抓取: {url}")
-        response = requests.get(url, timeout=10)
-        response.encoding = 'utf-8'
+        
+        # 使用带有重试机制的会话发送请求
+        response = session.get(url, timeout=15)  # 延长超时时间到15秒
+        response.raise_for_status()  # 抛出HTTP错误状态码异常
+        
+        # 自动检测编码，避免乱码
+        if response.encoding == 'ISO-8859-1':
+            response.encoding = response.apparent_encoding
+        
         return response.text
+    except requests.exceptions.HTTPError as e:
+        print(f"   ❌ HTTP错误: {e.response.status_code} {e.response.reason}")
+        return None
+    except requests.exceptions.ConnectionError:
+        print(f"   ❌ 连接错误：无法连接到服务器")
+        return None
+    except requests.exceptions.Timeout:
+        print(f"   ❌ 请求超时：服务器响应时间过长")
+        return None
     except Exception as e:
-        print(f"   ❌ 抓取失败: {e}")
+        print(f"   ❌ 抓取失败: {str(e)}")
         return None
 
 def is_m3u_format(content):
