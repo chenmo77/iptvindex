@@ -12,7 +12,7 @@ MASTER_FILE_URL = "https://raw.githubusercontent.com/chenmo77/iptvindex/refs/hea
 #    格式：(分类名称, 源地址)
 #    所有这些源都会被放在同一个"IPTV" group下，每个源的名称作为内部genre
 IPTV_GROUP_SOURCES = [
-    ("中国", "https://raw.githubusercontent.com/iptv-org/iptv/refs/heads/master/streams/****3u"),
+    ("中国", "https://raw.githubusercontent.com/iptv-org/iptv/refs/heads/master/streams/cn.m3u"),
     ("TW", "https://raw.githubusercontent.com/iptv-org/iptv/refs/heads/master/streams/tw.m3u"),
     ("HK", "https://raw.githubusercontent.com/iptv-org/iptv/refs/heads/master/streams/hk.m3u"),
     ("漂亮国", "https://raw.githubusercontent.com/iptv-org/iptv/refs/heads/master/streams/us.m3u"),
