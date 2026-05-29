@@ -9,6 +9,14 @@ from urllib3.util.retry import Retry
 MASTER_FILE_URL = "https://raw.githubusercontent.com/chenmo77/iptvindex/refs/heads/main/zb.txt"
 # 2. 您自定义的其他直播源列表
 CUSTOM_SOURCES = [
+    ("中国", "https://raw.githubusercontent.com/iptv-org/iptv/refs/heads/master/streams/cn.m3u"),
+    ("TW", "https://raw.githubusercontent.com/iptv-org/iptv/refs/heads/master/streams/tw.m3u"),
+    ("HK", "https://raw.githubusercontent.com/iptv-org/iptv/refs/heads/master/streams/hk.m3u"),
+    ("漂亮国", "https://raw.githubusercontent.com/iptv-org/iptv/refs/heads/master/streams/us.m3u"),
+    ("大毛子", "https://raw.githubusercontent.com/iptv-org/iptv/refs/heads/master/streams/ru.m3u"),
+    ("大不列", "https://raw.githubusercontent.com/iptv-org/iptv/refs/heads/master/streams/uk_bbc.m3u"),
+    ("小日子", "https://raw.githubusercontent.com/iptv-org/iptv/refs/heads/master/streams/jp.m3u"),
+    ("samsung", "https://raw.githubusercontent.com/iptv-org/iptv/refs/heads/master/streams/uk_samsung.m3u"),
     ("先锋", "http://ge.html-5.me//ii/%E9%BB%84%E8%9A%82%E8%9A%81%E5%85%88%E9%94%8B%E6%8E%A8%E6%B5%81%E6%BA%90.txt"),
     ("iptvz", "https://raw.githubusercontent.com/q1017673817/iptvz/refs/heads/main/zubo_all.txt"),
     ("zbds", "https://live.zbds.org/tv/iptv4.txt"),
