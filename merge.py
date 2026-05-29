@@ -1,15 +1,12 @@
 import requests
-import time
 import re
-from requests.adapters import HTTPAdapter
-from urllib3.util.retry import Retry
+import os
+from datetime import datetime
 
-# ================ 🔧 配置区域 ================
-# 1. 您的蓝本文件地址 (zb.txt)
-MASTER_FILE_URL = "https://raw.githubusercontent.com/chenmo77/iptvindex/refs/heads/main/zb.txt"
-# 2. 您自定义的其他直播源列表
-CUSTOM_SOURCES = [
-    ("中国", "https://raw.githubusercontent.com/iptv-org/iptv/refs/heads/master/streams/cn.m3u"),
+# 直播源配置
+sources = [
+    # 无#genre#的源 - 将自动放入IPTV分组
+    ("中国", "https://raw.githubusercontent.com/iptv-org/iptv/refs/heads/master/streams/****3u"),
     ("TW", "https://raw.githubusercontent.com/iptv-org/iptv/refs/heads/master/streams/tw.m3u"),
     ("HK", "https://raw.githubusercontent.com/iptv-org/iptv/refs/heads/master/streams/hk.m3u"),
     ("漂亮国", "https://raw.githubusercontent.com/iptv-org/iptv/refs/heads/master/streams/us.m3u"),
@@ -17,6 +14,8 @@ CUSTOM_SOURCES = [
     ("大不列", "https://raw.githubusercontent.com/iptv-org/iptv/refs/heads/master/streams/uk_bbc.m3u"),
     ("小日子", "https://raw.githubusercontent.com/iptv-org/iptv/refs/heads/master/streams/jp.m3u"),
     ("samsung", "https://raw.githubusercontent.com/iptv-org/iptv/refs/heads/master/streams/uk_samsung.m3u"),
+    
+    # 其他正常源 - 按原有顺序放在最后
     ("先锋", "http://ge.html-5.me//ii/%E9%BB%84%E8%9A%82%E8%9A%81%E5%85%88%E9%94%8B%E6%8E%A8%E6%B5%81%E6%BA%90.txt"),
     ("iptvz", "https://raw.githubusercontent.com/q1017673817/iptvz/refs/heads/main/zubo_all.txt"),
     ("zbds", "https://live.zbds.org/tv/iptv4.txt"),
@@ -27,265 +26,162 @@ CUSTOM_SOURCES = [
     ("虎牙", "https://raw.githubusercontent.com/mursor1985/LIVE/refs/heads/main/huyayqk.m3u"),
     ("斗鱼", "https://raw.githubusercontent.com/mursor1985/LIVE/refs/heads/main/douyuyqk.m3u")
 ]
-# 3. 输出文件配置
-OUTPUT_TXT = "live.txt"
-OUTPUT_M3U = "live.m3u"
-# 4. EPG配置（双EPG源，逗号分隔）
-EPG_URLS = "http://epg.cdn.loc.cc,https://diyp.epg.qzz.io/"
-# =============================================
 
-# 模拟浏览器的请求头，解决反爬虫问题
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
-    "Accept-Language": "zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2",
-    "Accept-Encoding": "gzip, deflate",
-    "Connection": "keep-alive",
-    "Upgrade-Insecure-Requests": "1",
-    "Cache-Control": "max-age=0"
-}
+# 蓝本文件地址（排在最前）
+blueprint_url = "https://raw.githubusercontent.com/your-username/your-repo/main/zb.txt"
 
-def create_session_with_retry(retries=3, backoff_factor=0.3):
-    """创建带有重试机制的requests会话"""
-    session = requests.Session()
-    
-    # 配置重试策略
-    retry_strategy = Retry(
-        total=retries,
-        backoff_factor=backoff_factor,
-        status_forcelist=[429, 500, 502, 503, 504],
-        allowed_methods=["GET"]
-    )
-    
-    adapter = HTTPAdapter(max_retries=retry_strategy)
-    session.mount("http://", adapter)
-    session.mount("https://", adapter)
-    
-    # 设置全局请求头
-    session.headers.update(HEADERS)
-    
-    return session
-
-# 创建全局会话
-session = create_session_with_retry()
-
-def fetch_file_content(url):
-    """获取远程文件内容（增强版：支持反爬虫、重试和自动编码检测）"""
+def fetch_url(url):
+    """获取URL内容"""
     try:
-        print(f"📡 正在抓取: {url}")
-        
-        # 使用带有重试机制的会话发送请求
-        response = session.get(url, timeout=15)  # 延长超时时间到15秒
-        response.raise_for_status()  # 抛出HTTP错误状态码异常
-        
-        # 自动检测编码，避免乱码
-        if response.encoding == 'ISO-8859-1':
-            response.encoding = response.apparent_encoding
-        
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+        }
+        response = requests.get(url, headers=headers, timeout=30)
+        response.raise_for_status()
         return response.text
-    except requests.exceptions.HTTPError as e:
-        print(f"   ❌ HTTP错误: {e.response.status_code} {e.response.reason}")
-        return None
-    except requests.exceptions.ConnectionError:
-        print(f"   ❌ 连接错误：无法连接到服务器")
-        return None
-    except requests.exceptions.Timeout:
-        print(f"   ❌ 请求超时：服务器响应时间过长")
-        return None
     except Exception as e:
-        print(f"   ❌ 抓取失败: {str(e)}")
-        return None
+        print(f"获取URL失败: {url}, 错误: {e}")
+        return ""
 
-def is_m3u_format(content):
-    """判断内容是否为M3U格式（通过文件头或内容特征）"""
-    first_line = content.strip().split('\n')[0] if content else ''
-    if '#EXTM3U' in first_line:
-        return True
-    if '#EXTINF:' in content:
-        return True
-    return False
+def has_genre(content):
+    """检查内容是否包含#genre#标签"""
+    return "#genre#" in content
 
-def parse_m3u_to_txt(content):
-    """
-    将M3U格式内容转换为TXT格式，并尝试从 group-title 提取分类
-    """
-    lines = content.split('\n')
-    txt_lines = []
-    current_genre = None
+def process_no_genre_source(name, content):
+    """处理没有#genre#的源，将其放入IPTV分组"""
+    lines = content.strip().split('\n')
+    processed_lines = []
     
-    i = 0
-    while i < len(lines):
-        line = lines[i].strip()
-        
-        if '#EXTINF:' in line:
-            group_match = re.search(r'group-title="([^"]+)"', line)
-            if group_match:
-                genre_name = group_match.group(1).strip()
-                if genre_name and genre_name != current_genre:
-                    current_genre = genre_name
-                    txt_lines.append(f"{current_genre},#genre#")
-            
-            name_match = re.search(r',([^,]+)$', line)
-            channel_name = name_match.group(1).strip() if name_match else ""
-            
-            if i + 1 < len(lines):
-                channel_url = lines[i + 1].strip()
-                if channel_url and not channel_url.startswith('#'):
-                    txt_lines.append(f"{channel_name},{channel_url}")
-            i += 2
-        else:
-            if line and not line.startswith('#EXTM3U'):
-                txt_lines.append(line)
-            i += 1
+    # 跳过M3U头
+    if lines and lines[0].startswith('#EXTM3U'):
+        lines = lines[1:]
     
-    return '\n'.join(txt_lines)
-
-def convert_to_txt(content, url):
-    """
-    智能转换函数：判断内容格式，统一输出TXT
-    """
-    if '.m3u' in url.lower() or is_m3u_format(content):
-        print(f"   📋 检测到M3U格式，正在智能转换（保留分类）...")
-        return parse_m3u_to_txt(content)
-    else:
-        return content
-
-def convert_to_m3u(txt_lines):
-    """
-    将TXT格式的直播源转换为标准精简M3U格式
-    支持双EPG源，自动处理分组和分类，无台标图片
-    """
-    # M3U文件头，包含双EPG配置
-    m3u_lines = [f'#EXTM3U x-tvg-url="{EPG_URLS}"']
+    # 添加IPTV分组头和当前源作为genre
+    processed_lines.append(f"IPTV,#genre#")
+    processed_lines.append(f"{name},#genre#")
     
-    current_group = "未分类"
-    current_genre = ""
-    
-    for line in txt_lines:
+    # 处理频道行
+    for line in lines:
         line = line.strip()
         if not line:
             continue
-            
-        # 处理分组标记（跳过日期格式的分组）
-        if ",#group#" in line:
-            group_name = line.split(",#group#")[0].strip()
-            # 跳过6位数字的日期分组（如260527）
-            if group_name.isdigit() and len(group_name) == 6:
-                continue
-            current_group = group_name
-            current_genre = ""
+        # 跳过EXTINF行，只保留"频道名,URL"格式的行
+        if line.startswith('#EXTINF'):
             continue
-            
-        # 处理分类标记
-        if ",#genre#" in line:
-            current_genre = line.split(",#genre#")[0].strip()
-            continue
-            
-        # 处理频道行（只分割第一个逗号，避免URL中包含逗号的情况）
-        parts = line.split(",", 1)
-        if len(parts) != 2:
-            continue
-            
-        channel_name = parts[0].strip().replace('"', "'")  # 替换双引号避免格式错误
-        channel_url = parts[1].strip()
-        
-        if not channel_name or not channel_url:
-            continue
-            
-        # 构建分组标题（分组/分类）
-        if current_genre:
-            group_title = f"{current_group}/{current_genre}"
-        else:
-            group_title = current_group
-            
-        # 生成标准M3U行（无台标，精简属性）
-        m3u_lines.append(f'#EXTINF:-1 tvg-id="{channel_name}" tvg-name="{channel_name}" group-title="{group_title}",{channel_name}')
-        m3u_lines.append(channel_url)
+        # 如果是URL行，尝试提取频道名
+        if line.startswith('http'):
+            # 尝试从URL中提取频道名，或者使用默认名
+            channel_name = f"{name}_频道_{len(processed_lines) - 2}"
+            processed_lines.append(f"{channel_name},{line}")
+        elif ',' in line and not line.endswith('#genre#'):
+            # 已经是"频道名,URL"格式
+            processed_lines.append(line)
     
-    return '\n'.join(m3u_lines)
+    return '\n'.join(processed_lines) + '\n'
 
-def main():
-    print("=" * 70)
-    print("🚀 开始合并直播源（智能解析M3U分类 + 双格式输出）...")
-    print("=" * 70)
+def process_normal_source(content):
+    """处理正常的有#genre#的源"""
+    lines = content.strip().split('\n')
+    processed_lines = []
     
-    # 1. 获取蓝本文件
-    master_content = fetch_file_content(MASTER_FILE_URL)
-    if not master_content:
-        print("❌ 无法获取蓝本文件，程序终止")
-        return
-    
-    # 2. 构建最终TXT格式内容
-    final_lines = []
-    lines = master_content.split('\n')
-    
-    custom_inserted = False
+    # 跳过M3U头
+    if lines and lines[0].startswith('#EXTM3U'):
+        lines = lines[1:]
     
     for line in lines:
-        line = line.rstrip()
-        final_lines.append(line)
-        
-        if line.strip() == "温馨提示,#group#" and not custom_inserted:
-            final_lines.pop()
+        line = line.strip()
+        if not line:
+            continue
+        # 跳过EXTINF行
+        if line.startswith('#EXTINF'):
+            continue
+        processed_lines.append(line)
+    
+    return '\n'.join(processed_lines) + '\n'
+
+def main():
+    output = []
+    
+    # 1. 首先添加蓝本文件内容（排在最前）
+    print("正在获取蓝本文件...")
+    blueprint_content = fetch_url(blueprint_url)
+    if blueprint_content:
+        output.append(process_normal_source(blueprint_content))
+        print("蓝本文件添加成功")
+    
+    # 2. 处理无#genre#的源，放入IPTV分组
+    print("正在处理无#genre#的源...")
+    iptv_group_content = []
+    
+    for name, url in sources:
+        # 先检查是否是无#genre#的源（通过URL特征判断）
+        # 或者直接获取内容后检查
+        content = fetch_url(url)
+        if not content:
+            print(f"跳过源: {name}")
+            continue
             
-            # 为每个自定义源添加内容
-            for group_name, source_url in CUSTOM_SOURCES:
-                print(f"\n🔧 处理自定义源: {group_name}")
-                print(f"   地址: {source_url}")
-                
-                # 添加一级分组
-                final_lines.append(f"{group_name},#group#")
-                
-                # --- 针对 tv84 和 tv26 的特殊处理：强制添加“综合”分类 ---
-                if group_name in ["tv84", "tv26"]:
-                    print(f"   📌 为 {group_name} 添加默认分类: 综合,#genre#")
-                    final_lines.append("综合,#genre#")
-                # ----------------------------------------------------
-                
-                # 获取源内容
-                source_content = fetch_file_content(source_url)
-                if source_content:
-                    converted_content = convert_to_txt(source_content, source_url)
-                    source_lines = converted_content.split('\n')
-                    valid_lines = [l.rstrip() for l in source_lines if l.strip()]
-                    final_lines.extend(valid_lines)
-                    print(f"   ✅ 添加 {len(valid_lines)} 行有效内容")
-                else:
-                    print(f"   ⚠️ 该源无有效内容")
-            
-            final_lines.append("温馨提示,#group#")
-            custom_inserted = True
-            print(f"\n📝 已插入 {len(CUSTOM_SOURCES)} 个自定义源")
+        if not has_genre(content):
+            print(f"处理无#genre#源: {name}")
+            processed = process_no_genre_source(name, content)
+            iptv_group_content.append(processed)
+        else:
+            # 正常源暂时不处理，留到后面
+            pass
     
-    # 3. 将“温馨提示”改为“生成日期”
-    current_date = time.strftime('%y%m%d')
-    final_lines = [line.replace("温馨提示,#group#", f"{current_date},#group#") for line in final_lines]
+    # 将所有无#genre#的源合并到IPTV分组
+    if iptv_group_content:
+        # 先添加IPTV分组头
+        output.append("IPTV,#genre#\n")
+        # 然后添加各个源的内容（每个源已经自带了自己的genre）
+        for content in iptv_group_content:
+            output.append(content)
+        print("IPTV分组添加成功")
     
-    # 4. 写入TXT文件
-    print(f"\n💾 正在写入TXT文件: {OUTPUT_TXT}")
-    with open(OUTPUT_TXT, 'w', encoding='utf-8') as f:
-        f.write('\n'.join(final_lines))
+    # 3. 处理其他正常源（排在最后）
+    print("正在处理其他正常源...")
+    for name, url in sources:
+        # 跳过已经处理过的无#genre#的源
+        # 这里通过名称判断哪些是需要放在最后的正常源
+        normal_source_names = ["先锋", "iptvz"]  # 在这里添加所有正常源的名称
+        if name in normal_source_names:
+            content = fetch_url(url)
+            if content:
+                print(f"处理正常源: {name}")
+                processed = process_normal_source(content)
+                output.append(processed)
     
-    txt_channel_count = len([l for l in final_lines if ',' in l and not l.endswith(('#group#', '#genre#'))])
-    print(f"   ✅ TXT文件生成完成")
-    print(f"   📊 TXT频道数: {txt_channel_count}")
+    # 合并所有内容
+    final_content = ''.join(output)
     
-    # 5. 生成并写入M3U文件
-    print(f"\n💾 正在生成M3U文件: {OUTPUT_M3U}")
-    m3u_content = convert_to_m3u(final_lines)
-    with open(OUTPUT_M3U, 'w', encoding='utf-8') as f:
-        f.write(m3u_content)
+    # 添加更新时间
+    update_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    final_content = f"# 更新时间: {update_time}\n" + final_content
     
-    m3u_channel_count = len([l for l in m3u_content.split('\n') if l.startswith('#EXTINF:')])
-    print(f"   ✅ M3U文件生成完成")
-    print(f"   📊 M3U频道数: {m3u_channel_count}")
-    print(f"   📡 EPG源: {EPG_URLS}")
+    # 写入文件
+    with open("live.txt", "w", encoding="utf-8") as f:
+        f.write(final_content)
     
-    # 6. 最终统计
-    print(f"\n✅ 全部任务完成！")
-    print(f"   📁 输出文件: {OUTPUT_TXT}, {OUTPUT_M3U}")
-    print(f"   🕐 生成时间: {time.strftime('%Y-%m-%d %H:%M:%S')}")
-    print("=" * 70)
+    # 同时生成M3U格式
+    with open("live.m3u", "w", encoding="utf-8") as f:
+        f.write("#EXTM3U\n")
+        lines = final_content.split('\n')
+        current_group = ""
+        for line in lines:
+            line = line.strip()
+            if not line or line.startswith('#'):
+                continue
+            if line.endswith('#genre#'):
+                current_group = line.split(',')[0]
+                continue
+            if ',' in line:
+                name, url = line.split(',', 1)
+                f.write(f'#EXTINF:-1 group-title="{current_group}",{name}\n')
+                f.write(f"{url}\n")
+    
+    print(f"生成完成！共处理 {len(sources)} 个源")
+    print(f"输出文件: live.txt, live.m3u")
+    print(f"更新时间: {update_time}")
 
 if __name__ == "__main__":
     main()
