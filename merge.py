@@ -28,6 +28,7 @@ IPTV_GROUP_SOURCES = [
 #    格式：(分组名称, 源地址)
 #    每个源都会成为一个独立的group，保留源内部自带的genre分类
 INDEPENDENT_GROUP_SOURCES = [
+    ("世界杯", "https://jsnzkpg.us.ci/live.m3u"),
     ("先锋", "http://ge.html-5.me//ii/%E9%BB%84%E8%9A%82%E8%9A%81%E5%85%88%E9%94%8B%E6%8E%A8%E6%B5%81%E6%BA%90.txt"),
     ("iptvz", "https://raw.githubusercontent.com/q1017673817/iptvz/refs/heads/main/zubo_all.txt"),
     ("zbds", "https://live.zbds.org/tv/iptv4.txt"),
