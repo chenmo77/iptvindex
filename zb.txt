@@ -940,6 +940,22 @@ CCTV8K,http://43.152.31.17:843/hlslive-tx-cdn.ysp.cctv.cn/ysp/2026774103_dlna.m3
 CCTV8K,http://43.152.31.17:843/hlslive-tx-cdn.ysp.cctv.cn/ysp/2026774102_dlna.m3u8
 CCTV8K,http://43.152.31.17:843/hlslive-tx-cdn.ysp.cctv.cn/ysp/2026774101_dlna.m3u8
 
+CCTV1,http://103.72.172.253:8041/hls/218855428/index.m3u8
+CCTV2,http://103.72.172.253:8041/hls/226419643/index.m3u8
+CCTV3,http://103.72.172.253:8041/hls/236821488/index.m3u8
+CCTV4,http://103.72.172.253:8041/hls/238962782/index.m3u8
+CCTV5,http://103.72.172.253:8041/hls/251285191/index.m3u8
+CCTV6,http://103.72.172.253:8041/hls/254779335/index.m3u8
+CCTV7,http://103.72.172.253:8041/hls/256418271/index.m3u8
+CCTV8,http://103.72.172.253:8041/hls/269482854/index.m3u8
+CCTV9,http://103.72.172.253:8041/hls/281284444/index.m3u8
+CCTV10,http://103.72.172.253:8041/hls/294729569/index.m3u8
+CCTV11,http://103.72.172.253:8041/hls/311257824/index.m3u8
+CCTV12,http://103.72.172.253:8041/hls/311517662/index.m3u8
+CCTV13,http://103.72.172.253:8041/hls/318237429/index.m3u8
+CCTV14,http://103.72.172.253:8041/hls/326994135/index.m3u8
+CCTV15,http://103.72.172.253:8041/hls/327589764/index.m3u8
+
 CCTV1,https://php.jdshipin.com:2096/TVOD/iptv.php?id=cctv1
 CCTV2,https://php.jdshipin.com:2096/TVOD/iptv.php?id=cctv2
 CCTV3,https://php.jdshipin.com:2096/TVOD/iptv.php?id=cctv3
@@ -1014,22 +1030,6 @@ IPTV8,http://lysj.aylzline.top:8899/rtp/225.1.2.51:10300
 收视指南,http://lysj.aylzline.top:8899/rtp/225.1.2.55:10324
 IPTV5高清,http://lysj.aylzline.top:8899/rtp/225.1.2.153:10936
 纪实人文高清,http://lysj.aylzline.top:8899/rtp/225.1.2.154:10942
-
-CCTV1,http://103.72.172.253:8041/hls/218855428/index.m3u8
-CCTV2,http://103.72.172.253:8041/hls/226419643/index.m3u8
-CCTV3,http://103.72.172.253:8041/hls/236821488/index.m3u8
-CCTV4,http://103.72.172.253:8041/hls/238962782/index.m3u8
-CCTV5,http://103.72.172.253:8041/hls/251285191/index.m3u8
-CCTV6,http://103.72.172.253:8041/hls/254779335/index.m3u8
-CCTV7,http://103.72.172.253:8041/hls/256418271/index.m3u8
-CCTV8,http://103.72.172.253:8041/hls/269482854/index.m3u8
-CCTV9,http://103.72.172.253:8041/hls/281284444/index.m3u8
-CCTV10,http://103.72.172.253:8041/hls/294729569/index.m3u8
-CCTV11,http://103.72.172.253:8041/hls/311257824/index.m3u8
-CCTV12,http://103.72.172.253:8041/hls/311517662/index.m3u8
-CCTV13,http://103.72.172.253:8041/hls/318237429/index.m3u8
-CCTV14,http://103.72.172.253:8041/hls/326994135/index.m3u8
-CCTV15,http://103.72.172.253:8041/hls/327589764/index.m3u8
 
 CCTV1,http://222.85.198.92:8000/hls/1/index.m3u8
 CCTV2,http://222.85.198.92:8000/hls/2/index.m3u8
@@ -1561,6 +1561,14 @@ CCTV5+,http://124.165.251.82:85/tsfile/live/0019_1.m3u8?key=txiptv&playlive=1&au
 深圳卫视,http://pr.19760929.xyz:9688/rtp/239.77.1.189:5146
 海南卫视,http://pr.19760929.xyz:9688/rtp/239.253.43.35:5146
 海南卫视,http://pr.19760929.xyz:9688/rtp/239.253.43.101:5146
+
+BTV新闻,http://103.72.172.253:8041/hls/382837277/index.m3u8
+BTV文艺,http://103.72.172.253:8041/hls/346478234/index.m3u8
+BTV科教,http://103.72.172.253:8041/hls/347295318/index.m3u8
+BTV影视,http://103.72.172.253:8041/hls/357945484/index.m3u8
+BTV财经,http://103.72.172.253:8041/hls/358948176/index.m3u8
+BTV生活,http://103.72.172.253:8041/hls/366415771/index.m3u8
+KAKU少儿,http://103.72.172.253:8041/hls/385413834/index.m3u8
 
 BTV新闻,http://103.72.172.253:8041/hls/382837277/index.m3u8
 BTV文艺,http://103.72.172.253:8041/hls/346478234/index.m3u8
