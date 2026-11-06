@@ -42,8 +42,8 @@ INDEPENDENT_GROUP_SOURCES = [
 ]
 
 # 4. 输出文件配置
-OUTPUT_TXT = "live.txt"
-OUTPUT_M3U = "live.m3u"
+OUTPUT_TXT = "all.txt"
+OUTPUT_M3U = "all.m3u"
 
 # 5. EPG配置（双EPG源，逗号分隔）
 EPG_URLS = "http://epg.cdn.loc.cc,https://diyp.epg.qzz.io/"
