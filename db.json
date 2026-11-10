@@ -21,6 +21,10 @@
       "url": "http://150.158.52.248/tgyg/bbm.json"
     },
     {
+      "name": "软件小哥哥",
+      "url": "http://47.96.82.41:5188/svip/svip.json"
+    },
+    {
       "name": "X4菠菜pro",
       "url": "https://0.12yue.de5.net/5/x4pro.json"
     },
@@ -29,7 +33,7 @@
       "url": "https://szyyds.cn/tv/x.json"
     },
     {
-      "name": "周J",
+      "name": "糖果",
       "url": "https://0.12yue.de5.net/tvbox/周J.json"
     },
     {
@@ -45,32 +49,16 @@
       "url": "https://0.12yue.de5.net/tvbox/东篱.json"
     },
     {
-      "name": "聚玩",
-      "url": "http://xhztv.top/xhz"
+      "name": "软件小哥",
+      "url": "http://47.96.82.41:5188/svip/svip.json"
     },
     {
       "name": "哈吉米",
       "url": "https://17264.kstore.space/哈基米.png"
     },
     {
-      "name": "天神",
-      "url": "https://0.12yue.de5.net/tvbox/天神.json"
-    },
-    {
-      "name": "星微Vip",
-      "url": "https://0.12yue.de5.net/tvbox/星微Vip.json"
-    },
-    {
       "name": "X4菠菜园",
       "url": "https://0.12yue.de5.net/5/x4.json"
-    },
-    {
-      "name": "高天流云",
-      "url": "https://0.12yue.de5.net/tvbox/高天流云.json"
-    },
-    {
-      "name": "高天流云js",
-      "url": "https://0.12yue.de5.net/tvbox/高天流云js.json"
     },
     {
       "name": "分享者",
@@ -81,44 +69,8 @@
       "url": "https://0.12yue.de5.net/tvbox/时光.json"
     },
     {
-      "name": "时光2线",
-      "url": "https://0.12yue.de5.net/tvbox/时光2线.json"
-    },
-    {
-      "name": "愿望18",
-      "url": "https://0.12yue.de5.net/tvbox/愿望18.json"
-    },
-    {
-      "name": "雷蒙",
-      "url": "https://0.12yue.de5.net/tvbox/雷蒙.json"
-    },
-    {
-      "name": "潇洒4线",
-      "url": "https://0.12yue.de5.net/tvbox/潇洒4线.json"
-    },
-    {
-      "name": "月光宝盒",
-      "url": "https://0.12yue.de5.net/tvbox/月光宝盒.json"
-    },
-    {
-      "name": "集多",
-      "url": "https://0.12yue.de5.net/tvbox/集多.json"
-    },
-    {
-      "name": "驸马",
-      "url": "https://0.12yue.de5.net/tvbox/驸马.json"
-    },
-    {
       "name": "盒子迷",
       "url": "https://盒子迷.top/禁止贩卖"
-    },
-    {
-      "name": "星河",
-      "url": "http://116.196.116.76/stv"
-    },
-    {
-      "name": "星河4K",
-      "url": "http://116.196.116.76/tv"
     },
     {
       "name": "影视仓",
@@ -129,164 +81,12 @@
       "url": "https://700sjro44343.vicp.fun/vip/vip/tv.json"
     },
     {
-      "name": "EasyTV4K",
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/EasyXC/EasyTVbox/main/easytv.jpg"
-    },
-    {
-      "name": "EasyTV少儿",
-      "url": "https://jihulab.com/ymz1231/xymz/-/raw/main/ymshaoer"
-    },
-    {
-      "name": "starlink",
-      "url": "http://124.223.214.31:8/api.json"
-    },
-    {
       "name": "电影天堂",
       "url": "http://47.96.82.41:5188/config.json"
     },
     {
-      "name": "软件小哥哥",
-      "url": "http://47.96.82.41:5188/svip/svip.json"
-    },
-    {
-      "name": "俊哥",
-      "url": "http://home.jundie.top:81/top98.json"
-    },
-    {
-      "name": "4K云盘",
-      "url": "https://9xi4o.tk/0725.json"
-    },
-    {
-      "name": "巧儿",
-      "url": "http://pandown.pro/tvbox/tvbox.json"
-    },
-    {
       "name": "liucn",
       "url": "https://raw.liucn.cc/box/m.json"
-    },
-    {
-      "name": "D佬",
-      "url": "http://rihou.cc:555/nzk/nzk0722.json"
-    },
-    {
-      "name": "欧歌",
-      "url": "http://tv.nxog.top/m/"
-    },
-    {
-      "name": "OK",
-      "url": "http://ok321.top/tv"
-    },
-    {
-      "name": "嗷呜弹幕",
-      "url": "https://gb.hfr1107.top/https://raw.githubusercontent.com/ediart/tvbox/refs/heads/main/aowu/config.json"
-    },
-    {
-      "name": "嗷呜4K",
-      "url": "https://gb.hfr1107.top/https://raw.githubusercontent.com/ediart/tvbox/refs/heads/main/4K/4K.json"
-    },
-    {
-      "name": "潇洒无盘",
-      "url": "https://gb.hfr1107.top/https://raw.githubusercontent.com/ediart/tvbox/refs/heads/main/TVBoxOSC/tvbox/xs.json"
-    },
-    {
-      "name": "潇洒",
-      "url": "https://gb.hfr1107.top/https://raw.githubusercontent.com/ediart/tvbox/refs/heads/main/TVBoxOSC/tvbox/api.json"
-    },
-    {
-      "name": "老张+",
-      "url": "https://gb.hfr1107.top/https://raw.githubusercontent.com/ediart/tvbox/refs/heads/main/lz/aa.json"
-    },
-    {
-      "name": "T4+",
-      "url": "https://gb.hfr1107.top/https://raw.githubusercontent.com/ediart/tvbox/refs/heads/main/T4.json"
-    },
-    {
-      "name": "摸鱼儿",
-      "url": "http://我不是.摸鱼儿.com"
-    },
-    {
-      "name": "青檬",
-      "url": "https://11293.kstore.space/%E8%A5%BF%E6%9F%9Ays.json"
-    },
-    {
-      "name": "电视喵",
-      "url": "https://tvbox.catvod.com/catvod.json"
-    },
-    {
-      "name": "PG1",
-      "url": "https://tvbox.catvod.com/jsm.json"
-    },
-    {
-      "name": "PG2",
-      "url": "https://www.252035.xyz/p/jsm.json"
-    },
-    {
-      "name": "真心",
-      "url": "https://tvbox.catvod.com/FongMi.json"
-    },
-    {
-      "name": "潇洒1",
-      "url": "https://tvbox.catvod.com/xs/api.json"
-    },
-    {
-      "name": "潇洒2",
-      "url": "https://9877.kstore.space/AnotherD/api.json"
-    },
-    {
-      "name": "老刘备",
-      "url": "https://ghfast.top/https://raw.githubusercontent.com/liu673cn/box/main/m.json"
-    },
-    {
-      "name": "小米",
-      "url": "http://mitvbox.xyz/%E5%B0%8F%E7%B1%B3/DEMO.json"
-    },
-    {
-      "name": "多多",
-      "url": "https://yydsys.top/duo"
-    },
-    {
-      "name": "one",
-      "url": "https://gh-proxy.com/https:/raw.githubusercontent.com/leevi0709/one/main/jsm.json"
-    },
-    {
-      "name": "优选|2K4K",
-      "url": "https://gitee.com/senno/tvbox/raw/master/api.json"
-    },
-    {
-      "name": "fish2018",
-      "url": "https://cnb.cool/fish2018/zx/-/git/raw/master/FongMi.json"
-    },
-    {
-      "name": "兔小贝|少儿",
-      "url": "https://jihulab.com/ymz1231/xymz/-/raw/main/ymshaoer"
-    },
-    {
-      "name": "高天流云1",
-      "url": "https://raw.gitmirror.com/gaotianliuyun/gao/master/js.json"
-    },
-    {
-      "name": "高天流云2",
-      "url": "https://ghfast.top/https://raw.githubusercontent.com/gaotianliuyun/gao/master/js.json"
-    },
-    {
-      "name": "追剧影院",
-      "url": "https://jihulab.com/z-blog/xh2/raw/main/t.json"
-    },
-    {
-      "name": "老三",
-      "url": "https://clun.top/box.json"
-    },
-    {
-      "name": "青龙1080",
-      "url": "https://gitee.com/yiwu369/6758/raw/master/青龙/1.json"
-    },
-    {
-      "name": "青龙4K",
-      "url": "https://gitee.com/yiwu369/6758/raw/master/青龙/2.json"
-    },
-    {
-      "name": "白虎",
-      "url": "https://gitee.com/yiwu369/6758/raw/master/白虎/白虎.json"
     },
     {
       "name": "钵钵鸡",
