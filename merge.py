@@ -21,7 +21,7 @@ IPTV_GROUP_SOURCES = [
 #    格式：(分组名称, 源地址)
 #    每个源都会成为一个独立的group，保留源内部自带的genre分类
 INDEPENDENT_GROUP_SOURCES = [
-    ("天天TV", "https://tiantiantv.shanlings.ccwu.cc/free_subscribe.php?token=0d88099383ab585c"),
+    ("咪咕", "https://tv.305362.xyz/zhth/output/migu.txt"),
     # 下次想添加独立分组的源，直接在这里加一行即可
     # ("新分组", "新源地址"),
 ]
