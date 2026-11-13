@@ -3,23 +3,21 @@ import time
 import re
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
-
 # ================ 🔧 配置区域（唯一需要修改的地方） ================
 # 1. 第一类：蓝本文件地址（zb.txt）
 MASTER_FILE_URL = "https://raw.githubusercontent.com/chenmo77/iptvindex/refs/heads/main/zb.txt"
-
-# 2. 第二类：统一纳入"IPTV"大分组的源
+# 2. 第二类：统一纳入"网络直播"大分组的源
 #    格式：(分类名称, 源地址)
-#    所有这些源都会被放在同一个"IPTV" group下，每个源的名称作为内部genre
+#    所有这些源都会被放在同一个"网络直播" group下，每个源的名称作为内部genre
+#    会丢弃源内部自带全部 #genre# 标记，频道直接归属在外层genre下
 IPTV_GROUP_SOURCES = [
     ("虎牙", "https://sub.ottiptv.cc/huyayqk.m3u"),
     ("斗鱼", "https://sub.ottiptv.cc/douyuyqk.m3u"),
     ("B站", "https://sub.ottiptv.cc/bililive.m3u"),
     ("YY", "https://sub.ottiptv.cc/yylunbo.m3u"),
-    # 下次想添加到IPTV分组的源，直接在这里加一行即可
+    # 下次想添加到网络直播分组的源，直接在这里加一行即可
     # ("新分类", "新源地址"),
 ]
-
 # 3. 第三类：独立分组的源
 #    格式：(分组名称, 源地址)
 #    每个源都会成为一个独立的group，保留源内部自带的genre分类
@@ -28,15 +26,12 @@ INDEPENDENT_GROUP_SOURCES = [
     # 下次想添加独立分组的源，直接在这里加一行即可
     # ("新分组", "新源地址"),
 ]
-
 # 4. 输出文件配置
 OUTPUT_TXT = "all.txt"
 OUTPUT_M3U = "all.m3u"
-
 # 5. EPG配置（双EPG源，逗号分隔）
 EPG_URLS = "http://epg.cdn.loc.cc,https://diyp.epg.qzz.io/"
 # ==============================================================
-
 def create_session_with_retry(retries=3, backoff_factor=0.3):
     """创建带有重试机制的requests会话"""
     session = requests.Session()
@@ -55,10 +50,8 @@ def create_session_with_retry(retries=3, backoff_factor=0.3):
     
     
     return session
-
 # 创建全局会话
 session = create_session_with_retry()
-
 def fetch_file_content(url):
     """获取远程文件内容（增强版：支持反爬虫、重试和自动编码检测）"""
     try:
@@ -85,7 +78,6 @@ def fetch_file_content(url):
     except Exception as e:
         print(f"   ❌ 抓取失败: {str(e)}")
         return None
-
 def is_m3u_format(content):
     """判断内容是否为M3U格式（通过文件头或内容特征）"""
     first_line = content.strip().split('\n')[0] if content else ''
@@ -94,7 +86,6 @@ def is_m3u_format(content):
     if '#EXTINF:' in content:
         return True
     return False
-
 def parse_m3u_to_txt(content):
     """
     将M3U格式内容转换为TXT格式，并尝试从 group-title 提取分类
@@ -129,7 +120,6 @@ def parse_m3u_to_txt(content):
             i += 1
     
     return '\n'.join(txt_lines)
-
 def convert_to_txt(content, url):
     """
     智能转换函数：判断内容格式，统一输出TXT
@@ -139,6 +129,21 @@ def convert_to_txt(content, url):
         return parse_m3u_to_txt(content)
     else:
         return content
+
+def filter_remove_inner_genre(lines_list):
+    """
+    过滤函数：删除源内部所有 xxx,#genre# 行，只保留频道行
+    专门用于【网络直播】分组下的子源，清除源自带二级分类
+    """
+    out = []
+    for l in lines_list:
+        strip_l = l.strip()
+        if strip_l.endswith(",#genre#"):
+            # 丢弃源内部自带的分类标记
+            continue
+        out.append(l)
+    return out
+
 
 def convert_to_m3u(txt_lines):
     """
@@ -194,13 +199,14 @@ def convert_to_m3u(txt_lines):
     
     return '\n'.join(m3u_lines)
 
-def process_source(group_name, source_url, final_lines, add_group_header=True):
+def process_source(group_name, source_url, final_lines, add_group_header=True, drop_inner_genre=False):
     """
     通用的源处理函数
-    :param group_name: 分组名称（如果是IPTV分组内的源，这里就是genre名称）
+    :param group_name: 分组名称（如果是网络直播分组内的源，这里就是genre名称）
     :param source_url: 源地址
     :param final_lines: 最终内容列表
     :param add_group_header: 是否添加分组/分类头
+    :param drop_inner_genre: 是否丢弃源内部自带 #genre# 标记（网络直播子源开启）
     :return: 添加的有效行数
     """
     print(f"\n🔧 处理源: {group_name}")
@@ -226,6 +232,11 @@ def process_source(group_name, source_url, final_lines, add_group_header=True):
         converted_content = convert_to_txt(source_content, source_url)
         source_lines = converted_content.split('\n')
         valid_lines = [l.rstrip() for l in source_lines if l.strip()]
+        
+        # 如果开启标志，则清除源内部所有 #genre#
+        if drop_inner_genre:
+            valid_lines = filter_remove_inner_genre(valid_lines)
+            
         final_lines.extend(valid_lines)
         print(f"   ✅ 添加 {len(valid_lines)} 行有效内容")
         return len(valid_lines)
@@ -258,13 +269,14 @@ def main():
         if line.strip() == "温馨提示,#group#" and not custom_inserted:
             final_lines.pop()
             
-            # 处理第二类：IPTV大分组的源
+            # 处理第二类：网络直播大分组的源（原IPTV改名）
             if IPTV_GROUP_SOURCES:
-                print(f"\n📌 开始处理IPTV统一分组（共 {len(IPTV_GROUP_SOURCES)} 个源）")
-                final_lines.append("IPTV,#group#")
+                print(f"\n📌 开始处理网络直播统一分组（共 {len(IPTV_GROUP_SOURCES)} 个源）")
+                final_lines.append("网络直播,#group#")
                 
                 for genre_name, source_url in IPTV_GROUP_SOURCES:
-                    count = process_source(genre_name, source_url, final_lines)
+                    # drop_inner_genre=True：丢弃源内部自带全部#genre#标记
+                    count = process_source(genre_name, source_url, final_lines, add_group_header=True, drop_inner_genre=True)
                     total_custom_channels += count
             
             # 处理第三类：独立分组的源
@@ -272,7 +284,8 @@ def main():
                 print(f"\n📌 开始处理独立分组（共 {len(INDEPENDENT_GROUP_SOURCES)} 个源）")
                 
                 for group_name, source_url in INDEPENDENT_GROUP_SOURCES:
-                    count = process_source(group_name, source_url, final_lines)
+                    # 独立分组保持原有逻辑，保留源内部genre
+                    count = process_source(group_name, source_url, final_lines, add_group_header=True, drop_inner_genre=False)
                     total_custom_channels += count
             
             final_lines.append("温馨提示,#group#")
@@ -309,6 +322,5 @@ def main():
     print(f"   📁 输出文件: {OUTPUT_TXT}, {OUTPUT_M3U}")
     print(f"   🕐 生成时间: {time.strftime('%Y-%m-%d %H:%M:%S')}")
     print("=" * 70)
-
 if __name__ == "__main__":
     main()
