@@ -34,9 +34,6 @@ INDEPENDENT_GROUP_SOURCES = [
     ("咪咕", "https://raw.githubusercontent.com/develop202/migu_video/refs/heads/main/interface.txt"),
     ("Guovin", "https://raw.githubusercontent.com/Guovin/iptv-api/gd/output/result.txt"),
     ("alan", "https://raw.githubusercontent.com/alantang1977/aTV/refs/heads/master/output/result.txt"),
-    ("YY", "https://raw.githubusercontent.com/mursor1985/LIVE/refs/heads/main/yylunbo.m3u"),
-    ("虎牙", "https://raw.githubusercontent.com/mursor1985/LIVE/refs/heads/main/huyayqk.m3u"),
-    ("斗鱼", "https://raw.githubusercontent.com/mursor1985/LIVE/refs/heads/main/douyuyqk.m3u"),
     # 下次想添加独立分组的源，直接在这里加一行即可
     # ("新分组", "新源地址"),
 ]
