@@ -13,13 +13,6 @@ MASTER_FILE_URL = "https://raw.githubusercontent.com/chenmo77/iptvindex/refs/hea
 #    所有这些源都会被放在同一个"IPTV" group下，每个源的名称作为内部genre
 IPTV_GROUP_SOURCES = [
     ("中国", "https://raw.githubusercontent.com/iptv-org/iptv/refs/heads/master/streams/cn.m3u"),
-    ("TW", "https://raw.githubusercontent.com/iptv-org/iptv/refs/heads/master/streams/tw.m3u"),
-    ("HK", "https://raw.githubusercontent.com/iptv-org/iptv/refs/heads/master/streams/hk.m3u"),
-    ("漂亮国", "https://raw.githubusercontent.com/iptv-org/iptv/refs/heads/master/streams/us.m3u"),
-    ("大毛子", "https://raw.githubusercontent.com/iptv-org/iptv/refs/heads/master/streams/ru.m3u"),
-    ("大不列", "https://raw.githubusercontent.com/iptv-org/iptv/refs/heads/master/streams/uk_bbc.m3u"),
-    ("小日子", "https://raw.githubusercontent.com/iptv-org/iptv/refs/heads/master/streams/jp.m3u"),
-    ("samsung", "https://raw.githubusercontent.com/iptv-org/iptv/refs/heads/master/streams/uk_samsung.m3u"),
     # 下次想添加到IPTV分组的源，直接在这里加一行即可
     # ("新分类", "新源地址"),
 ]
@@ -29,11 +22,6 @@ IPTV_GROUP_SOURCES = [
 #    每个源都会成为一个独立的group，保留源内部自带的genre分类
 INDEPENDENT_GROUP_SOURCES = [
     ("先锋", "http://ge.html-5.me//ii/%E9%BB%84%E8%9A%82%E8%9A%81%E5%85%88%E9%94%8B%E6%8E%A8%E6%B5%81%E6%BA%90.txt"),
-    ("iptvz", "https://raw.githubusercontent.com/q1017673817/iptvz/refs/heads/main/zubo_all.txt"),
-    ("zbds", "https://live.zbds.org/tv/iptv4.txt"),
-    ("咪咕", "https://raw.githubusercontent.com/develop202/migu_video/refs/heads/main/interface.txt"),
-    ("Guovin", "https://raw.githubusercontent.com/Guovin/iptv-api/gd/output/result.txt"),
-    ("alan", "https://raw.githubusercontent.com/alantang1977/aTV/refs/heads/master/output/result.txt"),
     # 下次想添加独立分组的源，直接在这里加一行即可
     # ("新分组", "新源地址"),
 ]
