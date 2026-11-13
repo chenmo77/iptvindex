@@ -34,17 +34,6 @@ OUTPUT_M3U = "all.m3u"
 EPG_URLS = "http://epg.cdn.loc.cc,https://diyp.epg.qzz.io/"
 # ==============================================================
 
-# 模拟浏览器的请求头，解决反爬虫问题
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
-    "Accept-Language": "zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2",
-    "Accept-Encoding": "gzip, deflate",
-    "Connection": "keep-alive",
-    "Upgrade-Insecure-Requests": "1",
-    "Cache-Control": "max-age=0"
-}
-
 def create_session_with_retry(retries=3, backoff_factor=0.3):
     """创建带有重试机制的requests会话"""
     session = requests.Session()
@@ -61,8 +50,6 @@ def create_session_with_retry(retries=3, backoff_factor=0.3):
     session.mount("http://", adapter)
     session.mount("https://", adapter)
     
-    # 设置全局请求头
-    session.headers.update(HEADERS)
     
     return session
 
