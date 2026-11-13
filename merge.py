@@ -13,7 +13,6 @@ MASTER_FILE_URL = "https://raw.githubusercontent.com/chenmo77/iptvindex/refs/hea
 IPTV_GROUP_SOURCES = [
     ("虎牙", "https://sub.ottiptv.cc/huyayqk.m3u"),
     ("斗鱼", "https://sub.ottiptv.cc/douyuyqk.m3u"),
-    ("B站", "https://sub.ottiptv.cc/bililive.m3u"),
     ("YY", "https://sub.ottiptv.cc/yylunbo.m3u"),
     # 下次想添加到网络直播分组的源，直接在这里加一行即可
     # ("新分类", "新源地址"),
@@ -22,7 +21,7 @@ IPTV_GROUP_SOURCES = [
 #    格式：(分组名称, 源地址)
 #    每个源都会成为一个独立的group，保留源内部自带的genre分类
 INDEPENDENT_GROUP_SOURCES = [
-    ("南风", "https://raw.githubusercontent.com/yoursmile66/TVBox/main/live.txt"),
+    ("", ""),
     # 下次想添加独立分组的源，直接在这里加一行即可
     # ("新分组", "新源地址"),
 ]
