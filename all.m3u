@@ -7487,29 +7487,235 @@ https://live.ottiptv.cc/yy/13739310
 https://live.ottiptv.cc/yy/1382720905
 #EXTINF:-1 tvg-id="3D轻语 来放松" tvg-name="3D轻语 来放松" group-title="网络直播/YY",3D轻语 来放松
 https://live.ottiptv.cc/yy/1382750627
-#EXTINF:-1 tvg-id="根据上网宽带" tvg-name="根据上网宽带" group-title="天天TV/观看建议",根据上网宽带
+#EXTINF:-1 tvg-id="CCTV1" tvg-name="CCTV1" group-title="咪咕/电视直播",CCTV1
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=234e53
+#EXTINF:-1 tvg-id="CCTV2" tvg-name="CCTV2" group-title="咪咕/电视直播",CCTV2
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=be4c96
+#EXTINF:-1 tvg-id="CCTV3" tvg-name="CCTV3" group-title="咪咕/电视直播",CCTV3
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=39f579
+#EXTINF:-1 tvg-id="CCTV4" tvg-name="CCTV4" group-title="咪咕/电视直播",CCTV4
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=a69e49
+#EXTINF:-1 tvg-id="CCTV5" tvg-name="CCTV5" group-title="咪咕/电视直播",CCTV5
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=775270
+#EXTINF:-1 tvg-id="CCTV5+" tvg-name="CCTV5+" group-title="咪咕/电视直播",CCTV5+
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=4a827d
+#EXTINF:-1 tvg-id="CCTV6" tvg-name="CCTV6" group-title="咪咕/电视直播",CCTV6
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=35d527
+#EXTINF:-1 tvg-id="CCTV7" tvg-name="CCTV7" group-title="咪咕/电视直播",CCTV7
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=686da5
+#EXTINF:-1 tvg-id="CCTV8" tvg-name="CCTV8" group-title="咪咕/电视直播",CCTV8
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=d3a1cd
+#EXTINF:-1 tvg-id="CCTV9" tvg-name="CCTV9" group-title="咪咕/电视直播",CCTV9
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=bff3ad
+#EXTINF:-1 tvg-id="CCTV10" tvg-name="CCTV10" group-title="咪咕/电视直播",CCTV10
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=22e9ab
+#EXTINF:-1 tvg-id="CCTV11" tvg-name="CCTV11" group-title="咪咕/电视直播",CCTV11
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=8aaf9e
+#EXTINF:-1 tvg-id="CCTV12" tvg-name="CCTV12" group-title="咪咕/电视直播",CCTV12
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=2692bf
+#EXTINF:-1 tvg-id="CCTV13" tvg-name="CCTV13" group-title="咪咕/电视直播",CCTV13
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=10bfec
+#EXTINF:-1 tvg-id="CCTV14" tvg-name="CCTV14" group-title="咪咕/电视直播",CCTV14
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=b52e78
+#EXTINF:-1 tvg-id="CCTV15" tvg-name="CCTV15" group-title="咪咕/电视直播",CCTV15
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=c6fbb4
+#EXTINF:-1 tvg-id="CCTV17" tvg-name="CCTV17" group-title="咪咕/电视直播",CCTV17
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=d3516b
+#EXTINF:-1 tvg-id="CCTV4欧洲" tvg-name="CCTV4欧洲" group-title="咪咕/电视直播",CCTV4欧洲
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=714200
+#EXTINF:-1 tvg-id="CCTV4美洲" tvg-name="CCTV4美洲" group-title="咪咕/电视直播",CCTV4美洲
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=7ffbea
+#EXTINF:-1 tvg-id="CGTN外语纪录" tvg-name="CGTN外语纪录" group-title="咪咕/电视直播",CGTN外语纪录
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=1901ae
+#EXTINF:-1 tvg-id="CGTN阿拉伯语" tvg-name="CGTN阿拉伯语" group-title="咪咕/电视直播",CGTN阿拉伯语
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=228eb1
+#EXTINF:-1 tvg-id="CGTN西班牙语" tvg-name="CGTN西班牙语" group-title="咪咕/电视直播",CGTN西班牙语
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=44b4d0
+#EXTINF:-1 tvg-id="CGTN法语" tvg-name="CGTN法语" group-title="咪咕/电视直播",CGTN法语
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=37a11d
+#EXTINF:-1 tvg-id="CGTN俄语" tvg-name="CGTN俄语" group-title="咪咕/电视直播",CGTN俄语
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=ec6c58
+#EXTINF:-1 tvg-id="老故事" tvg-name="老故事" group-title="咪咕/电视直播",老故事
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=9b24b4
+#EXTINF:-1 tvg-id="发现之旅" tvg-name="发现之旅" group-title="咪咕/电视直播",发现之旅
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=92471d
+#EXTINF:-1 tvg-id="中学生" tvg-name="中学生" group-title="咪咕/电视直播",中学生
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=236dce
+#EXTINF:-1 tvg-id="CGTN" tvg-name="CGTN" group-title="咪咕/电视直播",CGTN
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=ff4675
+#EXTINF:-1 tvg-id="赛事最经典" tvg-name="赛事最经典" group-title="咪咕/电视直播",赛事最经典
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=b31236
+#EXTINF:-1 tvg-id="体坛名栏汇" tvg-name="体坛名栏汇" group-title="咪咕/电视直播",体坛名栏汇
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=4abbc1
+#EXTINF:-1 tvg-id="四海钓鱼" tvg-name="四海钓鱼" group-title="咪咕/电视直播",四海钓鱼
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=fd8458
+#EXTINF:-1 tvg-id="陕西体育休闲频道" tvg-name="陕西体育休闲频道" group-title="咪咕/电视直播",陕西体育休闲频道
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=d61ea9
+#EXTINF:-1 tvg-id="24小时城市联赛轮播台" tvg-name="24小时城市联赛轮播台" group-title="咪咕/电视直播",24小时城市联赛轮播台
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=b947e6
+#EXTINF:-1 tvg-id="武术世界" tvg-name="武术世界" group-title="咪咕/电视直播",武术世界
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=76a3e5
+#EXTINF:-1 tvg-id="快乐垂钓" tvg-name="快乐垂钓" group-title="咪咕/电视直播",快乐垂钓
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=189345
+#EXTINF:-1 tvg-id="东方卫视" tvg-name="东方卫视" group-title="咪咕/电视直播",东方卫视
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=4b45d3
+#EXTINF:-1 tvg-id="江苏卫视" tvg-name="江苏卫视" group-title="咪咕/电视直播",江苏卫视
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=56aa11
+#EXTINF:-1 tvg-id="广东卫视" tvg-name="广东卫视" group-title="咪咕/电视直播",广东卫视
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=39de91
+#EXTINF:-1 tvg-id="北京卫视" tvg-name="北京卫视" group-title="咪咕/电视直播",北京卫视
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=a01654
+#EXTINF:-1 tvg-id="辽宁卫视" tvg-name="辽宁卫视" group-title="咪咕/电视直播",辽宁卫视
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=1f8db9
+#EXTINF:-1 tvg-id="河北卫视" tvg-name="河北卫视" group-title="咪咕/电视直播",河北卫视
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=5788f6
+#EXTINF:-1 tvg-id="江西卫视" tvg-name="江西卫视" group-title="咪咕/电视直播",江西卫视
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=487e61
+#EXTINF:-1 tvg-id="河南卫视" tvg-name="河南卫视" group-title="咪咕/电视直播",河南卫视
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=f44bd2
+#EXTINF:-1 tvg-id="陕西卫视" tvg-name="陕西卫视" group-title="咪咕/电视直播",陕西卫视
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=0a8ec1
+#EXTINF:-1 tvg-id="大湾区卫视" tvg-name="大湾区卫视" group-title="咪咕/电视直播",大湾区卫视
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=eb55d9
+#EXTINF:-1 tvg-id="湖北卫视" tvg-name="湖北卫视" group-title="咪咕/电视直播",湖北卫视
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=0cc017
+#EXTINF:-1 tvg-id="吉林卫视" tvg-name="吉林卫视" group-title="咪咕/电视直播",吉林卫视
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=be88e1
+#EXTINF:-1 tvg-id="青海卫视" tvg-name="青海卫视" group-title="咪咕/电视直播",青海卫视
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=03d0d9
+#EXTINF:-1 tvg-id="东南卫视" tvg-name="东南卫视" group-title="咪咕/电视直播",东南卫视
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=0228f4
+#EXTINF:-1 tvg-id="海南卫视" tvg-name="海南卫视" group-title="咪咕/电视直播",海南卫视
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=e6729e
+#EXTINF:-1 tvg-id="海峡卫视" tvg-name="海峡卫视" group-title="咪咕/电视直播",海峡卫视
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=1fd681
+#EXTINF:-1 tvg-id="中国农林卫视" tvg-name="中国农林卫视" group-title="咪咕/电视直播",中国农林卫视
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=aac7c9
+#EXTINF:-1 tvg-id="兵团卫视" tvg-name="兵团卫视" group-title="咪咕/电视直播",兵团卫视
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=caf794
+#EXTINF:-1 tvg-id="宁夏卫视" tvg-name="宁夏卫视" group-title="咪咕/电视直播",宁夏卫视
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=e1b49d
+#EXTINF:-1 tvg-id="重庆卫视" tvg-name="重庆卫视" group-title="咪咕/电视直播",重庆卫视
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=0f7fee
+#EXTINF:-1 tvg-id="三沙卫视" tvg-name="三沙卫视" group-title="咪咕/电视直播",三沙卫视
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=685677
+#EXTINF:-1 tvg-id="上海新闻综合" tvg-name="上海新闻综合" group-title="咪咕/电视直播",上海新闻综合
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=fe00be
+#EXTINF:-1 tvg-id="上视东方影视" tvg-name="上视东方影视" group-title="咪咕/电视直播",上视东方影视
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=44e30d
+#EXTINF:-1 tvg-id="上海第一财经" tvg-name="上海第一财经" group-title="咪咕/电视直播",上海第一财经
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=f9f952
+#EXTINF:-1 tvg-id="南京新闻综合频道" tvg-name="南京新闻综合频道" group-title="咪咕/电视直播",南京新闻综合频道
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=9494fd
+#EXTINF:-1 tvg-id="南京教科频道" tvg-name="南京教科频道" group-title="咪咕/电视直播",南京教科频道
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=d51bda
+#EXTINF:-1 tvg-id="南京十八频道" tvg-name="南京十八频道" group-title="咪咕/电视直播",南京十八频道
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=7eaa80
+#EXTINF:-1 tvg-id="体育休闲频道" tvg-name="体育休闲频道" group-title="咪咕/电视直播",体育休闲频道
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=1b70e3
+#EXTINF:-1 tvg-id="江苏城市频道" tvg-name="江苏城市频道" group-title="咪咕/电视直播",江苏城市频道
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=899b11
+#EXTINF:-1 tvg-id="江苏国际" tvg-name="江苏国际" group-title="咪咕/电视直播",江苏国际
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=1855d9
+#EXTINF:-1 tvg-id="江苏教育" tvg-name="江苏教育" group-title="咪咕/电视直播",江苏教育
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=c8edc1
+#EXTINF:-1 tvg-id="江苏影视频道" tvg-name="江苏影视频道" group-title="咪咕/电视直播",江苏影视频道
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=463742
+#EXTINF:-1 tvg-id="江苏综艺频道" tvg-name="江苏综艺频道" group-title="咪咕/电视直播",江苏综艺频道
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=e86b81
+#EXTINF:-1 tvg-id="公共新闻频道" tvg-name="公共新闻频道" group-title="咪咕/电视直播",公共新闻频道
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=6a41e7
+#EXTINF:-1 tvg-id="盐城新闻综合" tvg-name="盐城新闻综合" group-title="咪咕/电视直播",盐城新闻综合
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=a13e79
+#EXTINF:-1 tvg-id="淮安新闻综合" tvg-name="淮安新闻综合" group-title="咪咕/电视直播",淮安新闻综合
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=8072a3
+#EXTINF:-1 tvg-id="泰州新闻综合" tvg-name="泰州新闻综合" group-title="咪咕/电视直播",泰州新闻综合
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=e05740
+#EXTINF:-1 tvg-id="连云港新闻综合" tvg-name="连云港新闻综合" group-title="咪咕/电视直播",连云港新闻综合
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=ffe54c
+#EXTINF:-1 tvg-id="宿迁新闻综合" tvg-name="宿迁新闻综合" group-title="咪咕/电视直播",宿迁新闻综合
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=c648ef
+#EXTINF:-1 tvg-id="徐州新闻综合" tvg-name="徐州新闻综合" group-title="咪咕/电视直播",徐州新闻综合
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=5f59d0
+#EXTINF:-1 tvg-id="优漫卡通频道" tvg-name="优漫卡通频道" group-title="咪咕/电视直播",优漫卡通频道
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=18d8ca
+#EXTINF:-1 tvg-id="江阴新闻综合" tvg-name="江阴新闻综合" group-title="咪咕/电视直播",江阴新闻综合
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=873a7e
+#EXTINF:-1 tvg-id="南通新闻综合" tvg-name="南通新闻综合" group-title="咪咕/电视直播",南通新闻综合
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=b4b0b4
+#EXTINF:-1 tvg-id="宜兴新闻综合" tvg-name="宜兴新闻综合" group-title="咪咕/电视直播",宜兴新闻综合
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=ff8c21
+#EXTINF:-1 tvg-id="溧水新闻综合" tvg-name="溧水新闻综合" group-title="咪咕/电视直播",溧水新闻综合
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=9a9407
+#EXTINF:-1 tvg-id="陕西银龄频道" tvg-name="陕西银龄频道" group-title="咪咕/电视直播",陕西银龄频道
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=f6083d
+#EXTINF:-1 tvg-id="陕西都市青春频道" tvg-name="陕西都市青春频道" group-title="咪咕/电视直播",陕西都市青春频道
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=30be35
+#EXTINF:-1 tvg-id="陕西秦腔频道" tvg-name="陕西秦腔频道" group-title="咪咕/电视直播",陕西秦腔频道
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=32d00a
+#EXTINF:-1 tvg-id="陕西新闻资讯频道" tvg-name="陕西新闻资讯频道" group-title="咪咕/电视直播",陕西新闻资讯频道
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=b66449
+#EXTINF:-1 tvg-id="财富天下" tvg-name="财富天下" group-title="咪咕/电视直播",财富天下
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=f1ee5c
+#EXTINF:-1 tvg-id="镇江新闻综合" tvg-name="镇江新闻综合" group-title="咪咕/电视直播",镇江新闻综合
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=d24117
+#EXTINF:-1 tvg-id="海南广播电视总台新闻频道" tvg-name="海南广播电视总台新闻频道" group-title="咪咕/电视直播",海南广播电视总台新闻频道
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=33fe1c
+#EXTINF:-1 tvg-id="海南广播电视总台自贸频道" tvg-name="海南广播电视总台自贸频道" group-title="咪咕/电视直播",海南广播电视总台自贸频道
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=2582b1
+#EXTINF:-1 tvg-id="海南广播电视总台社会与法频道" tvg-name="海南广播电视总台社会与法频道" group-title="咪咕/电视直播",海南广播电视总台社会与法频道
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=26a5fc
+#EXTINF:-1 tvg-id="海南广播电视总台文旅频道" tvg-name="海南广播电视总台文旅频道" group-title="咪咕/电视直播",海南广播电视总台文旅频道
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=d8d95c
+#EXTINF:-1 tvg-id="海南广播电视总台少儿频道" tvg-name="海南广播电视总台少儿频道" group-title="咪咕/电视直播",海南广播电视总台少儿频道
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=b4a8f1
+#EXTINF:-1 tvg-id="经典香港电影" tvg-name="经典香港电影" group-title="咪咕/电视直播",经典香港电影
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=8f5f3c
+#EXTINF:-1 tvg-id="抗战经典影片" tvg-name="抗战经典影片" group-title="咪咕/电视直播",抗战经典影片
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=3e1623
+#EXTINF:-1 tvg-id="新片放映厅" tvg-name="新片放映厅" group-title="咪咕/电视直播",新片放映厅
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=7f96f9
+#EXTINF:-1 tvg-id="CHC影迷电影" tvg-name="CHC影迷电影" group-title="咪咕/电视直播",CHC影迷电影
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=fc882c
+#EXTINF:-1 tvg-id="CHC动作电影" tvg-name="CHC动作电影" group-title="咪咕/电视直播",CHC动作电影
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=34cb00
+#EXTINF:-1 tvg-id="CHC家庭影院" tvg-name="CHC家庭影院" group-title="咪咕/电视直播",CHC家庭影院
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=35e5ef
+#EXTINF:-1 tvg-id="和美乡途轮播台" tvg-name="和美乡途轮播台" group-title="咪咕/电视直播",和美乡途轮播台
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=caa8c5
+#EXTINF:-1 tvg-id="南方影视" tvg-name="南方影视" group-title="咪咕/电视直播",南方影视
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=9165a6
+#EXTINF:-1 tvg-id="CETV1" tvg-name="CETV1" group-title="咪咕/电视直播",CETV1
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=664da9
+#EXTINF:-1 tvg-id="CETV2" tvg-name="CETV2" group-title="咪咕/电视直播",CETV2
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=49e978
+#EXTINF:-1 tvg-id="CETV4" tvg-name="CETV4" group-title="咪咕/电视直播",CETV4
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=625466
+#EXTINF:-1 tvg-id="山东教育" tvg-name="山东教育" group-title="咪咕/电视直播",山东教育
+https://tv.305362.xyz/zhth/tv.php?f=e3ac44&id=2daac4
+#EXTINF:-1 tvg-id="根据上网宽带" tvg-name="根据上网宽带" group-title="咪咕/观看建议",根据上网宽带
 https://
-#EXTINF:-1 tvg-id="选择相应线路" tvg-name="选择相应线路" group-title="天天TV/观看建议",选择相应线路
+#EXTINF:-1 tvg-id="选择相应线路" tvg-name="选择相应线路" group-title="咪咕/观看建议",选择相应线路
 https://
-#EXTINF:-1 tvg-id="☆☆☆☆" tvg-name="☆☆☆☆" group-title="天天TV/观看建议",☆☆☆☆
+#EXTINF:-1 tvg-id="☆☆☆☆" tvg-name="☆☆☆☆" group-title="咪咕/观看建议",☆☆☆☆
 https://
-#EXTINF:-1 tvg-id="全网线路中的" tvg-name="全网线路中的" group-title="天天TV/观看建议",全网线路中的
+#EXTINF:-1 tvg-id="全网线路中的" tvg-name="全网线路中的" group-title="咪咕/观看建议",全网线路中的
 https://
-#EXTINF:-1 tvg-id="部分频道需要" tvg-name="部分频道需要" group-title="天天TV/观看建议",部分频道需要
+#EXTINF:-1 tvg-id="部分频道需要" tvg-name="部分频道需要" group-title="咪咕/观看建议",部分频道需要
 https://
-#EXTINF:-1 tvg-id="科学上网环境" tvg-name="科学上网环境" group-title="天天TV/观看建议",科学上网环境
+#EXTINF:-1 tvg-id="科学上网环境" tvg-name="科学上网环境" group-title="咪咕/观看建议",科学上网环境
 https://
-#EXTINF:-1 tvg-id="★★★★" tvg-name="★★★★" group-title="天天TV/观看建议",★★★★
+#EXTINF:-1 tvg-id="★★★★" tvg-name="★★★★" group-title="咪咕/观看建议",★★★★
 https://
-#EXTINF:-1 tvg-id="仅供免费测试" tvg-name="仅供免费测试" group-title="天天TV/观看建议",仅供免费测试
+#EXTINF:-1 tvg-id="仅供免费测试" tvg-name="仅供免费测试" group-title="咪咕/观看建议",仅供免费测试
 https://
-#EXTINF:-1 tvg-id="酷9-其他设置" tvg-name="酷9-其他设置" group-title="天天TV/分组说明",酷9-其他设置
+#EXTINF:-1 tvg-id="酷9-其他设置" tvg-name="酷9-其他设置" group-title="咪咕/分组说明",酷9-其他设置
 https://
-#EXTINF:-1 tvg-id="-分组类型" tvg-name="-分组类型" group-title="天天TV/分组说明",-分组类型
+#EXTINF:-1 tvg-id="-分组类型" tvg-name="-分组类型" group-title="咪咕/分组说明",-分组类型
 https://
-#EXTINF:-1 tvg-id="-二级分组模式" tvg-name="-二级分组模式" group-title="天天TV/分组说明",-二级分组模式
+#EXTINF:-1 tvg-id="-二级分组模式" tvg-name="-二级分组模式" group-title="咪咕/分组说明",-二级分组模式
 https://
-#EXTINF:-1 tvg-id="左侧即可看到" tvg-name="左侧即可看到" group-title="天天TV/分组说明",左侧即可看到
+#EXTINF:-1 tvg-id="左侧即可看到" tvg-name="左侧即可看到" group-title="咪咕/分组说明",左侧即可看到
 https://
-#EXTINF:-1 tvg-id="相应宽带线路" tvg-name="相应宽带线路" group-title="天天TV/分组说明",相应宽带线路
+#EXTINF:-1 tvg-id="相应宽带线路" tvg-name="相应宽带线路" group-title="咪咕/分组说明",相应宽带线路
 https://
