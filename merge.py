@@ -22,7 +22,6 @@ IPTV_GROUP_SOURCES = [
 #    每个源都会成为一个独立的group，保留源内部自带的genre分类
 INDEPENDENT_GROUP_SOURCES = [
     ("咪咕", "https://tv.305362.xyz/zhth/output/migu.txt"),
-    ("jack", "https://php.946985.filegear-sg.me/jackTV.m3u"),
     # 下次想添加独立分组的源，直接在这里加一行即可
     # ("新分组", "新源地址"),
 ]
