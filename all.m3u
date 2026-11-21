@@ -2231,6 +2231,164 @@ http://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master_1660.m3u8?zshijd
 http://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master_928.m3u8?zshijd
 #EXTINF:-1 tvg-id="Red Bull TV" tvg-name="Red Bull TV" group-title="全网线路/其他",Red Bull TV
 https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master.m3u8
+#EXTINF:-1 tvg-id="無綫新聞台" tvg-name="無綫新聞台" group-title="全网线路/两岸",無綫新聞台
+https://cdn.qd.je/163189/wxxwt
+#EXTINF:-1 tvg-id="無綫新聞台" tvg-name="無綫新聞台" group-title="全网线路/两岸",無綫新聞台
+https://php.946985.filegear-sg.me/tvbnews.php?id=c
+#EXTINF:-1 tvg-id="無綫新聞台國際版" tvg-name="無綫新聞台國際版" group-title="全网线路/两岸",無綫新聞台國際版
+https://php.946985.filegear-sg.me/tvbnews.php?id=inews
+#EXTINF:-1 tvg-id="翡翠台" tvg-name="翡翠台" group-title="全网线路/两岸",翡翠台
+https://cdn.qd.je/163189/fct2
+#EXTINF:-1 tvg-id="翡翠台" tvg-name="翡翠台" group-title="全网线路/两岸",翡翠台
+https://cdn.qd.je/163189/fct
+#EXTINF:-1 tvg-id="TVB Plus" tvg-name="TVB Plus" group-title="全网线路/两岸",TVB Plus
+https://cdn.qd.je/163189/tvbp
+#EXTINF:-1 tvg-id="Now 新聞台" tvg-name="Now 新聞台" group-title="全网线路/两岸",Now 新聞台
+https://cdn.qd.je/163189/now
+#EXTINF:-1 tvg-id="凤凰中文台" tvg-name="凤凰中文台" group-title="全网线路/两岸",凤凰中文台
+https://cdn.qd.je/163189/fhzw
+#EXTINF:-1 tvg-id="凤凰资讯台" tvg-name="凤凰资讯台" group-title="全网线路/两岸",凤凰资讯台
+https://cdn.qd.je/163189/fhzx
+#EXTINF:-1 tvg-id="凤凰香港台" tvg-name="凤凰香港台" group-title="全网线路/两岸",凤凰香港台
+https://cdn.qd.je/163189/fhhk
+#EXTINF:-1 tvg-id="HOY TV" tvg-name="HOY TV" group-title="全网线路/两岸",HOY TV
+https://cdn.qd.je/163189/hoy
+#EXTINF:-1 tvg-id="HOY TV" tvg-name="HOY TV" group-title="全网线路/两岸",HOY TV
+https://cdn.qd.je/163189/hoy2
+#EXTINF:-1 tvg-id="HOY 資訊台" tvg-name="HOY 資訊台" group-title="全网线路/两岸",HOY 資訊台
+https://cdn.qd.je/163189/hoy78
+#EXTINF:-1 tvg-id="HOY 國際財經台" tvg-name="HOY 國際財經台" group-title="全网线路/两岸",HOY 國際財經台
+https://cdn.qd.je/163189/hoy76
+#EXTINF:-1 tvg-id="ViuTV" tvg-name="ViuTV" group-title="全网线路/两岸",ViuTV
+https://cdn.qd.je/163189/viu
+#EXTINF:-1 tvg-id="ViuTV6" tvg-name="ViuTV6" group-title="全网线路/两岸",ViuTV6
+https://cdn.qd.je/163189/viu6
+#EXTINF:-1 tvg-id="RTHK31" tvg-name="RTHK31" group-title="全网线路/两岸",RTHK31
+https://cdn.qd.je/163189/rthk31
+#EXTINF:-1 tvg-id="RTHK32" tvg-name="RTHK32" group-title="全网线路/两岸",RTHK32
+https://cdn.qd.je/163189/rthk32
+#EXTINF:-1 tvg-id="RTHK33" tvg-name="RTHK33" group-title="全网线路/两岸",RTHK33
+https://cdn.qd.je/163189/rthk33
+#EXTINF:-1 tvg-id="千禧經典台" tvg-name="千禧經典台" group-title="全网线路/两岸",千禧經典台
+https://cdn.qd.je/163189/tvbc
+#EXTINF:-1 tvg-id="娛樂新聞台" tvg-name="娛樂新聞台" group-title="全网线路/两岸",娛樂新聞台
+https://cdn.qd.je/163189/ylxw
+#EXTINF:-1 tvg-id="华丽翡翠台" tvg-name="华丽翡翠台" group-title="全网线路/两岸",华丽翡翠台
+https://cdn.qd.je/163189/hlt
+#EXTINF:-1 tvg-id="华丽翡翠台「硬字幕」" tvg-name="华丽翡翠台「硬字幕」" group-title="全网线路/两岸",华丽翡翠台「硬字幕」
+https://cdn.qd.je/163189/jade
+#EXTINF:-1 tvg-id="华丽翡翠台「新加坡」" tvg-name="华丽翡翠台「新加坡」" group-title="全网线路/两岸",华丽翡翠台「新加坡」
+https://cdn.qd.je/163189/hlfct
+#EXTINF:-1 tvg-id="华丽翡翠台「新加坡」" tvg-name="华丽翡翠台「新加坡」" group-title="全网线路/两岸",华丽翡翠台「新加坡」
+https://cdn.qd.je/163189/jade2
+#EXTINF:-1 tvg-id="TVB1" tvg-name="TVB1" group-title="全网线路/两岸",TVB1
+https://cdn.qd.je/163189/tvb1
+#EXTINF:-1 tvg-id="TVBJ1" tvg-name="TVBJ1" group-title="全网线路/两岸",TVBJ1
+https://cdn.qd.je/163189/j1
+#EXTINF:-1 tvg-id="TVB Drama" tvg-name="TVB Drama" group-title="全网线路/两岸",TVB Drama
+https://cdn.qd.je/163189/tvbd
+#EXTINF:-1 tvg-id="TVB 功夫台" tvg-name="TVB 功夫台" group-title="全网线路/两岸",TVB 功夫台
+https://cdn.qd.je/163189/yzwx
+#EXTINF:-1 tvg-id="TVB 星河台" tvg-name="TVB 星河台" group-title="全网线路/两岸",TVB 星河台
+https://cdn.qd.je/163189/tvbxh
+#EXTINF:-1 tvg-id="TVB 星河台" tvg-name="TVB 星河台" group-title="全网线路/两岸",TVB 星河台
+https://cdn.qd.je/163189/xinghe
+#EXTINF:-1 tvg-id="TVB 星河台" tvg-name="TVB 星河台" group-title="全网线路/两岸",TVB 星河台
+https://cdn.qd.je/163189/tvbxh2
+#EXTINF:-1 tvg-id="澳視澳門" tvg-name="澳視澳門" group-title="全网线路/两岸",澳視澳門
+https://cdn.qd.je/163189/asam
+#EXTINF:-1 tvg-id="澳門衛星" tvg-name="澳門衛星" group-title="全网线路/两岸",澳門衛星
+https://cdn.qd.je/163189/as
+#EXTINF:-1 tvg-id="澳門體育" tvg-name="澳門體育" group-title="全网线路/两岸",澳門體育
+https://cdn.qd.je/163189/amty
+#EXTINF:-1 tvg-id="澳門綜藝" tvg-name="澳門綜藝" group-title="全网线路/两岸",澳門綜藝
+https://cdn.qd.je/163189/amzy
+#EXTINF:-1 tvg-id="澳門蓮花" tvg-name="澳門蓮花" group-title="全网线路/两岸",澳門蓮花
+https://cdn.qd.je/163189/amlh
+#EXTINF:-1 tvg-id="天映頻道「新加坡」" tvg-name="天映頻道「新加坡」" group-title="全网线路/两岸",天映頻道「新加坡」
+https://cdn.qd.je/163189/typd
+#EXTINF:-1 tvg-id="天映經典「新加坡」" tvg-name="天映經典「新加坡」" group-title="全网线路/两岸",天映經典「新加坡」
+https://cdn.qd.je/163189/ccm
+#EXTINF:-1 tvg-id="天映頻道「马来西亚」" tvg-name="天映頻道「马来西亚」" group-title="全网线路/两岸",天映頻道「马来西亚」
+https://cdn.qd.je/163189/typd2
+#EXTINF:-1 tvg-id="天映經典「馬來西亞」" tvg-name="天映經典「馬來西亞」" group-title="全网线路/两岸",天映經典「馬來西亞」
+https://cdn.qd.je/163189/ccm2
+#EXTINF:-1 tvg-id="Astro AOD" tvg-name="Astro AOD" group-title="全网线路/两岸",Astro AOD
+https://cdn.qd.je/163189/aod
+#EXTINF:-1 tvg-id="Astro 歡喜台" tvg-name="Astro 歡喜台" group-title="全网线路/两岸",Astro 歡喜台
+https://cdn.qd.je/163189/hxt
+#EXTINF:-1 tvg-id="iQIYI" tvg-name="iQIYI" group-title="全网线路/两岸",iQIYI
+https://cdn.qd.je/163189/iqiyi
+#EXTINF:-1 tvg-id="八度空間" tvg-name="八度空間" group-title="全网线路/两岸",八度空間
+https://cdn.qd.je/163189/8tv
+#EXTINF:-1 tvg-id="Channel 5" tvg-name="Channel 5" group-title="全网线路/两岸",Channel 5
+https://cdn.qd.je/163189/ch5
+#EXTINF:-1 tvg-id="Channel 8" tvg-name="Channel 8" group-title="全网线路/两岸",Channel 8
+https://cdn.qd.je/163189/ch8
+#EXTINF:-1 tvg-id="Channel U" tvg-name="Channel U" group-title="全网线路/两岸",Channel U
+https://cdn.qd.je/163189/chu
+#EXTINF:-1 tvg-id="龍華電影台" tvg-name="龍華電影台" group-title="全网线路/两岸",龍華電影台
+https://cdn.qd.je/163189/lhdy
+#EXTINF:-1 tvg-id="龍華經典台" tvg-name="龍華經典台" group-title="全网线路/两岸",龍華經典台
+https://cdn.qd.je/163189/lhjd
+#EXTINF:-1 tvg-id="龍華偶像台" tvg-name="龍華偶像台" group-title="全网线路/两岸",龍華偶像台
+https://cdn.qd.je/163189/lhox
+#EXTINF:-1 tvg-id="龍華日韓台" tvg-name="龍華日韓台" group-title="全网线路/两岸",龍華日韓台
+https://cdn.qd.je/163189/lhrh
+#EXTINF:-1 tvg-id="龍華戲劇台" tvg-name="龍華戲劇台" group-title="全网线路/两岸",龍華戲劇台
+https://cdn.qd.je/163189/lhxj
+#EXTINF:-1 tvg-id="龍華洋片台" tvg-name="龍華洋片台" group-title="全网线路/两岸",龍華洋片台
+https://cdn.qd.je/163189/lhyp
+#EXTINF:-1 tvg-id="龍華卡通台" tvg-name="龍華卡通台" group-title="全网线路/两岸",龍華卡通台
+https://cdn.qd.je/163189/lhkt
+#EXTINF:-1 tvg-id="金光布袋戲" tvg-name="金光布袋戲" group-title="全网线路/两岸",金光布袋戲
+https://cdn.qd.je/163189/jgbdx
+#EXTINF:-1 tvg-id="金光布袋戲" tvg-name="金光布袋戲" group-title="全网线路/两岸",金光布袋戲
+https://cdn.qd.je/163189/jgbdx2
+#EXTINF:-1 tvg-id="民視影劇台" tvg-name="民視影劇台" group-title="全网线路/两岸",民視影劇台
+https://cdn.qd.je/163189/msyj
+#EXTINF:-1 tvg-id="公視戲劇" tvg-name="公視戲劇" group-title="全网线路/两岸",公視戲劇
+https://cdn.qd.je/163189/gsxj
+#EXTINF:-1 tvg-id="采昌影劇台" tvg-name="采昌影劇台" group-title="全网线路/两岸",采昌影劇台
+https://cdn.qd.je/163189/ccyj
+#EXTINF:-1 tvg-id="靖天映畫" tvg-name="靖天映畫" group-title="全网线路/两岸",靖天映畫
+https://cdn.qd.je/163189/jtyh
+#EXTINF:-1 tvg-id="靖天戲劇台" tvg-name="靖天戲劇台" group-title="全网线路/两岸",靖天戲劇台
+https://cdn.qd.je/163189/jtxj
+#EXTINF:-1 tvg-id="靖天電影台" tvg-name="靖天電影台" group-title="全网线路/两岸",靖天電影台
+https://cdn.qd.je/163189/jtdy
+#EXTINF:-1 tvg-id="靖洋戲劇台" tvg-name="靖洋戲劇台" group-title="全网线路/两岸",靖洋戲劇台
+https://cdn.qd.je/163189/jyxj
+#EXTINF:-1 tvg-id="影迷數位電影台" tvg-name="影迷數位電影台" group-title="全网线路/两岸",影迷數位電影台
+https://cdn.qd.je/163189/ymswdyt
+#EXTINF:-1 tvg-id="amc 電影台" tvg-name="amc 電影台" group-title="全网线路/两岸",amc 電影台
+https://cdn.qd.je/163189/amc
+#EXTINF:-1 tvg-id="CinemaWorld" tvg-name="CinemaWorld" group-title="全网线路/两岸",CinemaWorld
+[https://cdn.qd.je/163189/cinemaworld
+#EXTINF:-1 tvg-id="MCE 我的歐洲電影" tvg-name="MCE 我的歐洲電影" group-title="全网线路/两岸",MCE 我的歐洲電影
+https://cdn.qd.je/163189/mce
+#EXTINF:-1 tvg-id="經典電影台" tvg-name="經典電影台" group-title="全网线路/两岸",經典電影台
+https://cdn.qd.je/163189/jddyt
+#EXTINF:-1 tvg-id="電影原聲台 CMusic" tvg-name="電影原聲台 CMusic" group-title="全网线路/两岸",電影原聲台 CMusic
+https://cdn.qd.je/163189/cmusic
+#EXTINF:-1 tvg-id="DreamWorks 夢工廠動畫" tvg-name="DreamWorks 夢工廠動畫" group-title="全网线路/两岸",DreamWorks 夢工廠動畫
+https://cdn.qd.je/163189/dreamworks
+#EXTINF:-1 tvg-id="精選動漫台" tvg-name="精選動漫台" group-title="全网线路/两岸",精選動漫台
+https://cdn.qd.je/163189/jxdmt
+#EXTINF:-1 tvg-id="緯來電影台" tvg-name="緯來電影台" group-title="全网线路/两岸",緯來電影台
+https://cdn.qd.je/163189/wldy
+#EXTINF:-1 tvg-id="緯來戲劇台" tvg-name="緯來戲劇台" group-title="全网线路/两岸",緯來戲劇台
+https://cdn.qd.je/163189/wlxj
+#EXTINF:-1 tvg-id="緯來體育台" tvg-name="緯來體育台" group-title="全网线路/两岸",緯來體育台
+https://cdn.qd.je/163189/wlty
+#EXTINF:-1 tvg-id="龍祥時代" tvg-name="龍祥時代" group-title="全网线路/两岸",龍祥時代
+https://cdn.qd.je/163189/lxsd
+#EXTINF:-1 tvg-id="東森電影台" tvg-name="東森電影台" group-title="全网线路/两岸",東森電影台
+https://cdn.qd.je/163189/dsdy
+#EXTINF:-1 tvg-id="東森戲劇台" tvg-name="東森戲劇台" group-title="全网线路/两岸",東森戲劇台
+https://cdn.qd.je/163189/dsxj
+#EXTINF:-1 tvg-id="東森洋片台" tvg-name="東森洋片台" group-title="全网线路/两岸",東森洋片台
+https://cdn.qd.je/163189/dsyp
 #EXTINF:-1 tvg-id="2026-11-21 12:57:05" tvg-name="2026-11-21 12:57:05" group-title="网络直播/虎牙",2026-11-21 12:57:05
 https://cdn.jsdelivr.net/gh/feiyang666999/testvideo/time/time.mp4
 #EXTINF:-1 tvg-id="4K60PSDR-H264-AAC测试" tvg-name="4K60PSDR-H264-AAC测试" group-title="网络直播/虎牙",4K60PSDR-H264-AAC测试
@@ -7555,29 +7713,29 @@ https://tv.305362.xyz/zhth/tv.php?f=e97216&id=dd1074
 https://tv.305362.xyz/zhth/tv.php?f=e97216&id=3f2a60
 #EXTINF:-1 tvg-id="山东教育" tvg-name="山东教育" group-title="咪咕/电视直播",山东教育
 https://tv.305362.xyz/zhth/tv.php?f=e97216&id=c18e61
-#EXTINF:-1 tvg-id="根据上网宽带" tvg-name="根据上网宽带" group-title="jack/观看建议",根据上网宽带
+#EXTINF:-1 tvg-id="根据上网宽带" tvg-name="根据上网宽带" group-title="咪咕/观看建议",根据上网宽带
 https://
-#EXTINF:-1 tvg-id="选择相应线路" tvg-name="选择相应线路" group-title="jack/观看建议",选择相应线路
+#EXTINF:-1 tvg-id="选择相应线路" tvg-name="选择相应线路" group-title="咪咕/观看建议",选择相应线路
 https://
-#EXTINF:-1 tvg-id="☆☆☆☆" tvg-name="☆☆☆☆" group-title="jack/观看建议",☆☆☆☆
+#EXTINF:-1 tvg-id="☆☆☆☆" tvg-name="☆☆☆☆" group-title="咪咕/观看建议",☆☆☆☆
 https://
-#EXTINF:-1 tvg-id="全网线路中的" tvg-name="全网线路中的" group-title="jack/观看建议",全网线路中的
+#EXTINF:-1 tvg-id="全网线路中的" tvg-name="全网线路中的" group-title="咪咕/观看建议",全网线路中的
 https://
-#EXTINF:-1 tvg-id="部分频道需要" tvg-name="部分频道需要" group-title="jack/观看建议",部分频道需要
+#EXTINF:-1 tvg-id="部分频道需要" tvg-name="部分频道需要" group-title="咪咕/观看建议",部分频道需要
 https://
-#EXTINF:-1 tvg-id="科学上网环境" tvg-name="科学上网环境" group-title="jack/观看建议",科学上网环境
+#EXTINF:-1 tvg-id="科学上网环境" tvg-name="科学上网环境" group-title="咪咕/观看建议",科学上网环境
 https://
-#EXTINF:-1 tvg-id="★★★★" tvg-name="★★★★" group-title="jack/观看建议",★★★★
+#EXTINF:-1 tvg-id="★★★★" tvg-name="★★★★" group-title="咪咕/观看建议",★★★★
 https://
-#EXTINF:-1 tvg-id="仅供免费测试" tvg-name="仅供免费测试" group-title="jack/观看建议",仅供免费测试
+#EXTINF:-1 tvg-id="仅供免费测试" tvg-name="仅供免费测试" group-title="咪咕/观看建议",仅供免费测试
 https://
-#EXTINF:-1 tvg-id="酷9-其他设置" tvg-name="酷9-其他设置" group-title="jack/分组说明",酷9-其他设置
+#EXTINF:-1 tvg-id="酷9-其他设置" tvg-name="酷9-其他设置" group-title="咪咕/分组说明",酷9-其他设置
 https://
-#EXTINF:-1 tvg-id="-分组类型" tvg-name="-分组类型" group-title="jack/分组说明",-分组类型
+#EXTINF:-1 tvg-id="-分组类型" tvg-name="-分组类型" group-title="咪咕/分组说明",-分组类型
 https://
-#EXTINF:-1 tvg-id="-二级分组模式" tvg-name="-二级分组模式" group-title="jack/分组说明",-二级分组模式
+#EXTINF:-1 tvg-id="-二级分组模式" tvg-name="-二级分组模式" group-title="咪咕/分组说明",-二级分组模式
 https://
-#EXTINF:-1 tvg-id="左侧即可看到" tvg-name="左侧即可看到" group-title="jack/分组说明",左侧即可看到
+#EXTINF:-1 tvg-id="左侧即可看到" tvg-name="左侧即可看到" group-title="咪咕/分组说明",左侧即可看到
 https://
-#EXTINF:-1 tvg-id="相应宽带线路" tvg-name="相应宽带线路" group-title="jack/分组说明",相应宽带线路
+#EXTINF:-1 tvg-id="相应宽带线路" tvg-name="相应宽带线路" group-title="咪咕/分组说明",相应宽带线路
 https://
